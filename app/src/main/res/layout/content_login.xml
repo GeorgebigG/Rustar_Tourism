@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/lightGray"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".Activities.LoginActivity"
+    tools:showIn="@layout/activity_login">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Username"
+            android:inputType="textPersonName"
+            android:hint="@string/username"
+            android:backgroundTint="@color/fieldGrayColor"
+            android:layout_above="@+id/Password"
+            android:layout_marginBottom="15dp"
+            android:layout_alignLeft="@+id/Password"
+            android:layout_alignStart="@+id/Password"
+            android:layout_alignRight="@+id/Password"
+            android:layout_alignEnd="@+id/Password" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/signIn"
+            android:id="@+id/signIn"
+            android:textColor="@color/White"
+            android:background="@color/rustarGreen"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/Password"
+            android:hint="@string/password"
+            android:backgroundTint="@color/fieldGrayColor"
+            android:layout_above="@+id/signIn"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="25dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/rustarOnlineTitle"
+            android:id="@+id/textView"
+            android:layout_above="@+id/Username"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="15dp" />
+    </RelativeLayout>
+
+</RelativeLayout>

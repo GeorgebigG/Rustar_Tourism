@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:background="@color/lightGray"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/checkIn"
+                    android:id="@+id/textView3"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/nights"
+                    android:id="@+id/textView4"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/checkOut"
+                    android:id="@+id/textView5"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:textColor="@color/black"/>
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="date"
+                    android:id="@+id/ScheckIn"
+                    android:layout_below="@+id/textView3"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:background="@color/fieldGrayColor"
+                    android:clickable="true"/>
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textCursorDrawable="@null"
+                    android:ems="2"
+                    android:id="@+id/Snights"
+                    android:layout_below="@+id/textView4"
+                    android:layout_centerHorizontal="true"
+                    android:background="@color/fieldGrayColor"
+                    android:text="1" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="date"
+                    android:id="@+id/ScheckOut"
+                    android:background="@color/fieldGrayColor"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignLeft="@+id/textView5"
+                    android:layout_alignStart="@+id/textView5"
+                    android:clickable="true"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/mainLayout">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/hotel"
+                    android:id="@+id/textView12"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/City"
+                    android:id="@+id/textView13"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/black"/>
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/hotelName"
+                    android:textCursorDrawable="@null"
+                    android:background="@color/fieldGrayColor"
+                    android:layout_alignTop="@+id/cityName"
+                    android:layout_toLeftOf="@+id/cityName"
+                    android:layout_marginRight="32dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"/>
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cityName"
+                    android:textCursorDrawable="@null"
+                    android:layout_below="@+id/textView13"
+                    android:background="@color/fieldGrayColor"
+                    android:layout_alignLeft="@+id/textView13"
+                    android:layout_alignStart="@+id/textView13"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/District"
+                    android:id="@+id/textView14"
+                    android:textColor="@color/black"
+                    android:layout_below="@+id/textView15"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:id="@+id/districtName"
+                    android:textCursorDrawable="@null"
+                    android:layout_below="@+id/textView14"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignRight="@+id/hotelName"
+                    android:layout_alignEnd="@+id/hotelName"
+                    android:background="@color/fieldGrayColor"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:id="@+id/textView15"
+                    android:layout_below="@+id/hotelName"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/Adults"
+                    android:id="@+id/textView16"
+                    android:layout_below="@+id/textView15"
+                    android:layout_toRightOf="@+id/hotelName"
+                    android:layout_toEndOf="@+id/hotelName"
+                    android:textColor="@color/black"/>
+
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/adultSpinner"
+                    android:spinnerMode="dropdown"
+                    android:entries="@array/OneTillTen"
+                    android:layout_below="@+id/textView16"
+                    android:layout_alignLeft="@+id/textView16"
+                    android:layout_alignStart="@+id/textView16"
+                    android:layout_toLeftOf="@+id/textView21"
+                    android:layout_toStartOf="@+id/textView21" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/Children"
+                    android:id="@+id/textView17"
+                    android:layout_below="@+id/textView15"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:textColor="@color/black"/>
+
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/childrenSpinner"
+                    android:layout_below="@+id/textView17"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignLeft="@+id/textView17"
+                    android:layout_alignStart="@+id/textView17"
+                    android:layout_alignBottom="@+id/adultSpinner"
+                    android:spinnerMode="dropdown"
+                    android:entries="@array/OneTillSix"
+                    android:clickable="true"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:id="@+id/textView18"
+                    android:layout_below="@+id/districtName"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/DailyFrom"
+                    android:id="@+id/dailyFromTextView"
+                    android:textColor="@color/black"
+                    android:layout_below="@+id/anotherThree"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:textSize="15dp"/>
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:id="@+id/dailyFrom"
+                    android:textCursorDrawable="@null"
+                    android:layout_below="@+id/dailyFromTextView"
+                    android:background="@color/fieldGrayColor"
+                    android:layout_alignLeft="@+id/dailyFromTextView"
+                    android:layout_alignStart="@+id/dailyFromTextView"
+                    android:layout_alignRight="@+id/dailyFromTextView"
+                    android:layout_alignEnd="@+id/dailyFromTextView" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/DailyTo"
+                    android:id="@+id/textView20"
+                    android:textColor="@color/black"
+                    android:layout_alignTop="@+id/dailyFromTextView"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="15dp" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:id="@+id/dailyTo"
+                    android:textCursorDrawable="@null"
+                    android:layout_below="@+id/textView20"
+                    android:background="@color/fieldGrayColor"
+                    android:layout_alignLeft="@+id/textView20"
+                    android:layout_alignStart="@+id/textView20"
+                    android:layout_alignRight="@+id/textView20"
+                    android:layout_alignEnd="@+id/textView20" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/TotalFrom"
+                    android:id="@+id/textView21"
+                    android:textColor="@color/black"
+                    android:layout_alignTop="@+id/textView20"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:textSize="15dp"/>
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:id="@+id/totalFrom"
+                    android:textCursorDrawable="@null"
+                    android:layout_below="@+id/textView21"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignLeft="@+id/textView21"
+                    android:layout_alignStart="@+id/textView21"
+                    android:background="@color/fieldGrayColor"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:id="@+id/textView22"
+                    android:layout_below="@+id/dailyFrom"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/TotalTo"
+                    android:id="@+id/textView23"
+                    android:layout_below="@+id/textView22"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"/>
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:ems="10"
+                    android:id="@+id/totalTo"
+                    android:textCursorDrawable="@null"
+                    android:layout_below="@+id/textView23"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignRight="@+id/textView23"
+                    android:layout_alignEnd="@+id/textView23"
+                    android:background="@color/fieldGrayColor"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/Type"
+                    android:id="@+id/textView24"
+                    android:textColor="@color/black"
+                    android:layout_below="@+id/textView22"
+                    android:layout_toLeftOf="@+id/childrenSpinner" />
+
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/typeSpinner"
+                    android:layout_alignTop="@+id/totalTo"
+                    android:layout_alignLeft="@+id/adultSpinner"
+                    android:layout_alignStart="@+id/adultSpinner"
+                    android:spinnerMode="dropdown"
+                    android:entries="@array/types"
+                    android:layout_alignRight="@+id/childrenSpinner"
+                    android:layout_alignEnd="@+id/childrenSpinner" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:id="@+id/textView25"
+                    android:layout_below="@+id/totalTo"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="@string/Meal"
+                    android:id="@+id/textView26"
+                    android:textColor="@color/black"
+                    android:layout_below="@+id/textView25"
+                    android:layout_centerHorizontal="true"/>
+
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/mealSpinner"
+                    android:entries="@array/meals"
+                    android:layout_below="@+id/textView26"
+                    android:layout_alignRight="@+id/includeAlcohol"
+                    android:layout_alignEnd="@+id/includeAlcohol" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5*"
+                    android:id="@+id/fiveS"
+                    android:checked="false"
+                    android:layout_alignTop="@+id/fourS"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4*"
+                    android:id="@+id/fourS"
+                    android:checked="false"
+                    android:layout_alignTop="@+id/threeS"
+                    android:layout_toRightOf="@+id/textView14"
+                    android:layout_toEndOf="@+id/textView14" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3*"
+                    android:id="@+id/threeS"
+                    android:checked="false"
+                    android:layout_below="@+id/textView27"
+                    android:layout_centerHorizontal="true" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2*"
+                    android:id="@+id/twoS"
+                    android:checked="false"
+                    android:layout_below="@+id/textView27"
+                    android:layout_alignLeft="@+id/textView24"
+                    android:layout_alignStart="@+id/textView24" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1*"
+                    android:id="@+id/oneS"
+                    android:checked="false"
+                    android:layout_alignTop="@+id/twoS"
+                    android:layout_alignRight="@+id/typeSpinner"
+                    android:layout_alignEnd="@+id/typeSpinner" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:id="@+id/textView27"
+                    android:layout_below="@+id/mealSpinner"
+                    android:layout_toRightOf="@+id/textView25"
+                    android:layout_toEndOf="@+id/textView25" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/includeApartment"
+                    android:layout_below="@+id/fiveS"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:checked="false"
+                    android:text="@string/apartment" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/alcohol"
+                    android:id="@+id/includeAlcohol"
+                    android:checked="false"
+                    android:layout_above="@+id/includePool"
+                    android:layout_alignRight="@+id/dailyTo"
+                    android:layout_alignEnd="@+id/dailyTo" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/freeWIFI"
+                    android:id="@+id/includeFreeWIFI"
+                    android:checked="false"
+                    android:layout_below="@+id/twoS"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pool"
+                    android:id="@+id/includePool"
+                    android:layout_below="@+id/includeApartment"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:checked="false" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/metro"
+                    android:id="@+id/includeMetro"
+                    android:layout_below="@+id/includeAlcohol"
+                    android:layout_centerHorizontal="true"
+                    android:checked="false" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mall"
+                    android:id="@+id/includeMall"
+                    android:checked="false"
+                    android:layout_alignTop="@+id/includeMetro"
+                    android:layout_toRightOf="@+id/twoS"
+                    android:layout_toEndOf="@+id/twoS" />
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:text="@string/search"
+                    android:id="@+id/AdvSearch"
+                    android:background="@color/rustarGreen"
+                    android:textColor="@color/White"
+                    android:layout_alignRight="@+id/oneS"
+                    android:layout_alignEnd="@+id/oneS"
+                    android:layout_below="@+id/includePool"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:id="@+id/isChildrenOrNo"
+                    android:layout_below="@+id/districtName"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:textColor="@color/black"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/isChildrenOrNo"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:id="@+id/firstThree">
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/firstThree"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:id="@+id/anotherThree"></FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:id="@+id/textView32"
+                    android:layout_below="@+id/AdvSearch"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+            </RelativeLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/addNewViews">
+        </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>
