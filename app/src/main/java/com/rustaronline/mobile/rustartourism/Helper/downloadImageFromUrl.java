@@ -3,6 +3,7 @@ package com.rustaronline.mobile.rustartourism.Helper;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import java.io.InputStream;
@@ -14,11 +15,20 @@ import java.net.URL;
  */
 public class downloadImageFromUrl extends AsyncTask<Void, Void, Bitmap> {
     String url;
+    ImageButton imageBitton;
     ImageView imageView;
+    boolean isImageButton;
+
+    public downloadImageFromUrl(ImageButton imageView, String url) {
+        this.imageBitton = imageView;
+        this.url = url;
+        isImageButton = true;
+    }
 
     public downloadImageFromUrl(ImageView imageView, String url) {
         this.imageView = imageView;
         this.url = url;
+        isImageButton = false;
     }
 
     @Override
@@ -41,6 +51,9 @@ public class downloadImageFromUrl extends AsyncTask<Void, Void, Bitmap> {
     @Override
     protected void onPostExecute(Bitmap result) {
         super.onPostExecute(result);
-        imageView.setImageBitmap(result);
+        if (isImageButton)
+            imageBitton.setImageBitmap(result);
+        else
+            imageView.setImageBitmap(result);
     }
 }

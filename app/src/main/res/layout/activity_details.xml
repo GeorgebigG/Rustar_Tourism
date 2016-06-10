@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".Activities.FirstpageActivity">
+    tools:context="com.rustaronline.mobile.rustartourism.Activities.DetailsActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -17,19 +17,10 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:navigationIcon="@drawable/logo_partners_rustar"
             app:popupTheme="@style/AppTheme.NoActionBar.PopupOverlay" />
-
-        <android.support.design.widget.TabLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            android:id="@+id/rustarTabs">
-
-        </android.support.design.widget.TabLayout>
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/layout_empty"/>
+    <include layout="@layout/content_details" />
 
 </android.support.design.widget.CoordinatorLayout>

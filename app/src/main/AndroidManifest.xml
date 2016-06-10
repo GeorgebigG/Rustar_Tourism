@@ -27,7 +27,11 @@
             android:label="@string/title_activity_firstpage"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".TabChooserActivity"></activity>
+        <activity android:name=".TabChooserActivity" />
+        <activity
+            android:name=".Activities.DetailsActivity"
+            android:label="@string/title_activity_details"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
