@@ -65,6 +65,17 @@
     <string name="Star">Star</string>
     <string name="Stars">Stars</string>
     <string name="Details">Details...</string>
+    <string name="Total">TOTAL</string>
+    <string name="Availability_calendar">Availability calendar</string>
+    <string name="StandardRoom">Standard Room</string>
+    <string name="Monday">Monday</string>
+    <string name="Tuesday">Tuesday</string>
+    <string name="Wednesday">Wednesday</string>
+    <string name="Thursday">Thursday</string>
+    <string name="Friday">Friday</string>
+    <string name="Saturday">Saturday</string>
+    <string name="Sunday">Sunday</string>
+    <string name="Book">Book</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="title_activity_advanced_search">AdvancedSearchActivity</string>

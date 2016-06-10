@@ -306,7 +306,7 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
             fParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             TextView priceText = new TextView(getActivity());
             priceText.setTextColor(getResources().getColor(R.color.lightRustarGreen));
-            priceText.setText(hotel.getPrice() + getResources().getString(R.string.Dollar));
+            priceText.setText(getResources().getString(R.string.Dollar) + (hotel.getPrice() * hotel.getAmountOfNights()));
             priceText.setTextSize(30);
             fParams.gravity =  Gravity.RIGHT;
             fLayout.addView(priceText, fParams);
@@ -320,7 +320,7 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
             lParams.bottomMargin = 10;
 
             textView.setText(getResources().getString(R.string.HotelName) + " " + hotel.getName() +
-                    "\n" + getResources().getString(R.string.PricePerNight) + " " + hotel.getPrice() + getResources().getString(R.string.Dollar) +
+                    "\n" + getResources().getString(R.string.PricePerNight) + " "  + getResources().getString(R.string.Dollar) + hotel.getPrice() +
                     ".\n" + getResources().getString(R.string.CheckInDate) + " " + hotel.getCheckInDate() +
                     ".\n" + getResources().getString(R.string.CheckOutDate) + " " + hotel.getCheckOutDate() + ".");
             mainLayout.addView(textView, lParams);
