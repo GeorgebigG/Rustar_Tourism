@@ -64,6 +64,7 @@
     <string name="Dollar">$</string>
     <string name="Star">Star</string>
     <string name="Stars">Stars</string>
+    <string name="Details">Details...</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="title_activity_advanced_search">AdvancedSearchActivity</string>

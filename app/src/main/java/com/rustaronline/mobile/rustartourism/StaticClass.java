@@ -45,7 +45,7 @@ public class StaticClass {
 
         if (hotelname.equals(""))
             hotelname = "Rixsos";
-        Hotel findHotel = new Hotel(new String[] { firstHotel, secondHotel }, maxPrice, minPrice, checkIn, checkOut, hotelname, stars);
+        Hotel findHotel = new Hotel(new String[] { firstHotel, secondHotel }, maxPrice, minPrice, checkIn, checkOut, hotelname, stars, amountOfNight);
         return findHotel;
     }
 }

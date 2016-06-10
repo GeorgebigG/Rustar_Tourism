@@ -1,5 +1,9 @@
 package com.rustaronline.mobile.rustartourism;
 
+import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 
 /**
@@ -8,29 +12,38 @@ import java.util.Random;
 public class Hotel {
     int maxPrice, minPrice, price;
     Random rand;
-    String[] imageURL;
+    String imageURL;
     String checkIn, checkOut, name;
-    int star, amountOfStars;
+    int star, nights;
 
-    public Hotel(String[] imageURL, int maxPrice, int minPrice, String checkIn, String checkOut, String name, boolean[] stars) {
-        this.imageURL = imageURL;
+    public Hotel(String[] imageURL, int maxPrice, int minPrice, String checkIn, String checkOut, String name, boolean[] stars, int nights) {
         this.maxPrice = maxPrice;
         this.minPrice = minPrice;
         this.checkIn = checkIn;
         this.checkOut = checkOut;
         this.name = name;
+        this.nights = nights;
         rand = new Random();
+        this.imageURL = imageURL[rand.nextInt(imageURL.length)];
 
         price = maxPrice == 0 ? minPrice + rand.nextInt(201) : minPrice + rand.nextInt(maxPrice - minPrice + 1);
 
-        for (boolean star : stars)
-            if (star == true) amountOfStars++;
+        if ((stars[0] == false && stars[1] == false && stars[2] == false && stars[3] == false && stars[4] == false) ||
+                (stars[0] == true && stars[1] == true && stars[2] == true && stars[3] == true && stars[4] == true))
+            star = 1 + rand.nextInt(5);
 
-        star = amountOfStars == 0 ? 1 + rand.nextInt(5) : 1 + rand.nextInt(amountOfStars);
+        else {
+            ArrayList<Integer> integers = new ArrayList<>();
+
+            for (int i = 0; i < stars.length; i++)
+                if (stars[i] == true) integers.add((i + 1));
+
+            star = integers.get(rand.nextInt(integers.size()));
+        }
     }
 
     public String getImageURL() {
-        return imageURL[rand.nextInt(imageURL.length)];
+        return imageURL;
     }
 
     public int getPrice() {
@@ -53,22 +66,15 @@ public class Hotel {
         return star;
     }
 
-    public int getAmountOfHotels() {
+    public static int getAmountOfHotels() {
         return 5;
     }
 
-    public void changePrice() {
-        rand = new Random();
-        price = maxPrice == 0 ? minPrice + rand.nextInt(201) : minPrice + rand.nextInt(maxPrice - minPrice + 1);
+    public int getAmountOfNights() {
+        return nights;
     }
 
-    public void changeAmountOfStars() {
-        rand = new Random();
-        star = amountOfStars == 0 ? 1 + rand.nextInt(5) : 1 + rand.nextInt(amountOfStars);
-    }
-
-    public void changeHotel() {
-        changePrice();
-        changeAmountOfStars();
+    public String getDescription() {
+        return "Description";
     }
 }
