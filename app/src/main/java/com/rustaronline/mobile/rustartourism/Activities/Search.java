@@ -253,7 +253,8 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
                         Integer.parseInt(amountOfAdults.getSelectedItem().toString()), childrensAgeSpinners, daFrom, daTo,
                         totFrom,totTo, type.getSelectedItem().toString(), meal.getSelectedItem().toString(), fiveS.isChecked(),
                         fourS.isChecked(), threeS.isChecked(), twoS.isChecked(), oneS.isChecked(), apartment.isChecked(),
-                        alcohol.isChecked(), freeWifi.isChecked(), pool.isChecked(), metro.isChecked(), mall.isChecked());
+                        alcohol.isChecked(), freeWifi.isChecked(), pool.isChecked(), metro.isChecked(), mall.isChecked(),
+                            (Calendar) CHECK_IN_CAL.clone(), (Calendar) CHECK_OUT_CAL.clone());
 
                 createHotelChoices(searchHotels);
                 break;

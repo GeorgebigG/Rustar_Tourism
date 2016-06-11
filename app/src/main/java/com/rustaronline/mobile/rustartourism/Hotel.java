@@ -1,9 +1,7 @@
 package com.rustaronline.mobile.rustartourism;
 
-import android.util.Log;
-
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Calendar;
 import java.util.Random;
 
 /**
@@ -13,18 +11,27 @@ public class Hotel {
     int maxPrice, minPrice, price;
     Random rand;
     String imageURL;
-    String checkIn, checkOut, name;
+    String checkIn, checkOut, name, meal;
     int star, nights;
+    Calendar checkInCal, checkOutCal;
 
-    public Hotel(String[] imageURL, int maxPrice, int minPrice, String checkIn, String checkOut, String name, boolean[] stars, int nights) {
+    public Hotel(String[] imageURL, int maxPrice, int minPrice, String checkIn, String checkOut, String name, boolean[] stars, int nights, Calendar checkInCal, Calendar checkOutCal, String meal) {
         this.maxPrice = maxPrice;
         this.minPrice = minPrice;
         this.checkIn = checkIn;
         this.checkOut = checkOut;
         this.name = name;
         this.nights = nights;
+        this.checkInCal = checkInCal;
+        this.checkOutCal = checkOutCal;
         rand = new Random();
         this.imageURL = imageURL[rand.nextInt(imageURL.length)];
+        if (!meal.equals("Any"))
+            this.meal = meal;
+        else {
+            String[] meals = new String[] { "RO", "BB", "HB", "FB", "AL" };
+            this.meal = meals[rand.nextInt(meals.length)];
+        }
 
         price = maxPrice == 0 ? minPrice + rand.nextInt(201) : minPrice + rand.nextInt(maxPrice - minPrice + 1);
 
@@ -76,5 +83,25 @@ public class Hotel {
 
     public String getDescription() {
         return "Description";
+    }
+
+    public String getMeal() {
+        return meal;
+    }
+
+    public int getCheckInDayOfWeek() {
+        return checkInCal.get(Calendar.DAY_OF_WEEK);
+    }
+
+    public int getCheckOutDayOfWeek() {
+        return checkOutCal.get(Calendar.DAY_OF_WEEK);
+    }
+
+    public Calendar getCheckInCal() {
+        return (Calendar) checkInCal.clone();
+    }
+
+    public Calendar getCheckOutCal() {
+        return  (Calendar) checkOutCal.clone();
     }
 }

@@ -7,6 +7,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.RatingBar;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -14,6 +15,9 @@ import android.widget.TextView;
 
 import com.rustaronline.mobile.rustartourism.Hotel;
 import com.rustaronline.mobile.rustartourism.R;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class DetailsActivity extends AppCompatActivity {
     public static Hotel hotel;
@@ -50,6 +54,112 @@ public class DetailsActivity extends AppCompatActivity {
     }
 
     public void createTable() {
+        SimpleDateFormat formater = new SimpleDateFormat("dd-MM-yyyy");
         TableRow tableRow;
+        TableLayout.LayoutParams tParams;
+        TableRow.LayoutParams lParams;
+
+        tableRow = new TableRow(this);
+        tParams = new TableLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+
+        int column = 1;
+        final Calendar firstWeekDay = hotel.getCheckInCal();
+        switch (hotel.getCheckInDayOfWeek()) {
+            case Calendar.MONDAY:
+                column = 1;
+                break;
+            case Calendar.TUESDAY:
+                firstWeekDay.add(Calendar.DAY_OF_YEAR, -1);
+                column = 2;
+                break;
+            case Calendar.WEDNESDAY:
+                firstWeekDay.add(Calendar.DAY_OF_YEAR, -2);
+                column = 3;
+                break;
+            case Calendar.THURSDAY:
+                firstWeekDay.add(Calendar.DAY_OF_YEAR, -3);
+                column = 4;
+                break;
+            case Calendar.FRIDAY:
+                firstWeekDay.add(Calendar.DAY_OF_YEAR, -4);
+                column = 5;
+                break;
+            case Calendar.SATURDAY:
+                firstWeekDay.add(Calendar.DAY_OF_YEAR, -5);
+                column = 6;
+                break;
+            case Calendar.SUNDAY:
+                firstWeekDay.add(Calendar.DAY_OF_YEAR, -6);
+                column = 7;
+                break;
+
+            default:
+                break;
+        }
+
+        final Calendar lastWeekDay = (Calendar) firstWeekDay.clone();
+        lastWeekDay.add(Calendar.DAY_OF_YEAR, 6);
+
+        TextView dateTextView = new TextView(this);
+        dateTextView.setText(formater.format(firstWeekDay.getTime()) + " - " + formater.format((lastWeekDay.getTime())));
+        dateTextView.setTextSize(15);
+        dateTextView.setBackground(getResources().getDrawable(R.drawable.border));
+        dateTextView.setTextColor(getResources().getColor(R.color.black));
+        lParams = new TableRow.LayoutParams(0);
+        tableRow.addView(dateTextView, lParams);
+
+        Calendar calendar = hotel.getCheckInCal();
+        for (int i = 0; i < hotel.getAmountOfNights(); i++) {
+            TextView priceText = new TextView(this);
+            priceText.setBackground(getResources().getDrawable(R.drawable.border));
+            priceText.setTextColor(getResources().getColor(R.color.black));
+            priceText.setText(getResources().getString(R.string.Dollar) + hotel.getPrice() + ", " + hotel.getMeal());
+            calendar.add(Calendar.DAY_OF_YEAR, 1);
+
+            lParams = new TableRow.LayoutParams(column);
+            column++;
+            tableRow.addView(priceText, lParams);
+
+            if (column == 8) {
+                tLayout.addView(tableRow, tParams);
+
+                tableRow = new TableRow(this);
+                tParams = new TableLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+
+                firstWeekDay.add(Calendar.DAY_OF_YEAR, 7);
+                lastWeekDay.add(Calendar.DAY_OF_YEAR, 7);
+
+                dateTextView = new TextView(this);
+                dateTextView.setText(formater.format(firstWeekDay.getTime()) + " - " + formater.format((lastWeekDay.getTime())));
+                dateTextView.setTextSize(15);
+                dateTextView.setBackground(getResources().getDrawable(R.drawable.border));
+                dateTextView.setTextColor(getResources().getColor(R.color.black));
+                lParams = new TableRow.LayoutParams(0);
+                tableRow.addView(dateTextView, lParams);
+
+                column = 1;
+            }
+        }
+
+        tLayout.addView(tableRow, tParams);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
