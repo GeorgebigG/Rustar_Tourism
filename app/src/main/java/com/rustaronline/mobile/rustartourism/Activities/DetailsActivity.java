@@ -109,10 +109,23 @@ public class DetailsActivity extends AppCompatActivity {
         tableRow.addView(dateTextView, lParams);
 
         Calendar calendar = hotel.getCheckInCal();
+
+        int day = (int) ((calendar.getTimeInMillis() - firstWeekDay.getTimeInMillis()) / 1000 / 60 / 60 / 24);
+        if (day > 0)
+            for (int i = 1; i <= day; i++) {
+                TextView emptyText = new TextView(this);
+                emptyText.setBackground(getResources().getDrawable(R.drawable.border));
+                emptyText.setText("");
+                emptyText.setTextSize(15);
+                lParams = new TableRow.LayoutParams(i);
+                tableRow.addView(emptyText, lParams);
+            }
+
         for (int i = 0; i < hotel.getAmountOfNights(); i++) {
             TextView priceText = new TextView(this);
             priceText.setBackground(getResources().getDrawable(R.drawable.border));
             priceText.setTextColor(getResources().getColor(R.color.black));
+            priceText.setTextSize(15);
             priceText.setText(getResources().getString(R.string.Dollar) + hotel.getPrice() + ", " + hotel.getMeal());
             calendar.add(Calendar.DAY_OF_YEAR, 1);
 
@@ -120,7 +133,7 @@ public class DetailsActivity extends AppCompatActivity {
             column++;
             tableRow.addView(priceText, lParams);
 
-            if (column == 8) {
+            if (column == 8 && i+1 != hotel.getAmountOfNights()) {
                 tLayout.addView(tableRow, tParams);
 
                 tableRow = new TableRow(this);
@@ -140,6 +153,18 @@ public class DetailsActivity extends AppCompatActivity {
                 column = 1;
             }
         }
+
+        day = (int) ((lastWeekDay.getTimeInMillis() - hotel.getCheckOutCal().getTimeInMillis()) / 1000 / 60 / 60 / 24);
+        if (day > 0)
+            for(int i = 0; i <= day; i++) {
+                TextView emptyText = new TextView(this);
+                emptyText.setText("");
+                emptyText.setBackground(getResources().getDrawable(R.drawable.border));
+                emptyText.setTextSize(15);
+                lParams = new TableRow.LayoutParams(column);
+                tableRow.addView(emptyText, lParams);
+                column++;
+            }
 
         tLayout.addView(tableRow, tParams);
     }
