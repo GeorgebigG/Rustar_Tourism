@@ -51,7 +51,6 @@
                 style="?android:attr/ratingBarStyleSmall"
                 android:numStars="5"
                 android:rating="3"
-                android:paddingBottom="3dp"
                 android:layout_alignBottom="@+id/HotelName"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true" />
@@ -192,11 +191,11 @@
             </HorizontalScrollView>
 
             <Button
-                style="?android:attr/background"
                 android:background="@color/rustarGreen"
                 android:textColor="@color/White"
+                android:textSize="12dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="28dp"
                 android:text="@string/Book"
                 android:id="@+id/button"
                 android:layout_below="@+id/Price"
