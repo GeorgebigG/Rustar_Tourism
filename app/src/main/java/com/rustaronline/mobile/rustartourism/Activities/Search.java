@@ -63,8 +63,6 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
 
     private static LinearLayout mainLayout;
 
-    public static HashMap<String, ImageButton> allImageButtons;
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -160,8 +158,6 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
         mall = (CheckBox) v.findViewById(R.id.includeMall);
 
         ageText = (TextView) v.findViewById(R.id.isChildrenOrNo);
-
-        allImageButtons = new HashMap<String, ImageButton>();
     }
 
     @Override
@@ -269,14 +265,14 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
         FrameLayout fLayout;
         FrameLayout.LayoutParams fParams;
         LinearLayout.LayoutParams lParams;
-        ImageButton image;
+        ImageView image;
         RatingBar ratingBar;
         TextView textView;
         int id = 0;
 
         for (final Hotel hotel : searchHotel) {
             lParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            image = new ImageButton(getActivity());
+            image = new ImageView(getActivity());
             image.setScaleType(ImageView.ScaleType.FIT_XY);
             image.setClickable(true);
             image.setOnClickListener(new View.OnClickListener() {
@@ -289,7 +285,6 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
             });
             new downloadImageFromUrl(image, hotel.getImageURL()).execute();
             id++;
-            allImageButtons.put("" + id, image);
             mainLayout.addView(image, lParams);
 
             fLayout = new FrameLayout(getActivity());
@@ -322,20 +317,21 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
 
             textView.setText(getResources().getString(R.string.HotelName) + " " + hotel.getName() +
                     "\n" + getResources().getString(R.string.PricePerNight) + " "  + getResources().getString(R.string.Dollar) + hotel.getPrice() +
+                    ".\n" + getResources().getString(R.string.meal) + " " + hotel.getMeal() +
                     ".\n" + getResources().getString(R.string.CheckInDate) + " " + hotel.getCheckInDate() +
                     ".\n" + getResources().getString(R.string.CheckOutDate) + " " + hotel.getCheckOutDate() + ".");
             mainLayout.addView(textView, lParams);
 
             lParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            TextView details = new TextView(getActivity());
+            final TextView details = new TextView(getActivity());
             details.setText(getResources().getText(R.string.Details));
             details.setTextColor(getResources().getColor(R.color.lightRustarGreen));
             details.setClickable(true);
-            final int finalId = id;
+            final ImageView imageCall = image;
             details.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    allImageButtons.get("" + finalId).callOnClick();
+                    imageCall.callOnClick();
                 }
             });
             lParams.gravity = Gravity.CENTER;

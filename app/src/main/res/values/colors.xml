@@ -10,5 +10,6 @@
     <color name="lightGray">#cccccc</color>
     <color name="fieldGrayColor">#bbbbbb</color>
     <color name="black">#000000</color>
+    <color name="yellow">#FFFF00</color>
     <color name="defaultColorPrimaryDark">#303F9F</color>
 </resources>

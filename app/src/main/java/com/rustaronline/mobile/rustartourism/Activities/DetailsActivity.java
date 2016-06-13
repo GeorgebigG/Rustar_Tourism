@@ -123,8 +123,8 @@ public class DetailsActivity extends AppCompatActivity {
 
         for (int i = 0; i < hotel.getAmountOfNights(); i++) {
             TextView priceText = new TextView(this);
-            priceText.setBackground(getResources().getDrawable(R.drawable.border));
-            priceText.setTextColor(getResources().getColor(R.color.black));
+            priceText.setBackground(getResources().getDrawable(R.drawable.price_border));
+            priceText.setTextColor(getResources().getColor(R.color.White));
             priceText.setTextSize(15);
             priceText.setText(getResources().getString(R.string.Dollar) + hotel.getPrice() + ", " + hotel.getMeal());
             calendar.add(Calendar.DAY_OF_YEAR, 1);
@@ -155,7 +155,7 @@ public class DetailsActivity extends AppCompatActivity {
         }
 
         day = (int) ((lastWeekDay.getTimeInMillis() - hotel.getCheckOutCal().getTimeInMillis()) / 1000 / 60 / 60 / 24);
-        if (day > 0)
+        if (day >= 0)
             for(int i = 0; i <= day; i++) {
                 TextView emptyText = new TextView(this);
                 emptyText.setText("");
