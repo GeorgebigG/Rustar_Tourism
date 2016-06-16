@@ -265,14 +265,13 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
         FrameLayout fLayout;
         FrameLayout.LayoutParams fParams;
         LinearLayout.LayoutParams lParams;
-        ImageView image;
         RatingBar ratingBar;
         TextView textView;
         int id = 0;
 
         for (final Hotel hotel : searchHotel) {
             lParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            image = new ImageView(getActivity());
+            final ImageView image = new ImageView(getActivity());
             image.setScaleType(ImageView.ScaleType.FIT_XY);
             image.setClickable(true);
             image.setOnClickListener(new View.OnClickListener() {
@@ -327,11 +326,10 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
             details.setText(getResources().getText(R.string.Details));
             details.setTextColor(getResources().getColor(R.color.lightRustarGreen));
             details.setClickable(true);
-            final ImageView imageCall = image;
             details.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    imageCall.callOnClick();
+                    image.callOnClick();
                 }
             });
             lParams.gravity = Gravity.CENTER;

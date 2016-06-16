@@ -37,11 +37,13 @@ public class FirstpageActivity extends AppCompatActivity {
     ViewPagerAdapter adapter;
     ViewPager viewPager;
 
+    public static Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_firstpage);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("/   " + Username);
         setSupportActionBar(toolbar);
 

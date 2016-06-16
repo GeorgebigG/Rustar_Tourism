@@ -1,6 +1,5 @@
 package com.rustaronline.mobile.rustartourism.Activities;
 
-import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -11,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -142,11 +140,11 @@ public class FirstPage extends Fragment implements View.OnClickListener {
     }
 
     private void setPictureToImageView(View v) {
-        firstImageUrl =  "http://images.asiatravel.com/Hotel/11480/11480logo.png";
-        secondImageUrl = "http://images.asiatravel.com/Hotel/11480/11480logo.png";
-        therdImageUrl =  "http://images.asiatravel.com/Hotel/11480/11480logo.png";
-        fourthImageUrl = "http://images.asiatravel.com/Hotel/11480/11480logo.png";
-        fifthImageUrl =  "http://images.asiatravel.com/Hotel/11480/11480logo.png";
+        firstImageUrl  =  "https://www.rustaronline.com/images/logo.png";
+        secondImageUrl =  "https://www.rustaronline.com/images/logo.png";
+        therdImageUrl  =  "https://www.rustaronline.com/images/logo.png";
+        fourthImageUrl =  "https://www.rustaronline.com/images/logo.png";
+        fifthImageUrl  =  "https://www.rustaronline.com/images/logo.png";
 
         imageView = (ImageView) v.findViewById(R.id.firstImage);
         new downloadImageFromUrl(imageView, firstImageUrl).execute();

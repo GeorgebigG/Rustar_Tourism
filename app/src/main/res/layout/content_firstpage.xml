@@ -7,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:background="@color/lightGray"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:fillViewport="false">
 
     <LinearLayout
         android:orientation="vertical"
@@ -196,11 +197,12 @@
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="34dp"
             android:text="@string/search"
             android:id="@+id/Search"
             android:background="@color/rustarGreen"
-            android:textColor="@color/White" />
+            android:textColor="@color/White"
+            />
 
         <TextView
             android:layout_width="wrap_content"

@@ -26,7 +26,6 @@
             android:name=".Activities.FirstpageActivity"
             android:label="@string/title_activity_firstpage"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".TabChooserActivity" />
         <activity
             android:name=".Activities.DetailsActivity"
             android:label="@string/title_activity_details"
