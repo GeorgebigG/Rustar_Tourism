@@ -50,8 +50,6 @@ public class FirstpageActivity extends AppCompatActivity {
         checkIn = (EditText) findViewById(R.id.checkIn);
         checkOut = (EditText) findViewById(R.id.checkOut);
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-
         final Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.DAY_OF_YEAR, 1);
 
