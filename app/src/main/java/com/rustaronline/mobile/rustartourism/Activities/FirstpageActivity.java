@@ -76,8 +76,8 @@ public class FirstpageActivity extends AppCompatActivity {
         tabLayout.newTab();
         tabLayout.newTab();
 
-        tabLayout.getTabAt(0).setIcon(R.drawable.ic_home_white_24dp);
-        tabLayout.getTabAt(1).setIcon(R.drawable.ic_search_white_24dp);
+        tabLayout.getTabAt(0).setIcon(R.mipmap.ic_home_white_24dp);
+        tabLayout.getTabAt(1).setIcon(R.mipmap.ic_search_white_24dp);
 
         FirstPage.tabLayout = tabLayout;
 
