@@ -11,7 +11,7 @@ import org.ksoap2.transport.HttpTransportSE;
  */
 public class CallSoap {
 
-    public String getXmlFromSoap(String[] params, String[] names,String SOAP_ACTION, String METHOD_NAME, String WSDL_URL, String XML_VERSION_TAG, String SOAP_ADRESS) {
+    public static String getXmlFromSoap(String[] params, String[] names,String SOAP_ACTION, String METHOD_NAME, String WSDL_URL, String XML_VERSION_TAG, String SOAP_ADRESS) {
         SoapObject request = new SoapObject(WSDL_URL, METHOD_NAME);
 
         if (names.length != params.length)
