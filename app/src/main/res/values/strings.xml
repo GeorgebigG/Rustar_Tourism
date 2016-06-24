@@ -77,6 +77,7 @@
     <string name="Sunday">Sunday</string>
     <string name="Book">Book</string>
     <string name="meal">Meal:</string>
+    <string name="bestHotels">Best hotels</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="title_activity_advanced_search">AdvancedSearchActivity</string>

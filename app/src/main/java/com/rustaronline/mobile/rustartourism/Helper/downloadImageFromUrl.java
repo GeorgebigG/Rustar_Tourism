@@ -15,12 +15,12 @@ import java.net.URL;
  */
 public class downloadImageFromUrl extends AsyncTask<Void, Void, Bitmap> {
     String url;
-    ImageButton imageBitton;
+    ImageButton imageButton;
     ImageView imageView;
     boolean isImageButton;
 
     public downloadImageFromUrl(ImageButton imageView, String url) {
-        this.imageBitton = imageView;
+        this.imageButton = imageView;
         this.url = url;
         isImageButton = true;
     }
@@ -52,7 +52,7 @@ public class downloadImageFromUrl extends AsyncTask<Void, Void, Bitmap> {
     protected void onPostExecute(Bitmap result) {
         super.onPostExecute(result);
         if (isImageButton)
-            imageBitton.setImageBitmap(result);
+            imageButton.setImageBitmap(result);
         else
             imageView.setImageBitmap(result);
     }

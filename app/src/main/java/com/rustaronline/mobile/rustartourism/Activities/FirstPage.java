@@ -1,17 +1,21 @@
 package com.rustaronline.mobile.rustartourism.Activities;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.rustaronline.mobile.rustartourism.Helper.DatePickerForFragments;
@@ -38,14 +42,14 @@ public class FirstPage extends Fragment implements View.OnClickListener {
     public static ImageView imageView;
     TextView dailuFrom;
 
-    private String firstImageUrl, secondImageUrl, therdImageUrl, fourthImageUrl, fifthImageUrl;
-
     public static final Calendar CHECK_IN_CAL = Calendar.getInstance(), CHECK_OUT_CAL = Calendar.getInstance();
 
     View context;
     View v;
 
     int amountOfDay = 1;
+
+    String homeImageUrl = "https://www.rustaronline.com/images/pages/login/slider/online.png";
 
     @Nullable
     @Override
@@ -140,21 +144,16 @@ public class FirstPage extends Fragment implements View.OnClickListener {
     }
 
     private void setPictureToImageView(View v) {
-        firstImageUrl  =  "https://www.rustaronline.com/images/logo.png";
-        secondImageUrl =  "https://www.rustaronline.com/images/logo.png";
-        therdImageUrl  =  "https://www.rustaronline.com/images/logo.png";
-        fourthImageUrl =  "https://www.rustaronline.com/images/logo.png";
-        fifthImageUrl  =  "https://www.rustaronline.com/images/logo.png";
+        String url  =  "https://www.rustaronline.com/images/logo.png";
 
-        imageView = (ImageView) v.findViewById(R.id.firstImage);
-        new downloadImageFromUrl(imageView, firstImageUrl).execute();
-        imageView = (ImageView) v.findViewById(R.id.secondImage);
-        new downloadImageFromUrl(imageView, secondImageUrl).execute();
-        imageView = (ImageView) v.findViewById(R.id.thirdImage);
-        new downloadImageFromUrl(imageView, therdImageUrl).execute();
-        imageView = (ImageView) v.findViewById(R.id.fourthImage);
-        new downloadImageFromUrl(imageView, fourthImageUrl).execute();
-        imageView = (ImageView) v.findViewById(R.id.fifthImage);
-        new downloadImageFromUrl(imageView, fifthImageUrl).execute();
+        LinearLayout layout = (LinearLayout) v.findViewById(R.id.bestHotelAdvices);
+        LinearLayout.LayoutParams lParams;
+        for (int i = 0; i < 5; i++) {
+            lParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            imageView = new ImageView(getActivity());
+            new downloadImageFromUrl(imageView, url);
+            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            layout.addView(imageView, lParams);
+        }
     }
 }
