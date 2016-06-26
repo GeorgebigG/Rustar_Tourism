@@ -12,4 +12,5 @@
     <color name="black">#000000</color>
     <color name="yellow">#FFFF00</color>
     <color name="defaultColorPrimaryDark">#303F9F</color>
+    <color name="clickColour">#e0b646</color>
 </resources>

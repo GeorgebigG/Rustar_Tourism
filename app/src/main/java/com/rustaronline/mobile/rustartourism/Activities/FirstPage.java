@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.rustaronline.mobile.rustartourism.Helper.AnimationClass;
 import com.rustaronline.mobile.rustartourism.Helper.DatePickerForFragments;
 import com.rustaronline.mobile.rustartourism.R;
 import com.rustaronline.mobile.rustartourism.StaticClass;
@@ -49,8 +50,6 @@ public class FirstPage extends Fragment implements View.OnClickListener {
 
     int amountOfDay = 1;
 
-    String homeImageUrl = "https://www.rustaronline.com/images/pages/login/slider/online.png";
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -77,6 +76,7 @@ public class FirstPage extends Fragment implements View.OnClickListener {
 
         search = (Button) v.findViewById(R.id.Search);
         search.setOnClickListener(this);
+        AnimationClass.setAnimation(search, getResources().getColor(R.color.rustarGreen), getResources().getColor(R.color.clickColour));
 
         location = (EditText) v.findViewById(R.id.location);
         nights = (EditText) v.findViewById(R.id.nights);
