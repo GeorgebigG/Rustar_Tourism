@@ -106,7 +106,8 @@ public class FirstPage extends Fragment implements View.OnClickListener {
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                if (Search.tryParse(nights.getText().toString()) <= 0)
+                    nights.setText("1");
             }
         });
 
@@ -119,11 +120,11 @@ public class FirstPage extends Fragment implements View.OnClickListener {
 
         switch (v.getId()) {
             case R.id.checkIn:
-                date = new DatePickerForFragments(checkInDialogId, 0, CHECK_IN_CAL.get(Calendar.YEAR), CHECK_IN_CAL.get(Calendar.MONTH), CHECK_IN_CAL.get(Calendar.DAY_OF_MONTH));
+                date = new DatePickerForFragments(checkInDialogId, CHECK_IN_CAL.get(Calendar.YEAR), CHECK_IN_CAL.get(Calendar.MONTH), CHECK_IN_CAL.get(Calendar.DAY_OF_MONTH));
                 date.show(getFragmentManager().beginTransaction(), "Date");
                 break;
             case R.id.checkOut:
-                date = new DatePickerForFragments(checkOutDialogId, 0, CHECK_OUT_CAL.get(Calendar.YEAR), CHECK_OUT_CAL.get(Calendar.MONTH), CHECK_OUT_CAL.get(Calendar.DAY_OF_MONTH));
+                date = new DatePickerForFragments(checkOutDialogId, CHECK_OUT_CAL.get(Calendar.YEAR), CHECK_OUT_CAL.get(Calendar.MONTH), CHECK_OUT_CAL.get(Calendar.DAY_OF_MONTH));
                 date.show(getFragmentManager().beginTransaction(), "Date");
                 break;
             case R.id.Search:
@@ -151,8 +152,8 @@ public class FirstPage extends Fragment implements View.OnClickListener {
         for (int i = 0; i < 5; i++) {
             lParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             imageView = new ImageView(getActivity());
-            new downloadImageFromUrl(imageView, url);
             imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            new downloadImageFromUrl(imageView, url);
             layout.addView(imageView, lParams);
         }
     }

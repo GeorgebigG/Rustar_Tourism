@@ -28,6 +28,7 @@ import android.widget.RatingBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.rustaronline.mobile.rustartourism.Helper.AnimationClass;
 import com.rustaronline.mobile.rustartourism.Helper.DatePickerForFragments;
 import com.rustaronline.mobile.rustartourism.Helper.downloadImageFromUrl;
 import com.rustaronline.mobile.rustartourism.Hotel;
@@ -57,8 +58,6 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
     private static CheckBox fiveS, fourS, threeS, twoS, oneS, apartment, alcohol, freeWifi, pool, metro, mall;
     int amountOfDay = 1;
 
-    public static final Calendar CHECK_IN_CAL = Calendar.getInstance(), CHECK_OUT_CAL = Calendar.getInstance();
-
     ArrayList<Spinner> childrensAgeSpinners;
 
     private static LinearLayout mainLayout;
@@ -75,42 +74,34 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
         checkOut.setOnClickListener(this);
         checkIn.setOnClickListener(this);
         AdvSearch.setOnClickListener(this);
-
-        CHECK_IN_CAL.add(Calendar.DAY_OF_YEAR, 1);
-        Date tomorrow = CHECK_IN_CAL.getTime();
-
-
-        CHECK_OUT_CAL.add(Calendar.DAY_OF_YEAR, 2);
-        Date afterTomorrow = CHECK_OUT_CAL.getTime();
+        AnimationClass.setAnimation(AdvSearch, getResources().getColor(R.color.rustarGreen), getResources().getColor(R.color.clickColour));
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-        String tomorrowAsString = dateFormat.format(tomorrow);
-        String afterTomorrowAsString = dateFormat.format(afterTomorrow);
 
-        checkIn.setText(tomorrowAsString);
-        checkOut.setText(afterTomorrowAsString);
+        checkIn.setText(dateFormat.format(FirstPage.CHECK_IN_CAL.getTime()));
+        checkOut.setText(dateFormat.format(FirstPage.CHECK_OUT_CAL.getTime()));
 
         amountOfChildrenSpinner.setOnItemSelectedListener(this);
 
         TextWatcher watcher = new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (s.length() != 0) {
-                    int day = Integer.parseInt(nights.getText().toString()) - amountOfDay;
-                    CHECK_OUT_CAL.add(Calendar.DAY_OF_YEAR, day);
-                    checkOut.setText(new SimpleDateFormat("dd.MM.yyyy").format(CHECK_OUT_CAL.getTime()));
-                    amountOfDay = Integer.parseInt(nights.getText().toString());
+                    int day = tryParse(nights.getText().toString()) - amountOfDay;
+                    FirstPage.CHECK_OUT_CAL.add(Calendar.DAY_OF_YEAR, day);
+                    checkOut.setText(new SimpleDateFormat("dd.MM.yyyy").format(FirstPage.CHECK_OUT_CAL.getTime()));
+                    amountOfDay = tryParse(nights.getText().toString());
                 }
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                if (tryParse(nights.getText().toString()) <= 0) {
+                    nights.setText("0");
+                }
             }
         };
 
@@ -208,49 +199,26 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
         DatePickerForFragments date;
         switch (v.getId()) {
             case R.id.ScheckIn:
-                date = new DatePickerForFragments(FirstPage.checkInDialogId, 1, CHECK_IN_CAL.get(Calendar.YEAR), CHECK_IN_CAL.get(Calendar.MONTH), CHECK_IN_CAL.get(Calendar.DAY_OF_MONTH));
+                date = new DatePickerForFragments(FirstPage.checkInDialogId, FirstPage.CHECK_IN_CAL.get(Calendar.YEAR), FirstPage.CHECK_IN_CAL.get(Calendar.MONTH), FirstPage.CHECK_IN_CAL.get(Calendar.DAY_OF_MONTH));
                 date.show(getFragmentManager().beginTransaction(), "Date");
                 break;
             case R.id.ScheckOut:
-                date = new DatePickerForFragments(FirstPage.checkOutDialogId, 1, CHECK_OUT_CAL.get(Calendar.YEAR), CHECK_OUT_CAL.get(Calendar.MONTH), CHECK_OUT_CAL.get(Calendar.DAY_OF_MONTH));
+                date = new DatePickerForFragments(FirstPage.checkOutDialogId, FirstPage.CHECK_OUT_CAL.get(Calendar.YEAR), FirstPage.CHECK_OUT_CAL.get(Calendar.MONTH), FirstPage.CHECK_OUT_CAL.get(Calendar.DAY_OF_MONTH));
                 date.show(getFragmentManager().beginTransaction(), "Date");
                 break;
             case R.id.AdvSearch:
-                int daFrom, daTo, totFrom, totTo;
-
-                if (nights.getText().toString().equals(""))
-                    nights.setText("1");
-
-                if (dailyFrom.getText().toString().equals(""))
-                    daFrom = 0;
-                else
-                    daFrom = Integer.parseInt(dailyFrom.getText().toString());
-
-                if (dailyTo.getText().toString().equals(""))
-                    daTo = 0;
-                else
-                    daTo = Integer.parseInt(dailyTo.getText().toString());
-                if (totalFrom.getText().toString().equals(""))
-                    totFrom = 0;
-                else
-                    totFrom = Integer.parseInt(totalFrom.getText().toString());
-                if (totalTo.getText().toString().equals(""))
-                    totTo = 0;
-                else
-                    totTo = Integer.parseInt(totalTo.getText().toString());
-
-
                 Hotel[] searchHotels = new Hotel[Hotel.getAmountOfHotels()];
 
                 for (int i = 0; i < searchHotels.length; i++)
                     searchHotels[i] = StaticClass.advancedSearchRelust(checkIn.getText().toString(),
                         Integer.parseInt(nights.getText().toString()), checkOut.getText().toString(),
                         hotel.getText().toString(), city.getText().toString(), district.getText().toString(),
-                        Integer.parseInt(amountOfAdults.getSelectedItem().toString()), childrensAgeSpinners, daFrom, daTo,
-                        totFrom,totTo, type.getSelectedItem().toString(), meal.getSelectedItem().toString(), fiveS.isChecked(),
+                        Integer.parseInt(amountOfAdults.getSelectedItem().toString()), childrensAgeSpinners, tryParse(dailyFrom.getText().toString()),
+                        tryParse(dailyTo.getText().toString()), tryParse(totalFrom.getText().toString()),tryParse(totalTo.getText().toString()),
+                        type.getSelectedItem().toString(), meal.getSelectedItem().toString(), fiveS.isChecked(),
                         fourS.isChecked(), threeS.isChecked(), twoS.isChecked(), oneS.isChecked(), apartment.isChecked(),
                         alcohol.isChecked(), freeWifi.isChecked(), pool.isChecked(), metro.isChecked(), mall.isChecked(),
-                            (Calendar) CHECK_IN_CAL.clone(), (Calendar) CHECK_OUT_CAL.clone());
+                            (Calendar) FirstPage.CHECK_IN_CAL.clone(), (Calendar) FirstPage.CHECK_OUT_CAL.clone());
 
                 createHotelChoices(searchHotels);
                 break;
@@ -259,7 +227,7 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
         }
     }
 
-    private void createHotelChoices(Hotel[] searchHotel) {
+    private void createHotelChoices(Hotel[] searchHotels) {
         mainLayout.removeAllViews();
 
         FrameLayout fLayout;
@@ -267,9 +235,8 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
         LinearLayout.LayoutParams lParams;
         RatingBar ratingBar;
         TextView textView;
-        int id = 0;
 
-        for (final Hotel hotel : searchHotel) {
+        for (final Hotel hotel : searchHotels) {
             lParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             final ImageView image = new ImageView(getActivity());
             image.setScaleType(ImageView.ScaleType.FIT_XY);
@@ -283,7 +250,6 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
                 }
             });
             new downloadImageFromUrl(image, hotel.getImageURL()).execute();
-            id++;
             mainLayout.addView(image, lParams);
 
             fLayout = new FrameLayout(getActivity());
@@ -335,6 +301,15 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
             lParams.gravity = Gravity.CENTER;
             lParams.bottomMargin = 10;
             mainLayout.addView(details, lParams);
+        }
+    }
+
+    public static int tryParse(String number) {
+        try {
+            int g = Integer.parseInt(number);
+            return g;
+        } catch (Exception ex) {
+            return 0;
         }
     }
 }
