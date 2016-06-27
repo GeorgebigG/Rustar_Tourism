@@ -3,8 +3,11 @@ package com.rustaronline.mobile.rustartourism.Helper;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.view.Display;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+
+import com.rustaronline.mobile.rustartourism.Activities.FirstpageActivity;
 
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -51,9 +54,17 @@ public class downloadImageFromUrl extends AsyncTask<Void, Void, Bitmap> {
     @Override
     protected void onPostExecute(Bitmap result) {
         super.onPostExecute(result);
-        if (isImageButton)
+        if (isImageButton) {
             imageButton.setImageBitmap(result);
-        else
+            float widthScale = (float) FirstpageActivity.WIDTH / (float) result.getWidth();
+            float imageHeight = (float) result.getHeight() * widthScale;
+            imageButton.setMaxHeight((int) imageHeight);
+        }
+        else {
             imageView.setImageBitmap(result);
+            float widthScale = (float) FirstpageActivity.WIDTH / (float) result.getWidth();
+            float imageHeight = (float) result.getHeight() * widthScale;
+            imageView.setMinimumHeight((int) imageHeight);
+        }
     }
 }

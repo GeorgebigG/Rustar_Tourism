@@ -11,6 +11,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -38,6 +39,7 @@ public class FirstpageActivity extends AppCompatActivity {
     ViewPager viewPager;
 
     public static Toolbar toolbar;
+    public static int WIDTH, HEIGHT;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,10 @@ public class FirstpageActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("/   " + Username);
         setSupportActionBar(toolbar);
+
+        Display display = getWindowManager().getDefaultDisplay();
+        WIDTH = display.getWidth();  // deprecated
+        HEIGHT = display.getHeight();
 
         checkIn = (EditText) findViewById(R.id.checkIn);
         checkOut = (EditText) findViewById(R.id.checkOut);
