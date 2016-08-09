@@ -47,6 +47,7 @@ import static android.R.*;
  * Created by gio on 14/05/16.
  */
 public class Search extends Fragment implements AdapterView.OnItemSelectedListener, View.OnClickListener {
+
     private static View v;
     public static EditText checkIn, checkOut, nights, hotel, city, district, dailyFrom, dailyTo, totalFrom, totalTo;
     private static Spinner amountOfAdults, amountOfChildrenSpinner, type, meal;
@@ -83,29 +84,7 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
 
         amountOfChildrenSpinner.setOnItemSelectedListener(this);
 
-        TextWatcher watcher = new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (s.length() != 0) {
-                    int day = tryParse(nights.getText().toString()) - amountOfDay;
-                    FirstPage.CHECK_OUT_CAL.add(Calendar.DAY_OF_YEAR, day);
-                    checkOut.setText(new SimpleDateFormat("dd.MM.yyyy").format(FirstPage.CHECK_OUT_CAL.getTime()));
-                    amountOfDay = tryParse(nights.getText().toString());
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if (tryParse(nights.getText().toString()) <= 0) {
-                    nights.setText("0");
-                }
-            }
-        };
-
-        nights.addTextChangedListener(watcher);
+        nights.addTextChangedListener(FirstPage.watcher);
 
         return v;
     }
@@ -191,8 +170,7 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
     }
 
     @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-    }
+    public void onNothingSelected(AdapterView<?> parent) {}
 
     @Override
     public void onClick(View v) {

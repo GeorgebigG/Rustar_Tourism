@@ -51,26 +51,28 @@ public class DatePickerForFragments extends DialogFragment {
             if (id == FirstPage.checkInDialogId) {
                 long time = FirstPage.CHECK_IN_CAL.getTimeInMillis();
                 FirstPage.CHECK_IN_CAL.set(Year, Month, Day);
+
                 int nights = (int) ((FirstPage.CHECK_IN_CAL.getTimeInMillis() - time) / 1000 / 60 / 60 / 24);
                 FirstPage.CHECK_OUT_CAL.add(Calendar.DAY_OF_YEAR, nights);
-                FirstPage.checkOut.setText(formater.format(FirstPage.CHECK_OUT_CAL.getTime()));
-                FirstPage.checkIn.setText(formater.format(FirstPage.CHECK_IN_CAL.getTime()));
+
+                String checkOut = formater.format(FirstPage.CHECK_OUT_CAL.getTime());
+                String checkIn = formater.format(FirstPage.CHECK_IN_CAL.getTime());
+
+                FirstPage.checkOut.setText(checkOut);
+                FirstPage.checkIn.setText(checkIn);
+
+                Search.checkOut.setText(checkOut);
+                Search.checkIn.setText(checkIn);
+
             } else {
                 final Calendar calendar = Calendar.getInstance();
                 calendar.set(Year, Month, Day);
-                int nights = (int) ((calendar.getTimeInMillis() - FirstPage.CHECK_OUT_CAL.getTimeInMillis()) / 1000 / 60 / 60 / 24);
-                int amountOfNights = Integer.parseInt(FirstPage.nights.getText().toString()) + nights;
-                FirstPage.nights.setText("" + amountOfNights);
-            }
 
+                int nights = (int) ((calendar.getTimeInMillis() - FirstPage.CHECK_IN_CAL.getTimeInMillis()) / 1000 / 60 / 60 / 24);
+
+                FirstPage.nights.setText("" + nights);
+                Search.nights.setText("" + nights);
+            }
         }
     };
 }
-
-
-
-
-
-
-
-

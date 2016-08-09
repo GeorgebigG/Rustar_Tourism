@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Rustar Online.iml" filepath="$PROJECT_DIR$/Rustar Online.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Rustar_Tourism.iml" filepath="$PROJECT_DIR$/Rustar_Tourism.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

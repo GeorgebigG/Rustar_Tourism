@@ -43,12 +43,12 @@ public class FirstPage extends Fragment implements View.OnClickListener {
     public static ImageView imageView;
     TextView dailuFrom;
 
+    public static TextWatcher watcher;
+
     public static final Calendar CHECK_IN_CAL = Calendar.getInstance(), CHECK_OUT_CAL = Calendar.getInstance();
 
     View context;
     View v;
-
-    int amountOfDay = 1;
 
     @Nullable
     @Override
@@ -88,31 +88,36 @@ public class FirstPage extends Fragment implements View.OnClickListener {
 
         setPictureToImageView(v);
 
-        nights.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        createTextWatcher();
 
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (!nights.getText().toString().equals("")) {
-                    int day = Integer.parseInt(nights.getText().toString()) - amountOfDay;
-                    CHECK_OUT_CAL.add(Calendar.DAY_OF_YEAR, day);
-                    checkOut.setText(new SimpleDateFormat("dd.MM.yyyy").format(CHECK_OUT_CAL.getTime()));
-                    amountOfDay = Integer.parseInt(nights.getText().toString());
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if (Search.tryParse(nights.getText().toString()) <= 0)
-                    nights.setText("1");
-            }
-        });
+        nights.addTextChangedListener(watcher);
 
         return v;
     }
+
+
+    public void createTextWatcher() {
+        watcher = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                final Calendar calendar = Calendar.getInstance();
+                calendar.set(CHECK_IN_CAL.get(Calendar.YEAR), CHECK_IN_CAL.get(Calendar.MONTH), CHECK_IN_CAL.get(Calendar.DAY_OF_MONTH));
+
+                int day = Search.tryParse(nights.getText().toString());
+                calendar.add(Calendar.DAY_OF_YEAR, day);
+
+                CHECK_OUT_CAL.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+                checkOut.setText(new SimpleDateFormat("dd.MM.yyyy").format(CHECK_OUT_CAL.getTime()));
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {}
+        };
+    }
+
 
     @Override
     public void onClick(View v) {
@@ -128,9 +133,12 @@ public class FirstPage extends Fragment implements View.OnClickListener {
                 date.show(getFragmentManager().beginTransaction(), "Date");
                 break;
             case R.id.Search:
+                if (nights.getText().toString().length() == 0) nights.setText("1");
+
                 StaticClass.searchRelust(checkIn.getText().toString(), Integer.parseInt(nights.getText().toString()),
                         checkOut.getText().toString(), location.getText().toString(), holtel.getText().toString(),
                         pax.getText().toString());
+
                 tabLayout.getTabAt(1).select();
                 break;
             default:

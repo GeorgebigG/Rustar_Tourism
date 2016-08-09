@@ -14,10 +14,16 @@ public class AnimationClass {
         view.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (motionEvent.getAction() == ACTION_DOWN)
-                    view.setBackgroundColor(clickColor);
-                if (motionEvent.getAction() == ACTION_UP)
-                    view.setBackgroundColor(defaultColor);
+                switch (motionEvent.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        view.setBackgroundColor(clickColor);
+                        break;
+
+                    case MotionEvent.ACTION_UP:
+                    case MotionEvent.ACTION_CANCEL:
+                        view.setBackgroundColor(defaultColor);
+
+                }
 
                 return false;
             }

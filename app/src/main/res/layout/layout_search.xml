@@ -123,6 +123,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/hotelName"
                     android:textCursorDrawable="@null"
+                    android:layout_marginBottom="10dp"
                     android:background="@color/fieldGrayColor"
                     android:layout_alignTop="@+id/cityName"
                     android:layout_toLeftOf="@+id/cityName"
@@ -150,7 +151,7 @@
                     android:text="@string/District"
                     android:id="@+id/textView14"
                     android:textColor="@color/black"
-                    android:layout_below="@+id/textView15"
+                    android:layout_below="@+id/hotelName"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true" />
 
@@ -170,19 +171,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:id="@+id/textView15"
-                    android:layout_below="@+id/hotelName"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="@string/Adults"
                     android:id="@+id/textView16"
-                    android:layout_below="@+id/textView15"
+                    android:layout_below="@+id/hotelName"
                     android:layout_toRightOf="@+id/hotelName"
                     android:layout_toEndOf="@+id/hotelName"
                     android:textColor="@color/black"/>
@@ -205,7 +197,7 @@
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="@string/Children"
                     android:id="@+id/textView17"
-                    android:layout_below="@+id/textView15"
+                    android:layout_below="@+id/hotelName"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
                     android:textColor="@color/black"/>
@@ -227,15 +219,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:id="@+id/textView18"
-                    android:layout_below="@+id/districtName"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="@string/DailyFrom"
                     android:id="@+id/dailyFromTextView"
@@ -250,6 +233,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="numberDecimal"
                     android:id="@+id/dailyFrom"
+                    android:layout_marginBottom="10dp"
                     android:textCursorDrawable="@null"
                     android:layout_below="@+id/dailyFromTextView"
                     android:background="@color/fieldGrayColor"
@@ -310,19 +294,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:id="@+id/textView22"
-                    android:layout_below="@+id/dailyFrom"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="@string/TotalTo"
                     android:id="@+id/textView23"
-                    android:layout_below="@+id/textView22"
+                    android:layout_below="@+id/dailyFrom"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:textColor="@color/black"
@@ -349,8 +324,9 @@
                     android:text="@string/Type"
                     android:id="@+id/textView24"
                     android:textColor="@color/black"
-                    android:layout_below="@+id/textView22"
-                    android:layout_toLeftOf="@+id/childrenSpinner" />
+                    android:layout_below="@+id/dailyFrom"
+                    android:layout_toLeftOf="@+id/totalFrom"
+                    android:layout_toStartOf="@+id/totalFrom" />
 
                 <Spinner
                     android:layout_width="wrap_content"
@@ -367,20 +343,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:id="@+id/textView25"
-                    android:layout_below="@+id/totalTo"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="@string/Meal"
                     android:id="@+id/textView26"
                     android:textColor="@color/black"
-                    android:layout_below="@+id/textView25"
+                    android:layout_below="@+id/typeSpinner"
                     android:layout_centerHorizontal="true"/>
 
                 <Spinner
@@ -388,126 +355,130 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/mealSpinner"
                     android:entries="@array/meals"
-                    android:layout_below="@+id/textView26"
-                    android:layout_alignRight="@+id/includeAlcohol"
-                    android:layout_alignEnd="@+id/includeAlcohol" />
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="5*"
-                    android:id="@+id/fiveS"
-                    android:checked="false"
-                    android:layout_alignTop="@+id/fourS"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true" />
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="4*"
-                    android:id="@+id/fourS"
-                    android:checked="false"
-                    android:layout_alignTop="@+id/threeS"
-                    android:layout_toRightOf="@+id/textView14"
-                    android:layout_toEndOf="@+id/textView14" />
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="3*"
-                    android:id="@+id/threeS"
-                    android:checked="false"
-                    android:layout_below="@+id/textView27"
-                    android:layout_centerHorizontal="true" />
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="2*"
-                    android:id="@+id/twoS"
-                    android:checked="false"
-                    android:layout_below="@+id/textView27"
-                    android:layout_alignLeft="@+id/textView24"
-                    android:layout_alignStart="@+id/textView24" />
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1*"
-                    android:id="@+id/oneS"
-                    android:checked="false"
-                    android:layout_alignTop="@+id/twoS"
-                    android:layout_alignRight="@+id/typeSpinner"
-                    android:layout_alignEnd="@+id/typeSpinner" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:id="@+id/textView27"
-                    android:layout_below="@+id/mealSpinner"
-                    android:layout_toRightOf="@+id/textView25"
-                    android:layout_toEndOf="@+id/textView25" />
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/includeApartment"
-                    android:layout_below="@+id/fiveS"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:checked="false"
-                    android:text="@string/apartment" />
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/alcohol"
-                    android:id="@+id/includeAlcohol"
-                    android:checked="false"
-                    android:layout_above="@+id/includePool"
-                    android:layout_alignRight="@+id/dailyTo"
-                    android:layout_alignEnd="@+id/dailyTo" />
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/freeWIFI"
-                    android:id="@+id/includeFreeWIFI"
-                    android:checked="false"
-                    android:layout_below="@+id/twoS"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true" />
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/pool"
-                    android:id="@+id/includePool"
-                    android:layout_below="@+id/includeApartment"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:checked="false" />
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/metro"
-                    android:id="@+id/includeMetro"
-                    android:layout_below="@+id/includeAlcohol"
                     android:layout_centerHorizontal="true"
-                    android:checked="false" />
+                    android:layout_below="@+id/textView26" />
 
-                <CheckBox
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/starsLayout"
+                    android:layout_below="@+id/mealSpinner"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true">
+
+                    <CheckBox
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="5*"
+                        android:id="@+id/fiveS"
+                        android:checked="false" />
+
+                    <CheckBox
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="4*"
+                        android:id="@+id/fourS"
+                        android:checked="false" />
+
+                    <CheckBox
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="3*"
+                        android:id="@+id/threeS"
+                        android:checked="false" />
+
+                    <CheckBox
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="2*"
+                        android:id="@+id/twoS"
+                        android:checked="false" />
+
+                    <CheckBox
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="1*"
+                        android:id="@+id/oneS"
+                        android:checked="false" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/mall"
-                    android:id="@+id/includeMall"
-                    android:checked="false"
-                    android:layout_alignTop="@+id/includeMetro"
-                    android:layout_toRightOf="@+id/twoS"
-                    android:layout_toEndOf="@+id/twoS" />
+                    android:orientation="horizontal"
+                    android:id="@+id/ApAlFW"
+                    android:layout_below="@+id/starsLayout"
+                    android:layout_alignParentLeft="true">
+
+                    <CheckBox
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/includeApartment"
+                        android:checked="false"
+                        android:text="@string/apartment"/>
+
+                    <CheckBox
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/alcohol"
+                        android:id="@+id/includeAlcohol"
+                        android:checked="false"/>
+
+                    <CheckBox
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/freeWIFI"
+                        android:id="@+id/includeFreeWIFI"
+                        android:checked="false"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/poolMetMall"
+                    android:layout_below="@+id/ApAlFW"
+                    android:layout_alignParentLeft="true">
+
+
+                    <CheckBox
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/pool"
+                        android:id="@+id/includePool"
+                        android:checked="false" />
+
+
+                    <CheckBox
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/metro"
+                        android:id="@+id/includeMetro"
+                        android:checked="false"/>
+
+                    <CheckBox
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/mall"
+                        android:id="@+id/includeMall"
+                        android:checked="false" />
+
+                </LinearLayout>
 
                 <Button
                     style="?android:attr/buttonStyleSmall"
@@ -517,9 +488,9 @@
                     android:id="@+id/AdvSearch"
                     android:background="@color/rustarGreen"
                     android:textColor="@color/White"
-                    android:layout_alignRight="@+id/oneS"
-                    android:layout_alignEnd="@+id/oneS"
-                    android:layout_below="@+id/includePool"/>
+                    android:layout_below="@+id/poolMetMall"
+                    android:layout_alignRight="@+id/typeSpinner"
+                    android:layout_alignEnd="@+id/typeSpinner" />
 
                 <TextView
                     android:layout_width="wrap_content"
