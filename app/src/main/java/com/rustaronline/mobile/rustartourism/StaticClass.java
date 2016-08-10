@@ -1,11 +1,7 @@
 package com.rustaronline.mobile.rustartourism;
 
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Spinner;
-
-import com.rustaronline.mobile.rustartourism.Activities.LoginActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -16,7 +12,6 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.concurrent.ExecutionException;
 
 import javax.net.ssl.HttpsURLConnection;
 

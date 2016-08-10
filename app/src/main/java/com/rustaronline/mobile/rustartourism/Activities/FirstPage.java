@@ -1,17 +1,14 @@
 package com.rustaronline.mobile.rustartourism.Activities;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -20,9 +17,9 @@ import android.widget.TextView;
 
 import com.rustaronline.mobile.rustartourism.Helper.AnimationClass;
 import com.rustaronline.mobile.rustartourism.Helper.DatePickerForFragments;
+import com.rustaronline.mobile.rustartourism.Helper.downloadImageFromUrl;
 import com.rustaronline.mobile.rustartourism.R;
 import com.rustaronline.mobile.rustartourism.StaticClass;
-import com.rustaronline.mobile.rustartourism.Helper.downloadImageFromUrl;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
