@@ -1,7 +1,11 @@
 package com.rustaronline.mobile.rustartourism;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Spinner;
+
+import com.rustaronline.mobile.rustartourism.Activities.LoginActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,9 +39,11 @@ public class StaticClass {
     private static String correctCode = "00";
 
     public static String getString(String name, String password) {
-        if (checkPassword(name, password) && !isAccauntBlocked(name, password))
+        boolean correctPassword = checkPassword(name, password);
+
+        if (correctPassword && !isAccauntBlocked(name, password))
             return "Correct";
-        else if (!checkPassword(name, password))
+        else if (!correctPassword)
             return "password or username wrong";
         else
             return "User Blocked!";
@@ -47,9 +53,7 @@ public class StaticClass {
 
         try {
             rustarWebService = new FindWebService(name, password).execute().get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -103,7 +107,7 @@ public class StaticClass {
         protected JSONObject doInBackground(String... strings) {
 
             URL url;
-            String JSONCode = "";
+            String JSONCode;
             JSONObject mainObject = null;
             BufferedReader reader = null;
             HttpsURLConnection connection = null;
