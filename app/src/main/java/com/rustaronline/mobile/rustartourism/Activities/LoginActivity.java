@@ -85,7 +85,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
+        pd = new ProgressDialog(LoginActivity.this);
+        pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        pd.setMessage(getResources().getString(R.string.wait));
+        pd.setIndeterminate(true);
+        pd.setCancelable(false);
+        pd.show();
+
         String result = StaticClass.getString(Username.getText().toString(), Password.getText().toString());
+
 
         if (result.equals("Correct")) {
             if (isConnected()) {
@@ -93,12 +101,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 FirstpageActivity.Username = Username.getText().toString();
                 Intent intent = new Intent(this, FirstpageActivity.class);
                 destroyActivity = true;
-                pd = new ProgressDialog(LoginActivity.this);
-                pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-                pd.setMessage(getResources().getString(R.string.wait));
-                pd.setIndeterminate(true);
-                pd.setCancelable(false);
-                pd.show();
+
+                pd.cancel();
                 startActivity(intent);
                 onBackPressed();
             } else
@@ -106,13 +110,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         .setMessage(getResources().getString(R.string.noInternetConnectionText))
                         .setNegativeButton(getResources().getString(R.string.Ok), null).setCancelable(false).create().show();
         }
-        else if (result.equals("password or username wrong"))
+        else if (result.equals("password or username wrong")) {
+            pd.cancel();
             new AlertDialog.Builder(this).setTitle(getResources().getString(R.string.IncorrectPasswordTitle))
                     .setMessage(getResources().getString(R.string.IncorrectPasswordText)).setCancelable(false)
                     .setNegativeButton(getResources().getString(R.string.Ok), null).create().show();
-        else
+        }
+        else {
+            pd.cancel();
             new AlertDialog.Builder(this).setMessage(result).setNegativeButton(getResources().getString(R.string.Ok), null)
                     .setCancelable(false).create().show();
+        }
     }
 
     @Override
