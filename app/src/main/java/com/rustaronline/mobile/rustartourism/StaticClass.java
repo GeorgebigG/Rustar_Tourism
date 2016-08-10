@@ -1,5 +1,6 @@
 package com.rustaronline.mobile.rustartourism;
 
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.widget.Spinner;
 
@@ -33,8 +34,8 @@ public class StaticClass {
     private static String codeVariableName = "Code";
     private static String correctCode = "00";
 
-    public static String getString(String name, String password) {
-        boolean correctPassword = checkPassword(name, password);
+    public static String getString(String name, String password, ProgressDialog pd) {
+        boolean correctPassword = checkPassword(name, password, pd);
 
         if (correctPassword && !isAccauntBlocked(name, password))
             return "Correct";
@@ -44,10 +45,10 @@ public class StaticClass {
             return "User Blocked!";
     }
 
-    private static boolean checkPassword(String name, String password) {
+    private static boolean checkPassword(String name, String password, ProgressDialog pd) {
 
         try {
-            rustarWebService = new FindWebService(name, password).execute().get();
+            rustarWebService = new FindWebService(name, password, pd).execute().get();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -93,9 +94,19 @@ public class StaticClass {
         String name;
         String password;
 
-        public FindWebService(String name, String password) {
+        ProgressDialog pd;
+
+        public FindWebService(String name, String password, ProgressDialog pd) {
             this.name = name;
             this.password = password;
+
+            this.pd = pd;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pd.show();
         }
 
         @Override

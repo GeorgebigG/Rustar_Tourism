@@ -47,6 +47,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         Username = (EditText) findViewById(R.id.Username);
         Password = (EditText) findViewById(R.id.Password);
+
+        pd = new ProgressDialog(LoginActivity.this);
+        pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        pd.setMessage(getResources().getString(R.string.wait));
+        pd.setCancelable(false);
+        pd.setIndeterminate(true);
     }
 
     @Override
@@ -84,14 +90,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        pd = new ProgressDialog(LoginActivity.this);
-        pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        pd.setMessage(getResources().getString(R.string.wait));
-        pd.setIndeterminate(true);
-        pd.setCancelable(false);
-        pd.show();
-
-        String result = StaticClass.getString(Username.getText().toString(), Password.getText().toString());
+        String result = StaticClass.getString(Username.getText().toString(), Password.getText().toString(), pd);
 
 
         if (result.equals("Correct")) {
@@ -101,7 +100,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 Intent intent = new Intent(this, FirstpageActivity.class);
                 destroyActivity = true;
 
-                pd.cancel();
+                pd.dismiss();
                 startActivity(intent);
                 onBackPressed();
             } else
@@ -110,13 +109,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         .setNegativeButton(getResources().getString(R.string.Ok), null).setCancelable(false).create().show();
         }
         else if (result.equals("password or username wrong")) {
-            pd.cancel();
+            pd.dismiss();
             new AlertDialog.Builder(this).setTitle(getResources().getString(R.string.IncorrectPasswordTitle))
                     .setMessage(getResources().getString(R.string.IncorrectPasswordText)).setCancelable(false)
                     .setNegativeButton(getResources().getString(R.string.Ok), null).create().show();
         }
         else {
-            pd.cancel();
+            pd.dismiss();
             new AlertDialog.Builder(this).setMessage(result).setNegativeButton(getResources().getString(R.string.Ok), null)
                     .setCancelable(false).create().show();
         }
@@ -161,12 +160,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 FirstpageActivity.Username = getUsername();
                 Intent intent = new Intent(this, FirstpageActivity.class);
                 destroyActivity = true;
-                pd = new ProgressDialog(LoginActivity.this);
-                pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-                pd.setMessage(getResources().getString(R.string.wait));
-                pd.setIndeterminate(true);
-                pd.setCancelable(false);
-                pd.show();
                 startActivity(intent);
                 onBackPressed();
             }
