@@ -34,8 +34,8 @@ public class StaticClass {
     private static String codeVariableName = "Code";
     private static String correctCode = "00";
 
-    public static String getString(String name, String password, ProgressDialog pd) {
-        boolean correctPassword = checkPassword(name, password, pd);
+    public static String getString(String name, String password) {
+        boolean correctPassword = checkPassword(name, password);
 
         if (correctPassword && !isAccauntBlocked(name, password))
             return "Correct";
@@ -45,10 +45,10 @@ public class StaticClass {
             return "User Blocked!";
     }
 
-    private static boolean checkPassword(String name, String password, ProgressDialog pd) {
+    private static boolean checkPassword(String name, String password) {
 
         try {
-            rustarWebService = new FindWebService(name, password, pd).execute().get();
+            rustarWebService = new FindWebService(name, password).execute().get();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -94,19 +94,9 @@ public class StaticClass {
         String name;
         String password;
 
-        ProgressDialog pd;
-
-        public FindWebService(String name, String password, ProgressDialog pd) {
+        public FindWebService(String name, String password) {
             this.name = name;
             this.password = password;
-
-            this.pd = pd;
-        }
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            pd.show();
         }
 
         @Override

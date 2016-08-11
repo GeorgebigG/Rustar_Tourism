@@ -146,7 +146,6 @@ public class FirstPage extends Fragment implements View.OnClickListener {
     @Override
     public void onStart() {
         super.onStart();
-        LoginActivity.pd.cancel();
     }
 
     private void setPictureToImageView(View v) {

@@ -1,0 +1,49 @@
+{
+  "Code": "00",
+  "Message": "",
+  "Timestamp": "2016-08-11T12:43:27.0323345+04:00",
+  "Version": "1.0",
+  "ResponseID": "df399dea-77c3-42a7-a57a-c2e9ee407e9f",
+  "Data": [
+    {
+      "hotelid": "44edf1c4-bfe0-4ca0-8091-014cf5c68a79",
+      "roomcategory": "3691e0db-b5e0-411f-b14d-aa46ba90e8f1",
+      "roomcategorytype": "a104396a-22f6-479a-ad10-27a345fd6ac3",
+      "roomcategoryname": "Family Room ",
+      "startdate": "2016-07-06T00:00:00",
+      "enddate": "2016-10-30T00:00:00",
+      "note": null,
+      "availability": "REQUEST"
+    },
+    {
+      "hotelid": "44edf1c4-bfe0-4ca0-8091-014cf5c68a79",
+      "roomcategory": "7bb7c883-b107-4223-9047-80686f6b3d52",
+      "roomcategorytype": "c984a430-66a3-4a59-8c53-66369b1a5dd5",
+      "roomcategoryname": "Classic Room",
+      "startdate": "2016-07-06T00:00:00",
+      "enddate": "2016-10-30T00:00:00",
+      "note": null,
+      "availability": "REQUEST"
+    },
+    {
+      "hotelid": "44edf1c4-bfe0-4ca0-8091-014cf5c68a79",
+      "roomcategory": "2d671dd1-7e2b-41d7-8b2f-49f9af96458b",
+      "roomcategorytype": "ed40e43e-202e-4192-b992-8e85271ddf67",
+      "roomcategoryname": "Club Rotana Room",
+      "startdate": "2016-07-06T00:00:00",
+      "enddate": "2016-10-30T00:00:00",
+      "note": null,
+      "availability": "REQUEST"
+    },
+    {
+      "hotelid": "44edf1c4-bfe0-4ca0-8091-014cf5c68a79",
+      "roomcategory": "f32dcd28-469f-4549-9b1d-17c562e0916a",
+      "roomcategorytype": "d9ec7786-4bce-462f-ad85-60fce803fea3",
+      "roomcategoryname": "Premium Room",
+      "startdate": "2016-07-06T00:00:00",
+      "enddate": "2016-10-30T00:00:00",
+      "note": null,
+      "availability": "REQUEST"
+    }
+  ]
+}

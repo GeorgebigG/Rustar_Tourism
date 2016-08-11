@@ -1,6 +1,5 @@
 package com.rustaronline.mobile.rustartourism.Activities;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
 import com.rustaronline.mobile.rustartourism.Helper.AnimationClass;
 import com.rustaronline.mobile.rustartourism.R;
@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     SharedPreferences sPref;
     public static final String USERNAME_KEY = "_username";
     public static boolean logOutClicked = false;
-    public static ProgressDialog pd;
+    public static ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,11 +48,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         Username = (EditText) findViewById(R.id.Username);
         Password = (EditText) findViewById(R.id.Password);
 
-        pd = new ProgressDialog(LoginActivity.this);
-        pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        pd.setMessage(getResources().getString(R.string.wait));
-        pd.setCancelable(false);
-        pd.setIndeterminate(true);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
     }
 
     @Override
@@ -90,7 +86,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        String result = StaticClass.getString(Username.getText().toString(), Password.getText().toString(), pd);
+
+        progressBar.setVisibility(View.VISIBLE);
+
+        String result = StaticClass.getString(Username.getText().toString(), Password.getText().toString());
 
 
         if (result.equals("Correct")) {
@@ -100,7 +99,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 Intent intent = new Intent(this, FirstpageActivity.class);
                 destroyActivity = true;
 
-                pd.dismiss();
                 startActivity(intent);
                 onBackPressed();
             } else
@@ -109,13 +107,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         .setNegativeButton(getResources().getString(R.string.Ok), null).setCancelable(false).create().show();
         }
         else if (result.equals("password or username wrong")) {
-            pd.dismiss();
             new AlertDialog.Builder(this).setTitle(getResources().getString(R.string.IncorrectPasswordTitle))
                     .setMessage(getResources().getString(R.string.IncorrectPasswordText)).setCancelable(false)
                     .setNegativeButton(getResources().getString(R.string.Ok), null).create().show();
         }
         else {
-            pd.dismiss();
             new AlertDialog.Builder(this).setMessage(result).setNegativeButton(getResources().getString(R.string.Ok), null)
                     .setCancelable(false).create().show();
         }
@@ -155,18 +151,18 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onStart() {
         super.onStart();
-        if (isConnected()) {
-            if (!getUsername().equals("") && !logOutClicked) {
-                FirstpageActivity.Username = getUsername();
-                Intent intent = new Intent(this, FirstpageActivity.class);
-                destroyActivity = true;
-                startActivity(intent);
-                onBackPressed();
-            }
-        } else {
-            new AlertDialog.Builder(this).setTitle(getResources().getString(R.string.noInternetConnectionTextTitle))
-                    .setMessage(getResources().getString(R.string.noInternetConnectionText))
-                    .setNegativeButton(getResources().getString(R.string.Ok), null).setCancelable(false).create().show();
-        }
+//        if (isConnected()) {
+//            if (!getUsername().equals("") && !logOutClicked) {
+//                FirstpageActivity.Username = getUsername();
+//                Intent intent = new Intent(this, FirstpageActivity.class);
+//                destroyActivity = true;
+//                startActivity(intent);
+//                onBackPressed();
+//            }
+//        } else {
+//            new AlertDialog.Builder(this).setTitle(getResources().getString(R.string.noInternetConnectionTextTitle))
+//                    .setMessage(getResources().getString(R.string.noInternetConnectionText))
+//                    .setNegativeButton(getResources().getString(R.string.Ok), null).setCancelable(false).create().show();
+//        }
     }
 }

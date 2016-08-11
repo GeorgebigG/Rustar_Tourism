@@ -3,14 +3,20 @@
     <color name="colorPrimary">#00844a</color>
     <color name="colorPrimaryDark">#007339</color>
     <color name="colorAccent">#bbbbbb</color>
+    <color name="defaultColorPrimaryDark">#303F9F</color>
+
     <color name="rustarGreen">#00844a</color>
     <color name="lightRustarGreen">#00955b</color>
+    <color name="moreTransparentRustarGreen">#55844a</color>
+
     <color name="White">#ffffff</color>
-    <color name="androidStudioBlue">#3F51B5</color>
-    <color name="lightGray">#cccccc</color>
-    <color name="fieldGrayColor">#bbbbbb</color>
     <color name="black">#000000</color>
     <color name="yellow">#FFFF00</color>
-    <color name="defaultColorPrimaryDark">#303F9F</color>
+
+    <color name="androidStudioBlue">#3F51B5</color>
+
+    <color name="lightGray">#cccccc</color>
+    <color name="fieldGrayColor">#bbbbbb</color>
+
     <color name="clickColour">#e0b646</color>
 </resources>

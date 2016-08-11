@@ -91,7 +91,6 @@ public class FirstpageActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        LoginActivity.pd.cancel();
     }
 
     @Override
