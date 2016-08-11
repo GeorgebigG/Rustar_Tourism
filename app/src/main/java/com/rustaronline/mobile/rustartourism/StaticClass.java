@@ -3,6 +3,8 @@ package com.rustaronline.mobile.rustartourism;
 import android.os.AsyncTask;
 import android.widget.Spinner;
 
+import com.rustaronline.mobile.rustartourism.CallBack.OnShowResult;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -37,7 +39,7 @@ public class StaticClass {
     private static String codeVariableName = "Code";
     private static String correctCode = "00";
 
-    public static String getString(String name, String password) {
+    public static String getString(String name, String password, OnShowResult showResult) {
         boolean correctPassword = checkPassword(name, password);
 
         if (correctPassword && !isAccauntBlocked(name, password))

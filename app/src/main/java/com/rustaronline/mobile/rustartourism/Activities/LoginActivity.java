@@ -102,7 +102,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             e.printStackTrace();
         }
 
-        String result = StaticClass.getString(Username.getText().toString(), Password.getText().toString());
+        String result = StaticClass.getString(Username.getText().toString(), Password.getText().toString(), this);
     }
 
     public void showResult(String result) {
