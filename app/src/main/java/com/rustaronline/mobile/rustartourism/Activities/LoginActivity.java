@@ -1,5 +1,6 @@
 package com.rustaronline.mobile.rustartourism.Activities;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,23 +13,28 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 
+import com.rustaronline.mobile.rustartourism.CallBack.OnShowResult;
 import com.rustaronline.mobile.rustartourism.Helper.AnimationClass;
 import com.rustaronline.mobile.rustartourism.R;
 import com.rustaronline.mobile.rustartourism.StaticClass;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener, View.OnTouchListener, OnShowResult {
     Button signIn;
     EditText Username, Password;
+
     public static boolean destroyActivity = false;
     SharedPreferences sPref;
+
     public static final String USERNAME_KEY = "_username";
     public static boolean logOutClicked = false;
-    public static ProgressBar progressBar;
+
+    public ProgressDialog pd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,12 +49,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         signIn = (Button) findViewById(R.id.signIn);
         signIn.setOnClickListener(this);
-        AnimationClass.setAnimation(signIn, getResources().getColor(R.color.rustarGreen), getResources().getColor(R.color.clickColour));
+        signIn.setOnTouchListener(this);
 
         Username = (EditText) findViewById(R.id.Username);
         Password = (EditText) findViewById(R.id.Password);
 
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        pd = new ProgressDialog(LoginActivity.this);
+        pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        pd.setMessage(getResources().getString(R.string.wait));
+        pd.setCancelable(false);
     }
 
     @Override
@@ -87,10 +96,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
 
-        progressBar.setVisibility(View.VISIBLE);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         String result = StaticClass.getString(Username.getText().toString(), Password.getText().toString());
+    }
 
+    public void showResult(String result) {
+        pd.cancel();
 
         if (result.equals("Correct")) {
             if (isConnected()) {
@@ -115,6 +131,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             new AlertDialog.Builder(this).setMessage(result).setNegativeButton(getResources().getString(R.string.Ok), null)
                     .setCancelable(false).create().show();
         }
+
+        signIn.setText(getResources().getString(R.string.signIn));
+        signIn.setBackgroundColor(getResources().getColor(R.color.rustarGreen));
     }
 
     @Override
@@ -146,6 +165,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         } catch (Exception ex) {
             return "";
         }
+    }
+
+    @Override
+    public boolean onTouch(View view, MotionEvent event) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                pd.show();
+                break;
+        }
+
+        return false;
     }
 
     @Override

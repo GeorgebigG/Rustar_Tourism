@@ -1,6 +1,5 @@
 package com.rustaronline.mobile.rustartourism;
 
-import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.widget.Spinner;
 
@@ -25,10 +24,14 @@ public class StaticClass {
     public static String secondHotel = "https://www.rustaronline.com/images/pages/hotels/thumbnail/78468066-FCA7-472C-AABD-2143DF1DC718.jpg";
 
 
-    private static String WebServiceUrl = "https://restapi.rustaronline.com/v1.00/api/hotels?";
-    private static String WebSAnd = "&";
+    private static String WebServiceUrl = "https://restapi.rustaronline.com/v1.00/api/";
+    private static String HotelListName = "hotels?";
+    private static String HotelPriceName = "hotelprices?";
+    private static String RoomAvailabilitiesName = "roomavailabilities?";
+    private static String URLAnd = "&";
     private static String WebSName = "agentid=";
     private static String WebSPassword = "agentpassword=";
+    private static String WebSHotelId = "hotelid=";
 
     private static JSONObject rustarWebService = null;
     private static String codeVariableName = "Code";
@@ -47,6 +50,9 @@ public class StaticClass {
 
     private static boolean checkPassword(String name, String password) {
 
+        if (name.equals("") || password.equals(""))
+            return false;
+
         try {
             rustarWebService = new FindWebService(name, password).execute().get();
         } catch (Exception e) {
@@ -54,10 +60,12 @@ public class StaticClass {
         }
 
         try {
-            if (rustarWebService.getString(codeVariableName).equals(correctCode))
-                return true;
-            else
-                return false;
+            if (rustarWebService != null) {
+                if (rustarWebService.getString(codeVariableName).equals(correctCode))
+                    return true;
+                else
+                    return false;
+            }
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -103,14 +111,14 @@ public class StaticClass {
         protected JSONObject doInBackground(String... strings) {
 
             URL url;
-            String JSONCode;
+            String JSONCode = "";
             JSONObject mainObject = null;
             BufferedReader reader = null;
             HttpsURLConnection connection = null;
 
             try {
 
-                url = new URL(WebServiceUrl + WebSName + name + WebSAnd + WebSPassword + password);
+                url = new URL(WebServiceUrl + HotelListName + WebSName + name + URLAnd + WebSPassword + password);
                 connection = (HttpsURLConnection) url.openConnection();
 
                 reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
@@ -119,10 +127,8 @@ public class StaticClass {
 
                 String line;
                 while ((line = reader.readLine()) != null) {
-                    sBuffer.append(line);
+                    JSONCode += line;
                 }
-
-                JSONCode = sBuffer.toString();
 
                 // Now we have our json code so lets create a json from this
 

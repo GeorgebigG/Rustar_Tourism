@@ -10,6 +10,7 @@ import static android.view.MotionEvent.*;
  * Created by gio on 6/26/16.
  */
 public class AnimationClass {
+
     public AnimationClass(Button view, final int defaultColor, final int clickColor) {
         view.setOnTouchListener(new View.OnTouchListener() {
             @Override
