@@ -33,6 +33,7 @@ import com.rustaronline.mobile.rustartourism.Helper.DatePickerForFragments;
 import com.rustaronline.mobile.rustartourism.Helper.downloadImageFromUrl;
 import com.rustaronline.mobile.rustartourism.Hotel;
 import com.rustaronline.mobile.rustartourism.R;
+import com.rustaronline.mobile.rustartourism.Searches.AdvancedSearch;
 import com.rustaronline.mobile.rustartourism.StaticClass;
 
 import java.text.SimpleDateFormat;
@@ -188,7 +189,7 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
                 Hotel[] searchHotels = new Hotel[Hotel.getAmountOfHotels()];
 
                 for (int i = 0; i < searchHotels.length; i++)
-                    searchHotels[i] = StaticClass.advancedSearchReslust(checkIn.getText().toString(),
+                    searchHotels[i] = AdvancedSearch.advancedSearchReslust(checkIn.getText().toString(),
                         Integer.parseInt(nights.getText().toString()), checkOut.getText().toString(),
                         hotel.getText().toString(), city.getText().toString(), district.getText().toString(),
                         Integer.parseInt(amountOfAdults.getSelectedItem().toString()), childrensAgeSpinners, tryParse(dailyFrom.getText().toString()),

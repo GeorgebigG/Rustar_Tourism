@@ -15,7 +15,7 @@ public class Hotel {
     int star, nights;
     Calendar checkInCal, checkOutCal;
 
-    public Hotel(String[] imageURL, int maxPrice, int minPrice, String checkIn, String checkOut, String name, boolean[] stars, int nights, Calendar checkInCal, Calendar checkOutCal, String meal) {
+    public Hotel(String imageURL, int maxPrice, int minPrice, String checkIn, String checkOut, String name, boolean[] stars, int nights, Calendar checkInCal, Calendar checkOutCal, String meal) {
         this.maxPrice = maxPrice;
         this.minPrice = minPrice;
         this.checkIn = checkIn;
@@ -25,7 +25,7 @@ public class Hotel {
         this.checkInCal = checkInCal;
         this.checkOutCal = checkOutCal;
         rand = new Random();
-        this.imageURL = imageURL[rand.nextInt(imageURL.length)];
+        this.imageURL = imageURL;
         if (!meal.equals("Any"))
             this.meal = meal;
         else {
