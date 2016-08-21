@@ -132,7 +132,7 @@ public class FirstPage extends Fragment implements View.OnClickListener {
             case R.id.Search:
                 if (nights.getText().toString().length() == 0) nights.setText("1");
 
-                StaticClass.searchRelust(checkIn.getText().toString(), Integer.parseInt(nights.getText().toString()),
+                StaticClass.searchReslust(checkIn.getText().toString(), Integer.parseInt(nights.getText().toString()),
                         checkOut.getText().toString(), location.getText().toString(), holtel.getText().toString(),
                         pax.getText().toString());
 

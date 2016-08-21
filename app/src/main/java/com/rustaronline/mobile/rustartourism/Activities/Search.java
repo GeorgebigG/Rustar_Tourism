@@ -188,7 +188,7 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
                 Hotel[] searchHotels = new Hotel[Hotel.getAmountOfHotels()];
 
                 for (int i = 0; i < searchHotels.length; i++)
-                    searchHotels[i] = StaticClass.advancedSearchRelust(checkIn.getText().toString(),
+                    searchHotels[i] = StaticClass.advancedSearchReslust(checkIn.getText().toString(),
                         Integer.parseInt(nights.getText().toString()), checkOut.getText().toString(),
                         hotel.getText().toString(), city.getText().toString(), district.getText().toString(),
                         Integer.parseInt(amountOfAdults.getSelectedItem().toString()), childrensAgeSpinners, tryParse(dailyFrom.getText().toString()),

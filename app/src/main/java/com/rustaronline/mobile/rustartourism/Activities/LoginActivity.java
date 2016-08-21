@@ -24,7 +24,7 @@ import com.rustaronline.mobile.rustartourism.Helper.AnimationClass;
 import com.rustaronline.mobile.rustartourism.R;
 import com.rustaronline.mobile.rustartourism.StaticClass;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener, View.OnTouchListener, OnShowResult {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener, OnShowResult {
     Button signIn;
     EditText Username, Password;
 
@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         signIn = (Button) findViewById(R.id.signIn);
         signIn.setOnClickListener(this);
-        signIn.setOnTouchListener(this);
+        AnimationClass.setAnimation(signIn, getResources().getColor(R.color.rustarGreen), getResources().getColor(R.color.clickColour));
 
         Username = (EditText) findViewById(R.id.Username);
         Password = (EditText) findViewById(R.id.Password);
@@ -102,13 +102,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             e.printStackTrace();
         }
 
-        String result = StaticClass.getString(Username.getText().toString(), Password.getText().toString(), this);
+        pd.show();
+
+        StaticClass.searchAccount(Username.getText().toString(), Password.getText().toString(), this);
     }
 
     public void showResult(String result) {
         pd.cancel();
 
-        if (result.equals("Correct")) {
+        if (result.equals(StaticClass.correctPassword)) {
             if (isConnected()) {
                 saveUsername(Username.getText().toString());
                 FirstpageActivity.Username = Username.getText().toString();
@@ -122,7 +124,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         .setMessage(getResources().getString(R.string.noInternetConnectionText))
                         .setNegativeButton(getResources().getString(R.string.Ok), null).setCancelable(false).create().show();
         }
-        else if (result.equals("password or username wrong")) {
+        else if (result.equals(StaticClass.pasOrUsWrong)) {
             new AlertDialog.Builder(this).setTitle(getResources().getString(R.string.IncorrectPasswordTitle))
                     .setMessage(getResources().getString(R.string.IncorrectPasswordText)).setCancelable(false)
                     .setNegativeButton(getResources().getString(R.string.Ok), null).create().show();
@@ -168,31 +170,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     @Override
-    public boolean onTouch(View view, MotionEvent event) {
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                pd.show();
-                break;
-        }
-
-        return false;
-    }
-
-    @Override
     protected void onStart() {
         super.onStart();
-//        if (isConnected()) {
-//            if (!getUsername().equals("") && !logOutClicked) {
-//                FirstpageActivity.Username = getUsername();
-//                Intent intent = new Intent(this, FirstpageActivity.class);
-//                destroyActivity = true;
-//                startActivity(intent);
-//                onBackPressed();
-//            }
-//        } else {
-//            new AlertDialog.Builder(this).setTitle(getResources().getString(R.string.noInternetConnectionTextTitle))
-//                    .setMessage(getResources().getString(R.string.noInternetConnectionText))
-//                    .setNegativeButton(getResources().getString(R.string.Ok), null).setCancelable(false).create().show();
-//        }
+        if (isConnected()) {
+            if (!getUsername().equals("") && !logOutClicked) {
+                FirstpageActivity.Username = getUsername();
+                Intent intent = new Intent(this, FirstpageActivity.class);
+                destroyActivity = true;
+                startActivity(intent);
+                onBackPressed();
+            }
+        } else {
+            new AlertDialog.Builder(this).setTitle(getResources().getString(R.string.noInternetConnectionTextTitle))
+                    .setMessage(getResources().getString(R.string.noInternetConnectionText))
+                    .setNegativeButton(getResources().getString(R.string.Ok), null).setCancelable(false).create().show();
+        }
     }
 }

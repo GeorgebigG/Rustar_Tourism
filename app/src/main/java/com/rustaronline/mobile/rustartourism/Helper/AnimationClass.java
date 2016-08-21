@@ -20,8 +20,7 @@ public class AnimationClass {
                         view.setBackgroundColor(clickColor);
                         break;
 
-                    case MotionEvent.ACTION_UP:
-                    case MotionEvent.ACTION_CANCEL:
+                    default:
                         view.setBackgroundColor(defaultColor);
 
                 }

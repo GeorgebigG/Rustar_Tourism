@@ -25,7 +25,6 @@ public class StaticClass {
     public static String firstHotel = "https://www.rustaronline.com/images/pages/hotels/thumbnail/A9AF2DFE-73DC-441A-A972-CC6136534569.jpg";
     public static String secondHotel = "https://www.rustaronline.com/images/pages/hotels/thumbnail/78468066-FCA7-472C-AABD-2143DF1DC718.jpg";
 
-
     private static String WebServiceUrl = "https://restapi.rustaronline.com/v1.00/api/";
     private static String HotelListName = "hotels?";
     private static String HotelPriceName = "hotelprices?";
@@ -39,27 +38,23 @@ public class StaticClass {
     private static String codeVariableName = "Code";
     private static String correctCode = "00";
 
-    public static String getString(String name, String password, OnShowResult showResult) {
-        boolean correctPassword = checkPassword(name, password);
+    public static String correctPassword = "Correct";
+    public static String pasOrUsWrong = "password or username wrong";
+    public static String usBlocked = "User Blocked";
 
-        if (correctPassword && !isAccauntBlocked(name, password))
-            return "Correct";
-        else if (!correctPassword)
-            return "password or username wrong";
-        else
-            return "User Blocked!";
+    public static void searchAccount(String name, String password, OnShowResult showResult) {
+        if (name.equals("") || password.equals("")) {
+            showResult.showResult(pasOrUsWrong);
+            return;
+        }
+
+        new FindWebService(name, password, showResult).execute();
     }
 
     private static boolean checkPassword(String name, String password) {
 
         if (name.equals("") || password.equals(""))
             return false;
-
-        try {
-            rustarWebService = new FindWebService(name, password).execute().get();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
         try {
             if (rustarWebService != null) {
@@ -84,9 +79,9 @@ public class StaticClass {
 
 
 
-    public static void searchRelust(String checkIn, int amountOfNight, String checkOut, String location, String hotel, String pax) {}
+    public static void searchReslust(String checkIn, int amountOfNight, String checkOut, String location, String hotel, String pax) {}
 
-    public static Hotel advancedSearchRelust(String checkIn, int amountOfNight, String checkOut, String hotelname, String city, String district, int amountOfAdults, ArrayList<Spinner> childrensAgeSpinner, int dailyFrom, int dailyTo, int totalFrom, int totalTo, String type, String meal, boolean fiveStar, boolean fourStar, boolean threeStar, boolean twoStar, boolean oneStar, boolean apartment, boolean alcohol, boolean freeWifi, boolean pool, boolean metro, boolean mall, Calendar checkInCal, Calendar checkOutCal) {
+    public static Hotel advancedSearchReslust(String checkIn, int amountOfNight, String checkOut, String hotelname, String city, String district, int amountOfAdults, ArrayList<Spinner> childrensAgeSpinner, int dailyFrom, int dailyTo, int totalFrom, int totalTo, String type, String meal, boolean fiveStar, boolean fourStar, boolean threeStar, boolean twoStar, boolean oneStar, boolean apartment, boolean alcohol, boolean freeWifi, boolean pool, boolean metro, boolean mall, Calendar checkInCal, Calendar checkOutCal) {
         int minPrice = dailyFrom == 0 ? totalFrom == 0 ? 0 : (totalFrom/amountOfNight) : dailyFrom;
         int maxPrice = dailyTo == 0 ? totalTo == 0 ? 0 : (totalTo/amountOfNight) : dailyTo;
         boolean[] stars = new boolean[] { oneStar, twoStar, threeStar, fourStar, fiveStar };
@@ -103,10 +98,12 @@ public class StaticClass {
 
         String name;
         String password;
+        OnShowResult showResult;
 
-        public FindWebService(String name, String password) {
+        public FindWebService(String name, String password, OnShowResult showResult) {
             this.name = name;
             this.password = password;
+            this.showResult = showResult;
         }
 
         @Override
@@ -133,7 +130,6 @@ public class StaticClass {
                 }
 
                 // Now we have our json code so lets create a json from this
-
                 mainObject = new JSONObject(JSONCode);
 
             } catch (Exception ex) {
@@ -157,6 +153,21 @@ public class StaticClass {
         @Override
         protected void onPostExecute(JSONObject result) {
             super.onPostExecute(result);
+            rustarWebService = result;
+
+            boolean correctPassword = checkPassword(name, password);
+
+            if (correctPassword && !isAccauntBlocked(name, password)) {
+                showResult.showResult(StaticClass.correctPassword);
+                return;
+            }
+            else if (!correctPassword) {
+                showResult.showResult(StaticClass.pasOrUsWrong);
+                return;
+            }
+            else {
+                showResult.showResult(StaticClass.usBlocked);
+            }
         }
     }
 }
