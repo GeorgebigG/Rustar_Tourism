@@ -58,7 +58,6 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
     private static FrameLayout firstThree, anotherThree;
 
     private static CheckBox fiveS, fourS, threeS, twoS, oneS, apartment, alcohol, freeWifi, pool, metro, mall;
-    int amountOfDay = 1;
 
     ArrayList<Spinner> childrensAgeSpinners;
 

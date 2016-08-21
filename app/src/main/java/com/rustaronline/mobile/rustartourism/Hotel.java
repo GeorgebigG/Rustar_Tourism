@@ -8,45 +8,65 @@ import java.util.Random;
  * Created by gio on 6/6/16.
  */
 public class Hotel {
-    int maxPrice, minPrice, price;
-    Random rand;
+    int price;
     String imageURL;
     String checkIn, checkOut, name, meal;
     int star, nights;
     Calendar checkInCal, checkOutCal;
 
-    public Hotel(String imageURL, int maxPrice, int minPrice, String checkIn, String checkOut, String name, boolean[] stars, int nights, Calendar checkInCal, Calendar checkOutCal, String meal) {
-        this.maxPrice = maxPrice;
-        this.minPrice = minPrice;
+    public Hotel() {}
+
+    public Hotel(String imageURL, int price, String checkIn, String checkOut, String name, int star, int nights, Calendar checkInCal, Calendar checkOutCal, String meal) {
         this.checkIn = checkIn;
         this.checkOut = checkOut;
         this.name = name;
         this.nights = nights;
         this.checkInCal = checkInCal;
         this.checkOutCal = checkOutCal;
-        rand = new Random();
         this.imageURL = imageURL;
-        if (!meal.equals("Any"))
-            this.meal = meal;
-        else {
-            String[] meals = new String[] { "RO", "BB", "HB", "FB", "AL" };
-            this.meal = meals[rand.nextInt(meals.length)];
-        }
+        this.meal = meal;
+        this.price = price;
+        this.star = star;
+    }
 
-        price = maxPrice == 0 ? minPrice + rand.nextInt(201) : minPrice + rand.nextInt(maxPrice - minPrice + 1);
+    public void setPrice(int price) {
+        this.price = price;
+    }
 
-        if ((stars[0] == false && stars[1] == false && stars[2] == false && stars[3] == false && stars[4] == false) ||
-                (stars[0] == true && stars[1] == true && stars[2] == true && stars[3] == true && stars[4] == true))
-            star = 1 + rand.nextInt(5);
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
 
-        else {
-            ArrayList<Integer> integers = new ArrayList<>();
+    public void setCheckIn(String checkIn) {
+        this.checkIn = checkIn;
+    }
 
-            for (int i = 0; i < stars.length; i++)
-                if (stars[i] == true) integers.add((i + 1));
+    public void setCheckOut(String checkOut) {
+        this.checkOut = checkOut;
+    }
 
-            star = integers.get(rand.nextInt(integers.size()));
-        }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setMeal(String meal) {
+        this.meal = meal;
+    }
+
+    public void setStar(int star) {
+        this.star = star;
+    }
+
+    public void setNights(int nights) {
+        this.nights = nights;
+    }
+
+    public void setCheckInCal(Calendar checkInCal) {
+        this.checkInCal = checkInCal;
+    }
+
+    public void setCheckOutCal(Calendar checkOutCal) {
+        this.checkOutCal = checkOutCal;
     }
 
     public String getImageURL() {

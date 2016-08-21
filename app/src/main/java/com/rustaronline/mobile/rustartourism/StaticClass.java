@@ -35,7 +35,7 @@ public class StaticClass {
     private static String WebSPassword = "agentpassword=";
     private static String WebSHotelId = "hotelid=";
 
-    private static JSONObject rustarWebService = null;
+    public static JSONObject rustarWebService = null;
     private static String codeVariableName = "Code";
     private static String correctCode = "00";
 
