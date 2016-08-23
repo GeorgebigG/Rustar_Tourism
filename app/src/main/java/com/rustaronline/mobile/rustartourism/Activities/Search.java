@@ -34,6 +34,7 @@ import com.rustaronline.mobile.rustartourism.Helper.downloadImageFromUrl;
 import com.rustaronline.mobile.rustartourism.Hotel;
 import com.rustaronline.mobile.rustartourism.R;
 import com.rustaronline.mobile.rustartourism.Searches.AdvancedSearch;
+import com.rustaronline.mobile.rustartourism.Searches.JsonNames;
 import com.rustaronline.mobile.rustartourism.StaticClass;
 
 import java.text.SimpleDateFormat;
@@ -187,16 +188,22 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
             case R.id.AdvSearch:
                 Hotel[] searchHotels = new Hotel[Hotel.getAmountOfHotels()];
 
+                String type = this.type.getSelectedItem().toString();
+                if (type.equals(getResources().getStringArray(R.array.types)[1]))
+                    type = JsonNames.typeCity;
+                if (type.equals(getResources().getStringArray(R.array.types)[2]))
+                    type = JsonNames.typeBeach;
+
                 for (int i = 0; i < searchHotels.length; i++)
-                    searchHotels[i] = AdvancedSearch.advancedSearchReslust(checkIn.getText().toString(),
-                        Integer.parseInt(nights.getText().toString()), checkOut.getText().toString(),
+                    searchHotels[i] = AdvancedSearch.advancedSearchResult(checkIn.getText().toString(),
+                        tryParse(nights.getText().toString()), checkOut.getText().toString(),
                         hotel.getText().toString(), city.getText().toString(), district.getText().toString(),
-                        Integer.parseInt(amountOfAdults.getSelectedItem().toString()), childrensAgeSpinners, tryParse(dailyFrom.getText().toString()),
+                        tryParse(amountOfAdults.getSelectedItem().toString()), childrensAgeSpinners, tryParse(dailyFrom.getText().toString()),
                         tryParse(dailyTo.getText().toString()), tryParse(totalFrom.getText().toString()),tryParse(totalTo.getText().toString()),
-                        type.getSelectedItem().toString(), meal.getSelectedItem().toString(), fiveS.isChecked(),
+                        type, meal.getSelectedItem().toString(), fiveS.isChecked(),
                         fourS.isChecked(), threeS.isChecked(), twoS.isChecked(), oneS.isChecked(), apartment.isChecked(),
                         alcohol.isChecked(), freeWifi.isChecked(), pool.isChecked(), metro.isChecked(), mall.isChecked(),
-                            (Calendar) FirstPage.CHECK_IN_CAL.clone(), (Calendar) FirstPage.CHECK_OUT_CAL.clone());
+                        (Calendar) FirstPage.CHECK_IN_CAL.clone(), (Calendar) FirstPage.CHECK_OUT_CAL.clone());
 
                 createHotelChoices(searchHotels);
                 break;
@@ -215,6 +222,8 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
         TextView textView;
 
         for (final Hotel hotel : searchHotels) {
+            if (hotel == null) break;
+
             lParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             final ImageView image = new ImageView(getActivity());
             image.setScaleType(ImageView.ScaleType.FIT_XY);
@@ -291,13 +300,3 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
         }
     }
 }
-
-
-
-
-
-
-
-
-
-

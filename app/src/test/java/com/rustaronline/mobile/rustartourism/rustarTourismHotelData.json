@@ -1,9 +1,9 @@
 {
   "Code": "00",
   "Message": "",
-  "Timestamp": "2016-08-09T23:52:19.247076+04:00",
+  "Timestamp": "2016-08-23T20:48:24.6808639+04:00",
   "Version": "1.0",
-  "ResponseID": "a31500ee-2ddd-4846-ab77-31af6cb35971",
+  "ResponseID": "989092f7-afd5-4ced-8ac8-85f09539de20",
   "Data": [
     {
       "hotelid": "d6f9299f-5d94-4955-85e7-003e0383023c",
@@ -365,7 +365,7 @@
     {
       "hotelid": "b2eef272-6d0d-4cba-b0ae-46232a20e8e3",
       "hotelname": "City Max Al Barsha",
-      "pricestatus": "pending",
+      "pricestatus": "ready",
       "cityid": "f5185fa3-3f56-44ed-bf6b-80386a33caa2",
       "cityname": "Dubai",
       "districtid": "4c65f6ed-902b-4fd8-9419-af7884c22c5e",
@@ -379,7 +379,7 @@
       "hoteltype": "City",
       "popular": false,
       "recommended": false,
-      "priceupdated": "2016-08-09T16:51:46.76",
+      "priceupdated": "2016-08-08T14:34:30.537",
       "note": "Tourism Dirham Fee per bed room per night is payable by the guest upon departure. \r\n\r\nCheck-in time is 14:00 hrs,  Check-out time is 12:00nn.\r\n\r\nHalfboard (HB) is defined as Lunch or Dinner (Set Menu)\r\nFullboard (FB) is defined as Lunch & Dinner (Set Menu) \r\n\r\nHotel provide complimentary shuttle service to an open public beach which must be booked at the concierge or reception at least 24 hours prior to requested date and is subject to seat availability.\r\n\r\n01.10.2016 - 30.04.2017 \r\nRates are valid for CIS, India, East Europe.\r\n\r\nBreakfast should be taken in the City Cafe.\r\n\r\nCable Internet Free of Charge.\r\nFree schedule shuttle to Public Beach and selected Malls.\r\n\r\nMinimum Lenght of Stay of 3 nights for the dates 25.12.2016 - 02.01.2017.\r\nNo check in and checkout on 31.12.2016 and 01.01.2017.\r\nCompulsory New Years Gala Dinner on 31.12.2016 - 132 $ per person (includes festive buffet dinner and unlimited house beverages till 1AM)\r\nAll HB reservations on 31.12.2016 will only be applicable for LUNCH\r\n\r\n\r\n",
       "imageurl": "https://www.rustaronline.com/images/pages/hotels/thumbnail/B2EEF272-6D0D-4CBA-B0AE-46232A20E8E3.jpg"
     },
@@ -631,7 +631,7 @@
       "hoteltype": "Beach",
       "popular": false,
       "recommended": false,
-      "priceupdated": "2016-08-09T22:46:45.36",
+      "priceupdated": "2016-08-06T16:44:02.613",
       "note": null,
       "imageurl": "https://www.rustaronline.com/images/pages/hotels/thumbnail/B56FBBE2-E5A0-4878-A70D-A034931BEB45.jpg"
     },
@@ -883,7 +883,7 @@
       "hoteltype": "Beach",
       "popular": true,
       "recommended": true,
-      "priceupdated": "2016-08-09T20:56:30.28",
+      "priceupdated": "2016-08-04T11:49:45.47",
       "note": null,
       "imageurl": "https://www.rustaronline.com/images/pages/hotels/thumbnail/E2E5FE5A-1A92-41D4-84ED-E42C9294EBE8.jpg"
     },
@@ -995,7 +995,7 @@
     {
       "hotelid": "359dc964-00cf-4aef-ad6f-2e278023f6a8",
       "hotelname": "Grand Hotel - Sharjah",
-      "pricestatus": "pending",
+      "pricestatus": "ready",
       "cityid": "f78ac3bc-f040-46d0-8319-2c52083080a6",
       "cityname": "Sharjah",
       "districtid": "f8c2cbe6-a411-48b7-bbe6-5318b1237ee6",
@@ -1009,7 +1009,7 @@
       "hoteltype": "Beach",
       "popular": false,
       "recommended": false,
-      "priceupdated": "2016-08-09T16:12:32.783",
+      "priceupdated": "2016-07-26T09:37:40.8",
       "note": "Check-in time: 14:00 hrs, Check-out time: 12:00 hrs\r\n\r\nHalfboard (HB) is defined as Dinner \r\nFullboard (FB) is defined as Lunch & Dinner \r\n\r\nThe hotel provides a daily free group transfer (bus) in shopping centers of Dubai (Deira City Center) and Sharjah (Sharjah Souk).\r\n\r\nCompulsory Events\t\t\t\t\t\t\t\t\t\t\r\nNew Year's Eve Gala Dinner/31st December 2016\t\t\t\t\t\t\t\tGuest booked on BB & HB - Adult 141$  & Child (0-11.99 yrs old) 73$ \t\t\t\t\t\tGuest booked on FB          - Adult 114$ & Child (0-11.99 yrs old) 57$ \t\t\t\t\t\t\t\t\t\t\r\nChristmas Dinner (for CIS Orthodox clients only) 06th January 2017\t\t\t\t\t\tGuest booked on BB & HB - Adult 73$  & Child (0-11.99 yrs old) 53$ \t\t\t\t\t\tGuest booked on FB          - Adult 46$ & Child (0-11.99 yrs old) 36$\t\t\t\t\t\t\t\t\t\t\r\nSpecial Note from hotel: It is not advisable to bring children 0-4.99 during New Year Eve's Gala Dinner and X-mas Dinner- in case of attendance children's rate will apply. \t\t\t\t\t\t\t\t\t\t\r\n24.12.201, 31.12.2016, 06.01.2017: ALL RESERVATIONS ON HALF BOARD (HB) WILL HAVE LUNCH INSTEAD OF DINNER\t\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t\t\t\r\n\r\n",
       "imageurl": "https://www.rustaronline.com/images/pages/hotels/thumbnail/359DC964-00CF-4AEF-AD6F-2E278023F6A8.jpg"
     },
@@ -1030,7 +1030,7 @@
       "hoteltype": "Beach",
       "popular": false,
       "recommended": false,
-      "priceupdated": "2016-08-09T22:46:35.94",
+      "priceupdated": "2016-08-07T12:17:29.947",
       "note": null,
       "imageurl": "https://www.rustaronline.com/images/pages/hotels/thumbnail/80E52920-5DAD-4F0F-A60A-2E2B9D98AAD3.jpg"
     },
@@ -1702,14 +1702,14 @@
       "hoteltype": "City",
       "popular": true,
       "recommended": true,
-      "priceupdated": "2016-08-09T16:44:27.693",
+      "priceupdated": "2016-08-08T11:15:25.183",
       "note": "The room rates are inclusive of 10% Service Charge and 10% Municipality Fee. \t\t\t\t\t\t\t\t\t\t\r\nTourism Dirham Fee per room per night is payable by the guest upon departure.\t\t\t\t\t\t\t\t\t\t\r\nHotel will request upon check-in a refundable deposit of 200Dhs or 50$ to cover incidental charges (if any).\t\t\t\t\t\t\t\t\t\t\r\nMeals (breakfast, lunch and dinner) can be taken in \"Al Fursan\" Restaurant. \t\t\t\t\t\t\t\t\t\t\r\nMeals (BB/HB/FB) are inclusive of mineral water,soft drinks, tea & coffee only, other beverages is on chargeable basis.\t\t\t\t\t\t\t\t\t\t\r\n\r\nStandard Check-in time is 14:00 hours on the day of arrival, Standard Check-out time is 12:00 noon on the day of departure.\t\t\t\t\t\t\t\t\t\t\r\n\r\nThe hotel provides daily free shuttle services to and from Sheikh Hamdan Beach.\t\t\t\t\t\t\t\t\t\t\r\n01.10.2016 - 30.09.2017\r\nRates are valid for CIS,Eastern Europe, Balkans, Baltics.\r\n\t\r\nMinimum length of stay of 3 nights for any arrivals crossing New Years Eve 31.12.2016.\t\t\t\tCompulsory New Year Eve Gala Dinner on 31.12.2016 - 72$ per adult 12 yrs and above, 36$ per child 5 -11.9 yrs.\t\t\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\r\n",
       "imageurl": "https://www.rustaronline.com/images/pages/hotels/thumbnail/3C302D7D-8C65-4643-A629-1E8861CE6049.jpg"
     },
     {
       "hotelid": "bce030ba-96e5-4196-a548-1f0be2e4edca",
       "hotelname": "Centro Yas Island Rotana Abu Dhabi",
-      "pricestatus": "ready",
+      "pricestatus": "pending",
       "cityid": "28c794fe-3c7e-4da2-ba93-f24bd3d4730d",
       "cityname": "Abu Dhabi",
       "districtid": "9251cd26-44e9-484d-a1bb-0a36a001ae4c",
@@ -1723,7 +1723,7 @@
       "hoteltype": "City",
       "popular": false,
       "recommended": false,
-      "priceupdated": "2016-08-09T18:05:31.8",
+      "priceupdated": "2016-08-06T19:49:34.953",
       "note": "Check in time is 14:00 hrs, Check out time is 12:00hrs.",
       "imageurl": "https://www.rustaronline.com/images/pages/hotels/thumbnail/BCE030BA-96E5-4196-A548-1F0BE2E4EDCA.jpg"
     },
@@ -1765,7 +1765,7 @@
       "hoteltype": "City",
       "popular": false,
       "recommended": false,
-      "priceupdated": "2016-08-09T10:51:43.573",
+      "priceupdated": "2016-07-07T15:04:52.99",
       "note": null,
       "imageurl": "https://www.rustaronline.com/images/pages/hotels/thumbnail/32C7EFB3-DF55-4577-B4A4-1F72F47D6213.jpg"
     },
@@ -1786,7 +1786,7 @@
       "hoteltype": "Beach",
       "popular": false,
       "recommended": false,
-      "priceupdated": "2016-08-09T23:05:36.047",
+      "priceupdated": "2016-08-02T16:57:43.463",
       "note": "All Inclusive Standard (Pouring Brands) : Mineral Water, Soft Drinks, Beer, Wine and Spirits served by the Glass, Ice Cream.\r\nAll Inclusive Gold (Selected Premium Brands) : Mineral Water, Soft Drinks, Beer, Wine and Spirits served by the Glass, Ice Cream + Mini Bar 2 Soft Drinks, 2 Canned Juices, 2 Small Local Water and 4 Beers, Midday Special Snacks.\r\nDine Around All Inclusive (Selected Premium Brands) : Mineral Water, Soft Drinks, Beer, Wine and Spirits served by the Glass, Ice Cream + Mini Bar 2 Soft Drinks, 2 Canned Juices, 2 Small Local Water and 4 Beers, Midday Special Snacks + Allows the Guests the option to eat in any of the Restaurants",
       "imageurl": "https://www.rustaronline.com/images/pages/hotels/thumbnail/63300069-0631-4C34-946E-D2CA9753FF6E.jpg"
     },
@@ -2024,7 +2024,7 @@
     {
       "hotelid": "252df396-cb29-4c8c-8cce-c75aeb379989",
       "hotelname": "Movenpick Hotel Jumeirah Beach",
-      "pricestatus": "ready",
+      "pricestatus": "pending",
       "cityid": "f5185fa3-3f56-44ed-bf6b-80386a33caa2",
       "cityname": "Dubai",
       "districtid": "8b155fbb-071c-4066-9751-81392a069877",
@@ -2038,7 +2038,7 @@
       "hoteltype": "City",
       "popular": false,
       "recommended": false,
-      "priceupdated": "2016-08-09T17:39:22.547",
+      "priceupdated": "2016-08-08T18:59:21.29",
       "note": "06.06.2016 - 05.07.2016 RAMADAN\r\nIn light of the announcement made by the DTCM, kindly note that as per procedures Alcoholic drinks are only permitted in licensed areas.",
       "imageurl": "https://www.rustaronline.com/images/pages/hotels/thumbnail/252DF396-CB29-4C8C-8CCE-C75AEB379989.jpg"
     },
@@ -2458,7 +2458,7 @@
       "hoteltype": "City",
       "popular": false,
       "recommended": false,
-      "priceupdated": "2016-08-09T21:52:03.827",
+      "priceupdated": "2016-07-19T22:37:53.8",
       "note": "Tourism Dirham Fee per bedroom per night is payable by the guest upon departure.\t\r\nCheck-in time: 15:00 hrs, Check-out time: 12:00 hrs",
       "imageurl": "https://www.rustaronline.com/images/pages/hotels/thumbnail/EA9665BF-02AD-4A76-93BA-0C3132D8F0C2.jpg"
     },
@@ -3928,7 +3928,7 @@
       "hoteltype": "City",
       "popular": false,
       "recommended": false,
-      "priceupdated": "2016-08-09T21:57:16.547",
+      "priceupdated": "2016-07-15T14:03:59.553",
       "note": "Tourism Dirham Fee per bedroom per night will pay by the guest at the hotel directly\r\n\r\nCheck-In Time: 14:00 & Check-Out Time: 12:00nn.",
       "imageurl": "https://www.rustaronline.com/images/pages/hotels/thumbnail/126CBA2A-C115-4946-9620-A6CC236500B4.jpg"
     },
@@ -4460,7 +4460,7 @@
     {
       "hotelid": "1abd4c08-b3a2-41c7-a54a-c01fb578d633",
       "hotelname": "Nova Park Hotel Sharjah",
-      "pricestatus": "pending",
+      "pricestatus": "ready",
       "cityid": "f78ac3bc-f040-46d0-8319-2c52083080a6",
       "cityname": "Sharjah",
       "districtid": "7ac1bbc8-59ea-4977-b272-ed8553f94f9b",
@@ -4474,7 +4474,7 @@
       "hoteltype": "City",
       "popular": false,
       "recommended": false,
-      "priceupdated": "2016-08-08T20:16:58.653",
+      "priceupdated": "2016-08-07T21:29:26.203",
       "note": "Check in time is 14:00 hrs, Check out time is 12:00hrs.\t\t\r\n\r\nHalfboard (HB) is defined as buffet lunch or dinner.\r\nFullboard (FB) is defined as buffet lunch and dinner.\r\n\r\n",
       "imageurl": "https://www.rustaronline.com/images/pages/hotels/thumbnail/1ABD4C08-B3A2-41C7-A54A-C01FB578D633.jpg"
     },
@@ -4537,7 +4537,7 @@
       "hoteltype": "City",
       "popular": false,
       "recommended": false,
-      "priceupdated": "2016-08-09T18:07:19.77",
+      "priceupdated": "2016-08-08T13:58:07.983",
       "note": "formerly \"Taj Palace Dubai\"",
       "imageurl": "https://www.rustaronline.com/images/pages/hotels/thumbnail/61BBAAE5-FD3E-472F-8E7F-3E7D70FA4DBE.jpg"
     },
@@ -4649,7 +4649,7 @@
     {
       "hotelid": "0035147b-c2c8-42ae-84ad-ad58dc5ed8c0",
       "hotelname": "Jumeirah Beach Hotel",
-      "pricestatus": "ready",
+      "pricestatus": "pending",
       "cityid": "f5185fa3-3f56-44ed-bf6b-80386a33caa2",
       "cityname": "Dubai",
       "districtid": "e6f59e6e-4747-4c14-9b6b-a709cce36c33",
@@ -4663,7 +4663,7 @@
       "hoteltype": "Beach",
       "popular": true,
       "recommended": true,
-      "priceupdated": "2016-08-08T19:27:26.63",
+      "priceupdated": "2016-08-08T17:37:26.09",
       "note": "Valid for All Markets except GCC, MENA and Turkey\r\n\r\nTourism Dirham Fee per bedroom per night is payable by the guest upon departure. \r\nBreakfast and Lunch or Dinner can be availed in \"Latitude\" restaurant .\r\nCheck-in time: 15:00 hrs, Check-out time: 12:00 hrs\r\n\r\nHalfboard (HB) is defined as Lunch or Dinner (Food only, drinks are not included).\r\n\r\nNew Year's Eve Gala Dinner is Compulsory on 31st December 2016 *(Rates and Conditions will be advised at a later stage).\r\n\r\nComplimentary scheduled shuttle service to Mall of the Emirates.\r\nComplimentary scheduled shuttle service to other Jumeirah Resorts.\t\t\t\t\r\nFree access to  Sinbads \"Kid's Club\" & The Hub Teenager's Club\r\nComplimentary daily access to Wild Wadi Water Park",
       "imageurl": "https://www.rustaronline.com/images/pages/hotels/thumbnail/0035147B-C2C8-42AE-84AD-AD58DC5ED8C0.jpg"
     },
@@ -5104,7 +5104,7 @@
       "hoteltype": "City",
       "popular": false,
       "recommended": false,
-      "priceupdated": "2016-08-09T17:28:45.213",
+      "priceupdated": "2016-08-07T16:52:13.687",
       "note": "Check-In Time: 14:00 & Check-Out Time: 12:00nn.\r\n\r\n",
       "imageurl": "https://www.rustaronline.com/images/pages/hotels/thumbnail/8A6D1566-D287-4661-AFED-87A510A02366.jpg"
     },
@@ -5886,6 +5886,27 @@
       "imageurl": "https://www.rustaronline.com/images/pages/hotels/thumbnail/C6D743F1-A91B-4CBC-8250-4DF2F5EEA4B0.jpg"
     },
     {
+      "hotelid": "e08072a8-eec2-4c92-809d-4ecb96d48bc4",
+      "hotelname": "Media One Hotel",
+      "pricestatus": "pending",
+      "cityid": "f5185fa3-3f56-44ed-bf6b-80386a33caa2",
+      "cityname": "Dubai",
+      "districtid": "4c65f6ed-902b-4fd8-9419-af7884c22c5e",
+      "districtname": "Al Barsha",
+      "hasalcohol": false,
+      "hasfreewifi": false,
+      "hasmall": false,
+      "hasmetro": false,
+      "haspool": false,
+      "hotelclass": "****",
+      "hoteltype": "City",
+      "popular": false,
+      "recommended": false,
+      "priceupdated": "2016-08-05T17:07:00.647",
+      "note": null,
+      "imageurl": ""
+    },
+    {
       "hotelid": "5964b8c6-77c7-454b-9b8f-50b6b93de1d1",
       "hotelname": "Royal Grand Suite Hotel",
       "pricestatus": "ready",
@@ -6203,7 +6224,7 @@
     {
       "hotelid": "aaece9a9-7c1d-4ebf-9bf0-d762bc73e5ba",
       "hotelname": "Coral Beach Resort Sharjah",
-      "pricestatus": "pending",
+      "pricestatus": "ready",
       "cityid": "f78ac3bc-f040-46d0-8319-2c52083080a6",
       "cityname": "Sharjah",
       "districtid": "f26cf9ab-9fea-48fa-9e52-088f4389cc15",
@@ -6217,8 +6238,8 @@
       "hoteltype": "Beach",
       "popular": false,
       "recommended": true,
-      "priceupdated": "2016-08-09T16:26:27.183",
-      "note": "Rates are valid for CIS/Russian Market.\r\n\r\nRates are inclusive of 10% municipality taxes and 10% service charge.\r\n\r\nMandatory HB supplement and minimum stay of 7 nights during High Seasons.\r\n\r\nNew Year Gala dinner on 31.12.2016 is mandatory at 152 USD per person.\r\n\r\nChristmas Eve dinner on 06.01.2017 is mandatory at 50 USD per person.\r\n\r\nCheck In Time - 15:00 hrs, Check Out Time - 12:00 hrs",
+      "priceupdated": "2016-07-23T11:22:49.373",
+      "note": null,
       "imageurl": "https://www.rustaronline.com/images/pages/hotels/thumbnail/AECE9A9-7C1D-4EBF-9BF0-D762BC73E5BA.jpg"
     },
     {
@@ -6266,7 +6287,7 @@
     {
       "hotelid": "6a1ff995-2322-487d-b7ba-d0cdd0fb19d8",
       "hotelname": "Beit Al Bahar - Jumeirah Beach Hotel",
-      "pricestatus": "ready",
+      "pricestatus": "pending",
       "cityid": "f5185fa3-3f56-44ed-bf6b-80386a33caa2",
       "cityname": "Dubai",
       "districtid": "e6f59e6e-4747-4c14-9b6b-a709cce36c33",
@@ -6280,7 +6301,7 @@
       "hoteltype": "Beach",
       "popular": false,
       "recommended": false,
-      "priceupdated": "2016-08-09T17:21:48.727",
+      "priceupdated": "2016-08-08T18:33:30.917",
       "note": "Valid for All Markets except GCC, MENA and Turkey\r\n\r\nTourism Dirham Fee per bedroom per night is payable by the guest upon departure. \r\nBreakfast and Lunch or Dinner can be availed at the Villa Beach Reastaurant or \"Latitude\" restaurant or in-room dining .\r\nCheck-in time: 15:00 hrs, Check-out time: 12:00 hrs\r\n\r\nNew Year's Eve Gala Dinner is Compulsory on 31st December 2016 *(Rates and Conditions will be advised at a later stage).\r\n\r\nComplimentary scheduled shuttle service to Mall of the Emirates.\r\nComplimentary scheduled shuttle service to other Jumeirah Resorts.\t\t\t\t\r\nFree access to  Sinbads \"Kid's Club\" & The Hub Teenager's Club\r\nComplimentary daily access to Wild Wadi Water Park\r\nPrivate access to Beit Al Bahar pool which is open from 08:00 - 22:00,\r\n24 hours dedicated butler service,\r\nComplimentary pressing service for one suit or dress once during the stay,\r\nBuggy services are availbale 24 hours,\r\n",
       "imageurl": "https://www.rustaronline.com/images/pages/hotels/thumbnail/6A1FF995-2322-487D-B7BA-D0CDD0FB19D8.jpg"
     },
@@ -6392,7 +6413,7 @@
     {
       "hotelid": "c799ca6a-4d17-4e03-8773-b90d7ec7aed9",
       "hotelname": "Ajman Saray",
-      "pricestatus": "pending",
+      "pricestatus": "ready",
       "cityid": "a7e023c1-c654-4e1d-8a83-7e571bd3a78d",
       "cityname": "Ajman",
       "districtid": "be21bad2-bfdb-4889-b939-4193647c9823",
@@ -6406,7 +6427,7 @@
       "hoteltype": "Beach",
       "popular": false,
       "recommended": false,
-      "priceupdated": "2016-08-09T17:17:43.397",
+      "priceupdated": "2016-07-12T14:35:36.037",
       "note": "Check-in time is 15:00 hours and Check-out time is 12:00 noon.\r\n\r\nThe hotel provides free WiFi internet connection in the rooms and public areas.\r\n\r\nThe hotel provides complimentary shuttle service to Dubai schedule.\r\n\r\nAll above rates are inclusive of Breakfast served in Vista-All-Day Dining Mediterranean Restaurant, Drinks are not included - it's extra charge.\r\n\r\nComplimentary : - Access to Fitness Centre\r\n                           - Tea and coffee facilities in the room\r\n                           - Bottle of water in the rooms\r\n                           - Children recreation area with pool and kids playground",
       "imageurl": "https://www.rustaronline.com/images/pages/hotels/thumbnail/C799CA6A-4D17-4E03-8773-B90D7EC7AED9.jpg"
     },
@@ -6707,7 +6728,7 @@
     {
       "hotelid": "56b98eb8-27ef-4174-81c6-8c615008a9c0",
       "hotelname": "Hilton Dubai The Walk",
-      "pricestatus": "ready",
+      "pricestatus": "pending",
       "cityid": "f5185fa3-3f56-44ed-bf6b-80386a33caa2",
       "cityname": "Dubai",
       "districtid": "8b155fbb-071c-4066-9751-81392a069877",
@@ -6721,7 +6742,7 @@
       "hoteltype": "City",
       "popular": false,
       "recommended": true,
-      "priceupdated": "2016-08-09T22:46:45.37",
+      "priceupdated": "2016-08-08T18:50:35.167",
       "note": null,
       "imageurl": "https://www.rustaronline.com/images/pages/hotels/thumbnail/56B98EB8-27EF-4174-81C6-8C615008A9C0.jpg"
     },
@@ -6952,14 +6973,14 @@
       "hoteltype": "City",
       "popular": false,
       "recommended": false,
-      "priceupdated": "2016-08-08T19:32:04.5",
+      "priceupdated": "2016-08-07T21:16:39.61",
       "note": "Tourism Dirham Fee per bedroom per night is payable by the guest upon departure. \r\n\r\nCheck-in time: 14:00 hrs, Check-out time: 12:00 hrs\r\n\r\n\r\nHalfboard (HB) is defined as Lunch or Dinner\r\nFullboard (FB) is defined as Lunch & Dinner \r\n\r\n\r\n\r\nHotel provides complimentary shuttle service to an open public beach which must be booked at the concierge or reception at least 24 hours prior to requested date and is subject to seat availability.\r\n\r\nHotel provides complimentary shuttle service to Deira City Center as per bus schedule.\r\n",
       "imageurl": "https://www.rustaronline.com/images/pages/hotels/thumbnail/DE3D9031-E8A0-43B6-B024-99526C1AA486.jpg"
     },
     {
       "hotelid": "709f3147-30aa-49fc-846a-7811f8dfe2e3",
       "hotelname": "Waldorf Astoria Ras Al Khaimah",
-      "pricestatus": "ready",
+      "pricestatus": "pending",
       "cityid": "607fbe3a-68e6-4523-bf6e-e419fac86a8b",
       "cityname": "Ras Al Khaimah ",
       "districtid": "8a149be9-75c2-4431-aa07-a91029af4837",
@@ -6973,7 +6994,7 @@
       "hoteltype": "Beach",
       "popular": false,
       "recommended": false,
-      "priceupdated": "2016-08-09T22:46:59.337",
+      "priceupdated": "2016-08-07T18:58:55.807",
       "note": null,
       "imageurl": "https://www.rustaronline.com/images/pages/hotels/thumbnail/709F3147-30AA-49FC-846A-7811F8DFE2E3.jpg"
     },
@@ -7043,7 +7064,7 @@
     {
       "hotelid": "60d6bb96-a8ba-4c14-908e-7a9227c34bf3",
       "hotelname": "Burj Al Arab",
-      "pricestatus": "ready",
+      "pricestatus": "pending",
       "cityid": "f5185fa3-3f56-44ed-bf6b-80386a33caa2",
       "cityname": "Dubai",
       "districtid": "e6f59e6e-4747-4c14-9b6b-a709cce36c33",
@@ -7057,7 +7078,7 @@
       "hoteltype": "Beach",
       "popular": false,
       "recommended": false,
-      "priceupdated": "2016-08-09T19:31:38.633",
+      "priceupdated": "2016-08-08T11:44:55.767",
       "note": null,
       "imageurl": "https://www.rustaronline.com/images/pages/hotels/thumbnail/60D6BB96-A8BA-4C14-908E-7A9227C34BF3.jpg"
     },
@@ -7526,7 +7547,7 @@
     {
       "hotelid": "2962c6e8-1703-488c-a65f-277c7c3532ec",
       "hotelname": "Jumeirah Zabeel Saray",
-      "pricestatus": "ready",
+      "pricestatus": "pending",
       "cityid": "f5185fa3-3f56-44ed-bf6b-80386a33caa2",
       "cityname": "Dubai",
       "districtid": "c98949da-3d08-4ebe-b3ac-61e96d32a9f5",
@@ -7540,7 +7561,7 @@
       "hoteltype": "Beach",
       "popular": false,
       "recommended": true,
-      "priceupdated": "2016-08-09T18:07:15.517",
+      "priceupdated": "2016-08-08T17:41:23.3",
       "note": "These prices are valid for all countries, except Gulf States.      \r\n      \r\nBB/HB breakfast/lunch/dinner (only food) is served only at Imperium or Plaj restaurant.            \r\n\r\nThe guests living in room category Club and Suite can have breakfast at restaurant \"Imperium\", \"Plaj\" or in the Club Lounge hall.\r\n\r\nCheck in time 15:00 hrs \r\nCheckout time 12:00 hrs\r\n\r\nThe hotel provides a free group transfer in Wild Wadi aquapark according to the schedule and 1 free entrance.\r\n\r\nThe hotel provides a free group transfer in shopping center Mall of the Emirates and Souk Madinat Jumeirah according to the schedule.       ",
       "imageurl": "https://www.rustaronline.com/images/pages/hotels/thumbnail/2962C6E8-1703-488C-A65F-277C7C3532EC.jpg"
     },
@@ -7589,7 +7610,7 @@
     {
       "hotelid": "fe6bf30c-73c2-490d-b704-7e172c4c089b",
       "hotelname": "City Max Bur Dubai",
-      "pricestatus": "ready",
+      "pricestatus": "pending",
       "cityid": "f5185fa3-3f56-44ed-bf6b-80386a33caa2",
       "cityname": "Dubai",
       "districtid": "0353f8b7-4649-41f7-97bc-a92c5a288992",
@@ -7603,7 +7624,7 @@
       "hoteltype": "City",
       "popular": false,
       "recommended": false,
-      "priceupdated": "2016-08-09T11:26:52.93",
+      "priceupdated": "2016-08-08T18:27:17.33",
       "note": "Tourism Dirham Fee per bed room per night is payable by the guest upon departure. \r\n\r\nCheck-in time is 14:00 hrs,  Check-out time is 12:00nn.\r\n\r\nHalfboard (HB) is defined as Lunch or Dinner (Set Menu)\r\nFullboard (FB) is defined as Lunch & Dinner (Set Menu) \r\n\r\nHotel provide complimentary shuttle service to an open public beach which must be booked at the concierge or reception at least 24 hours prior to requested date and is subject to seat availability.\r\n\r\n01.10.2016 - 30.04.2017 \r\nRates are valid for CIS, India, East Europe.\r\n\r\nBreakfast should be taken in the City Cafe.\r\n\r\nCable Internet Free of Charge.\r\nFree schedule shuttle to Public Beach and selected Malls.\r\n\r\nMinimum Lenght of Stay of 3 nights for the dates 25.12.2016 - 02.01.2017.\r\nNo check in and checkout on 31.12.2016 and 01.01.2017.\r\nCompulsory New Years Gala Dinner on 31.12.2016 - 132 $ per person (includes festive buffet dinner and unlimited house beverages till 1AM)\r\nAll HB reservations on 31.12.2016 will only be applicable for LUNCH\r\n\r\n\r\n",
       "imageurl": "https://www.rustaronline.com/images/pages/hotels/thumbnail/FE6BF30C-73C2-490D-B704-7E172C4C089B.jpg"
     },
@@ -7666,7 +7687,7 @@
       "hoteltype": "Beach",
       "popular": true,
       "recommended": true,
-      "priceupdated": "2016-08-08T19:57:52.727",
+      "priceupdated": "2016-08-07T18:27:00.367",
       "note": "01.11.2015 - 30.10.2016\r\nThe Room Rates are inclusive of 10% Service Charge and 10% Municipality Fee. \t\t\t\t\t\t\t\t\t\t\t\r\nTourism Dirham Fee per bedroom per night is payable by the guest upon departure.\t\t\t\t\t\t\t\t\t\t\t\r\nBreakfast (BB) and Dinner (HB) can be taken in Main Restaurant (Buffet).\r\n\r\nStandard Check-in time is 15:00 hours on the day of arrival, Standard Check out time is 12:00 noon on the day of departure.\t\t\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t\t\t\t\r\nSuite Benefits:\t\t\t\t\t\t\t\t\t\t\r\nGuest who are staying in Junior Suite, Senior Suite, Sea Grand Suite, King Suite, Grand King Suite are entitled for the following benefits;\t\t\t\t\t\t\t\t\t\t\r\n1. Complimentary early check in/late check out (subject to hotel availability)\t\t\t\t\t\r\n2. Private Pool/Beach Cabana\t\t\t\t\t\t\t\t\t\t\r\n3. Afternoon Tea with canapes at Biber Bar (daily from 15:00 to 17:00)\t\t\t\t\t\r\n4. Complimentary airport return transfer (Dubai Airports) for minimum length of stay 5 nights and more. Flight Details should be sent 72 hours prior to guest arrival\t\t\t\t\t\t\r\n5. 24 hours butler service for King and Grand Suite only\t\t\t\t\t\t\t\t\t\t\r\n01.11.2016 - 11.01.2018\r\nThe Room Rates are inclusive of 10% Service Charge and 10% Municipality Fee. \t\t\t\tTourism Dirham Fee per bedroom per night is payable by the guest upon departure.\t\t\t\tBreakfast (BB) and Dinner or Lunch (HB) can be taken in Main Restaurant (Buffet), (Lunch is not applicable during Friday/Saturday Brunch, and will be at extra charge.\r\nStandard Check-in time is 15:00 hours on the day of arrival, Standard Check out time is 12:00 noon on the day of departure.\r\nSuite Benefits:\t\t\t\t\t\t\t\t\t\r\nGuest who are staying in Junior Suite, Senior Suite, Sea Grand Suite, King Suite, Grand King Suite are entitled for the following benefits;\t\t\t\t\t\t\t\t\t\r\n1. Complimentary early check in/late check out (subject to hotel availability)\t\t\t\t\t\r\n2. Private Pool/Beach Cabana\t\r\n3. Afternoon Tea with canapes at Biber Bar (daily from 15:00 to 17:00)\t\t\t\t\t\r\n4. Complimentary airport return transfer (Dubai Airports) for minimum length of stay 5 nights and more.\r\n5.20% Discount on SPA Treatments",
       "imageurl": "https://www.rustaronline.com/images/pages/hotels/thumbnail/78468066-FCA7-472C-AABD-2143DF1DC718.jpg"
     },
@@ -8093,7 +8114,7 @@
     {
       "hotelid": "213b1d42-b648-4722-91ac-f6ba6b342466",
       "hotelname": "Ibis Styles Hotel Jumeirah",
-      "pricestatus": "ready",
+      "pricestatus": "pending",
       "cityid": "f5185fa3-3f56-44ed-bf6b-80386a33caa2",
       "cityname": "Dubai",
       "districtid": "e6f59e6e-4747-4c14-9b6b-a709cce36c33",
@@ -8107,7 +8128,7 @@
       "hoteltype": "City",
       "popular": false,
       "recommended": false,
-      "priceupdated": "2016-08-09T22:46:50.13",
+      "priceupdated": "2016-08-07T19:25:31.083",
       "note": "Tourism Dirham Fee per bedroom per night payable directly by the guests to the hotel.\r\n\r\nCheck In   :  14:00hrs\r\nCheck Out : 12:00hrs\r\n\r\n\r\nCompulsary Gala Dinner 31.12.2016\t\t\t\t\t\t\t\t\tAdults     - 60$/person  12 yrs old above\t\t\t\t\t\t\t\tChildren  - 30$/person  3-11.99 yrs old\r\nChildren below 2.99 yrs old free of charge\r\n",
       "imageurl": "https://www.rustaronline.com/images/pages/hotels/thumbnail/213B1D42-B648-4722-91AC-F6BA6B342466.jpg"
     },

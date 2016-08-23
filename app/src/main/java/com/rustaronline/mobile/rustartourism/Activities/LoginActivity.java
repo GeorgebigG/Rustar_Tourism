@@ -24,6 +24,8 @@ import com.rustaronline.mobile.rustartourism.Helper.AnimationClass;
 import com.rustaronline.mobile.rustartourism.R;
 import com.rustaronline.mobile.rustartourism.StaticClass;
 
+import org.json.JSONObject;
+
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener, OnShowResult {
     Button signIn;
     EditText Username, Password;
@@ -31,7 +33,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public static boolean destroyActivity = false;
     SharedPreferences sPref;
 
+    public static final String PATH = "Rustar/Data/";
     public static final String USERNAME_KEY = "_username";
+    public static final String JSONCODE_KEY = "_json";
     public static boolean logOutClicked = false;
 
     public ProgressDialog pd;
@@ -102,27 +106,27 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             e.printStackTrace();
         }
 
-        pd.show();
-
-        StaticClass.searchAccount(Username.getText().toString(), Password.getText().toString(), this);
+        if (isConnected()) {
+            pd.show();
+            StaticClass.searchAccount(Username.getText().toString(), Password.getText().toString(), this);
+        }
+        else
+            noInternetConnection();
     }
 
     public void showResult(String result) {
         pd.cancel();
 
         if (result.equals(StaticClass.correctPassword)) {
-            if (isConnected()) {
-                saveUsername(Username.getText().toString());
-                FirstpageActivity.Username = Username.getText().toString();
-                Intent intent = new Intent(this, FirstpageActivity.class);
-                destroyActivity = true;
+            saveUsername(Username.getText().toString());
+            saveJsonCode(StaticClass.rustarWebServiceCode);
 
-                startActivity(intent);
-                onBackPressed();
-            } else
-                new AlertDialog.Builder(this).setTitle(getResources().getString(R.string.noInternetConnectionTextTitle))
-                        .setMessage(getResources().getString(R.string.noInternetConnectionText))
-                        .setNegativeButton(getResources().getString(R.string.Ok), null).setCancelable(false).create().show();
+            FirstpageActivity.Username = Username.getText().toString();
+            Intent intent = new Intent(this, FirstpageActivity.class);
+            destroyActivity = true;
+
+            startActivity(intent);
+            onBackPressed();
         }
         else if (result.equals(StaticClass.pasOrUsWrong)) {
             new AlertDialog.Builder(this).setTitle(getResources().getString(R.string.IncorrectPasswordTitle))
@@ -138,13 +142,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         signIn.setBackgroundColor(getResources().getColor(R.color.rustarGreen));
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-    }
-
     public boolean isConnected() {
-        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
         if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
                 connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED)
             return true;
@@ -155,35 +154,63 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private void saveUsername(String username) {
         sPref = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor ed = sPref.edit();
-        ed.putString(USERNAME_KEY, username);
+        ed.putString(PATH + USERNAME_KEY, username);
         ed.commit();
+    }
+
+    private void saveJsonCode(String code) {
+        sPref = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor ed = sPref.edit();
+        ed.putString(PATH + JSONCODE_KEY, code);
+        ed.commit();
+    }
+
+    private String getJsonCode() {
+        try {
+            sPref = getPreferences(MODE_PRIVATE);
+            String code = sPref.getString(PATH + JSONCODE_KEY, "");
+            return code;
+        } catch (Exception ex) {
+            return "";
+        }
     }
 
     private String getUsername() {
         try {
             sPref = getPreferences(MODE_PRIVATE);
-            String username = sPref.getString(USERNAME_KEY, "");
+            String username = sPref.getString(PATH + USERNAME_KEY, "");
             return username;
         } catch (Exception ex) {
             return "";
         }
     }
 
+
+
     @Override
     protected void onStart() {
         super.onStart();
         if (isConnected()) {
-            if (!getUsername().equals("") && !logOutClicked) {
-                FirstpageActivity.Username = getUsername();
+            String username = getUsername();
+            String jsonCode = getJsonCode();
+
+            if (!username.equals("") && !jsonCode.equals("") && !logOutClicked) {
+                FirstpageActivity.Username = username;
+                StaticClass.rustarWebServiceCode = jsonCode;
+                StaticClass.setRustarWebService(jsonCode);
                 Intent intent = new Intent(this, FirstpageActivity.class);
                 destroyActivity = true;
                 startActivity(intent);
                 onBackPressed();
             }
         } else {
-            new AlertDialog.Builder(this).setTitle(getResources().getString(R.string.noInternetConnectionTextTitle))
-                    .setMessage(getResources().getString(R.string.noInternetConnectionText))
-                    .setNegativeButton(getResources().getString(R.string.Ok), null).setCancelable(false).create().show();
+            noInternetConnection();
         }
+    }
+
+    public void noInternetConnection() {
+        new AlertDialog.Builder(this).setTitle(getResources().getString(R.string.noInternetConnectionTextTitle))
+                .setMessage(getResources().getString(R.string.noInternetConnectionText))
+                .setNegativeButton(getResources().getString(R.string.Ok), null).setCancelable(false).create().show();
     }
 }

@@ -36,6 +36,7 @@ public class StaticClass {
     private static String WebSHotelId = "hotelid=";
 
     public static JSONObject rustarWebService = null;
+    public static String rustarWebServiceCode = null;
     private static String codeVariableName = "Code";
     private static String correctCode = "00";
 
@@ -51,6 +52,16 @@ public class StaticClass {
 
         new FindWebService(name, password, showResult).execute();
     }
+
+
+    public static void setRustarWebService(String code) {
+        try {
+            rustarWebService = new JSONObject(code);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     private static boolean checkPassword(String name, String password) {
 
@@ -119,6 +130,7 @@ public class StaticClass {
                 }
 
                 // Now we have our json code so lets create a json from this
+                rustarWebServiceCode = JSONCode;
                 mainObject = new JSONObject(JSONCode);
 
             } catch (Exception ex) {

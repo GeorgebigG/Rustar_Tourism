@@ -5,23 +5,23 @@ package com.rustaronline.mobile.rustartourism.Searches;
  */
 public class JsonNames {
 
-    public static String rustarDataName = "Data";
-    public static String rustarHotelName = "hotelname";
-    public static String rustarPriceStatus = "hotelname";
-    public static String rustarPriceReady = "ready";
-    public static String rustarCityName = "cityname";
-    public static String rustarDistinctName = "districtname";
-    public static String rustarAlcohol = "hasalcohol";
-    public static String rustarFreeWifi = "hasfreewifi";
-    public static String rustarMall = "hasmall";
-    public static String rustarMetro = "hasmetro";
-    public static String rustarPool = "haspool";
-    public static String rustarHotelClass = "hotelclass";
-    public static String rustarHotelType = "hoteltype";
-    public static String rustarHotelNote = "note";
-    public static String rustarImageUrl = "imageurl";
+    public static String dataName = "Data";
+    public static String hotelName = "hotelname";
+    public static String priceStatus = "pricestatus";
+    public static String priceReady = "ready";
+    public static String cityName = "cityname";
+    public static String distinctName = "districtname";
+    public static String alcohol = "hasalcohol";
+    public static String freeWifi = "hasfreewifi";
+    public static String mall = "hasmall";
+    public static String metro = "hasmetro";
+    public static String pool = "haspool";
+    public static String hotelClass = "hotelclass";
+    public static String hotelType = "hoteltype";
+    public static String hotelNote = "note";
+    public static String imageUrl = "imageurl";
 
-    public static String rustarTypeCity = "City";
-    public static String rustarTypeBeach = "Beach";
+    public static String typeCity = "City";
+    public static String typeBeach = "Beach";
 
 }

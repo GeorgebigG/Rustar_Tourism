@@ -19,7 +19,7 @@ public class AdvancedSearch {
 
     private static int index = 0;
 
-    public static Hotel advancedSearchReslust(String checkIn, int amountOfNight, String checkOut, String hotelname, String city, String district, int amountOfAdults,
+    public static Hotel advancedSearchResult(String checkIn, int amountOfNight, String checkOut, String hotelname, String city, String district, int amountOfAdults,
                                               ArrayList<Spinner> childrensAgeSpinner, int dailyFrom, int dailyTo, int totalFrom, int totalTo, String type, String meal,
                                               boolean fiveStar, boolean fourStar, boolean threeStar, boolean twoStar, boolean oneStar, boolean apartment, boolean alcohol,
                                               boolean freeWifi, boolean pool, boolean metro, boolean mall, Calendar checkInCal, Calendar checkOutCal) {
@@ -27,52 +27,52 @@ public class AdvancedSearch {
         try {
             JSONObject hotelData;
 
-            JSONArray array = StaticClass.rustarWebService.getJSONArray(JsonNames.rustarDataName);
+            JSONArray array = StaticClass.rustarWebService.getJSONArray(JsonNames.dataName);
 
             for (int i = index; i < array.length(); i++) {
 
                 hotelData = array.getJSONObject(i);
 
-
-                if (!hotelData.getString(JsonNames.rustarHotelName).toLowerCase().contains(hotelname.toLowerCase()))
+                if (!hotelData.getString(JsonNames.hotelName).toLowerCase().contains(hotelname.toLowerCase()))
                     continue;
 
 
-                if (!hotelData.getString(JsonNames.rustarPriceStatus).equals(JsonNames.rustarPriceReady))
+                if (!hotelData.getString(JsonNames.priceStatus).equals(JsonNames.priceReady))
                     continue;
 
 
-                if (!hotelData.getString(JsonNames.rustarCityName).toLowerCase().equals(city.toLowerCase()))
+                if (!hotelData.getString(JsonNames.cityName).toLowerCase().contains(city.toLowerCase()))
                     continue;
 
 
-                if (!hotelData.getString(JsonNames.rustarDistinctName).toLowerCase().contains(district.toLowerCase()))
+                if (!hotelData.getString(JsonNames.distinctName).toLowerCase().contains(district.toLowerCase()))
                     continue;
 
 
-                if (hotelData.getBoolean(JsonNames.rustarAlcohol) && !alcohol)
+                if (!hotelData.getBoolean(JsonNames.alcohol) && alcohol)
                     continue;
 
 
-                if (hotelData.getBoolean(JsonNames.rustarFreeWifi) && !freeWifi)
+
+                if (!hotelData.getBoolean(JsonNames.freeWifi) && freeWifi)
                     continue;
 
 
-                if (hotelData.getBoolean(JsonNames.rustarMall) && !mall)
+                if (!hotelData.getBoolean(JsonNames.mall) && mall)
                     continue;
 
 
-                if (hotelData.getBoolean(JsonNames.rustarMetro) && !metro)
+                if (!hotelData.getBoolean(JsonNames.metro) && metro)
                     continue;
 
 
-                if (hotelData.getBoolean(JsonNames.rustarPool) && !pool)
+                if (!hotelData.getBoolean(JsonNames.pool) && pool)
                     continue;
 
 
                 if (fiveStar || fourStar || threeStar || twoStar || oneStar) {
 
-                    switch (hotelData.getString(JsonNames.rustarHotelClass).length()) {
+                    switch (hotelData.getString(JsonNames.hotelClass).length()) {
                         case 5:
                             if (!fiveStar)
                                 continue;
@@ -100,22 +100,24 @@ public class AdvancedSearch {
                     }
                 }
 
-                if (type.equals(JsonNames.rustarTypeCity) || type.equals(JsonNames.rustarTypeBeach)) {
-                    if (hotelData.getString(JsonNames.rustarHotelType).equals(JsonNames.rustarTypeCity)) {
-                        if (!type.equals(JsonNames.rustarTypeCity))
+                if (type.equals(JsonNames.typeCity) || type.equals(JsonNames.typeBeach)) {
+                    if (hotelData.getString(JsonNames.hotelType).equals(JsonNames.typeCity)) {
+                        if (!type.equals(JsonNames.typeCity))
                             continue;
                     }
 
                     else {
-                        if (!type.equals(JsonNames.rustarTypeBeach))
+                        if (!type.equals(JsonNames.typeBeach))
                             continue;
                     }
                 }
 
                 index = i;
 
-                return new Hotel(hotelData.getString(JsonNames.rustarImageUrl), dailyTo, checkIn, checkOut, hotelData.getString(JsonNames.rustarHotelName), hotelData.getString(JsonNames.rustarHotelClass).length(),
+                Hotel hotel = new Hotel(hotelData.getString(JsonNames.imageUrl), dailyTo, checkIn, checkOut, hotelData.getString(JsonNames.hotelName), hotelData.getString(JsonNames.hotelClass).length(),
                         amountOfNight, FirstPage.CHECK_IN_CAL, FirstPage.CHECK_OUT_CAL, "Any");
+
+                return hotel;
             }
 
         } catch (Exception e) {
@@ -125,14 +127,3 @@ public class AdvancedSearch {
         return null;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
