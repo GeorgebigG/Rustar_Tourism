@@ -2,17 +2,10 @@ package com.rustaronline.mobile.rustartourism.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.annotation.Nullable;
-import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
-import android.view.ContextThemeWrapper;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -21,7 +14,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
@@ -31,17 +23,14 @@ import android.widget.TextView;
 import com.rustaronline.mobile.rustartourism.Helper.AnimationClass;
 import com.rustaronline.mobile.rustartourism.Helper.DatePickerForFragments;
 import com.rustaronline.mobile.rustartourism.Helper.downloadImageFromUrl;
-import com.rustaronline.mobile.rustartourism.Hotel;
+import com.rustaronline.mobile.rustartourism.Hotels.Hotel;
 import com.rustaronline.mobile.rustartourism.R;
 import com.rustaronline.mobile.rustartourism.Searches.AdvancedSearch;
 import com.rustaronline.mobile.rustartourism.Searches.JsonNames;
-import com.rustaronline.mobile.rustartourism.StaticClass;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
 
 import static android.R.*;
 
@@ -245,11 +234,12 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
             fLayout.setLayoutParams(lParams);
 
             fParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            ratingBar = new RatingBar(getActivity(), null, attr.ratingBarStyleSmall);
-            ratingBar.setRating(hotel.getStar());
             fParams.gravity = Gravity.LEFT;
             fParams.topMargin = 20;
+            ratingBar = new RatingBar(getActivity(), null, attr.ratingBarStyleSmall);
+            ratingBar.setRating(hotel.getStar());
             fLayout.addView(ratingBar, fParams);
+
 
             fParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             TextView priceText = new TextView(getActivity());
@@ -268,10 +258,10 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
             lParams.bottomMargin = 10;
 
             textView.setText(getResources().getString(R.string.HotelName) + " " + hotel.getName() +
-                    "\n" + getResources().getString(R.string.PricePerNight) + " "  + getResources().getString(R.string.Dollar) + hotel.getPrice() +
-                    ".\n" + getResources().getString(R.string.meal) + " " + hotel.getMeal() +
-                    ".\n" + getResources().getString(R.string.CheckInDate) + " " + hotel.getCheckInDate() +
-                    ".\n" + getResources().getString(R.string.CheckOutDate) + " " + hotel.getCheckOutDate() + ".");
+                      "\n" + getResources().getString(R.string.PricePerNight) + " "  + getResources().getString(R.string.Dollar) + hotel.getPrice() +
+                     ".\n" + getResources().getString(R.string.meal) + " " + hotel.getMeal() +
+                     ".\n" + getResources().getString(R.string.CheckInDate) + " " + hotel.getCheckInDate() +
+                     ".\n" + getResources().getString(R.string.CheckOutDate) + " " + hotel.getCheckOutDate() + ".");
             mainLayout.addView(textView, lParams);
 
             lParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);

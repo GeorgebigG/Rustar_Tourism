@@ -2,8 +2,7 @@ package com.rustaronline.mobile.rustartourism.Searches;
 
 import android.widget.Spinner;
 
-import com.rustaronline.mobile.rustartourism.Activities.FirstPage;
-import com.rustaronline.mobile.rustartourism.Hotel;
+import com.rustaronline.mobile.rustartourism.Hotels.Hotel;
 import com.rustaronline.mobile.rustartourism.StaticClass;
 
 import org.json.JSONArray;
@@ -25,6 +24,7 @@ public class AdvancedSearch {
                                               boolean freeWifi, boolean pool, boolean metro, boolean mall, Calendar checkInCal, Calendar checkOutCal) {
 
         try {
+
             JSONObject hotelData;
 
             JSONArray array = StaticClass.rustarWebService.getJSONArray(JsonNames.dataName);
@@ -70,35 +70,36 @@ public class AdvancedSearch {
                     continue;
 
 
-                if (fiveStar || fourStar || threeStar || twoStar || oneStar) {
+                if (!hotelData.getString(JsonNames.hotelClass).equals(JsonNames.apartments))
+                    if (fiveStar || fourStar || threeStar || twoStar || oneStar) {
 
-                    switch (hotelData.getString(JsonNames.hotelClass).length()) {
-                        case 5:
-                            if (!fiveStar)
-                                continue;
-                            break;
+                        switch (hotelData.getString(JsonNames.hotelClass).length()) {
+                            case 5:
+                                if (!fiveStar)
+                                    continue;
+                                break;
 
-                        case 4:
-                            if (!fourStar)
-                                continue;
-                            break;
+                            case 4:
+                                if (!fourStar)
+                                    continue;
+                                break;
 
-                        case 3:
-                            if (!threeStar)
-                                continue;
-                            break;
+                            case 3:
+                                if (!threeStar)
+                                    continue;
+                                break;
 
-                        case 2:
-                            if (!twoStar)
-                                continue;
-                            break;
+                            case 2:
+                                if (!twoStar)
+                                    continue;
+                                break;
 
-                        case 1:
-                            if (!oneStar)
-                                continue;
-                            break;
+                            case 1:
+                                if (!oneStar)
+                                    continue;
+                                break;
+                        }
                     }
-                }
 
                 if (type.equals(JsonNames.typeCity) || type.equals(JsonNames.typeBeach)) {
                     if (hotelData.getString(JsonNames.hotelType).equals(JsonNames.typeCity)) {
@@ -114,8 +115,9 @@ public class AdvancedSearch {
 
                 index = i;
 
-                Hotel hotel = new Hotel(hotelData.getString(JsonNames.imageUrl), dailyTo, checkIn, checkOut, hotelData.getString(JsonNames.hotelName), hotelData.getString(JsonNames.hotelClass).length(),
-                        amountOfNight, FirstPage.CHECK_IN_CAL, FirstPage.CHECK_OUT_CAL, "Any");
+                Hotel hotel = new Hotel(hotelData.getString(JsonNames.hotelid), hotelData.getString(JsonNames.imageUrl), hotelData.getString(JsonNames.hotelName),
+                        (hotelData.getString(JsonNames.hotelClass).equals(JsonNames.apartments)) ? Hotel.APARTMENT : hotelData.getString(JsonNames.hotelClass).length(),
+                        amountOfNight);
 
                 return hotel;
             }

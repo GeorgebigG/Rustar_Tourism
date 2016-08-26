@@ -6,6 +6,7 @@ package com.rustaronline.mobile.rustartourism.Searches;
 public class JsonNames {
 
     public static String dataName = "Data";
+    public static String hotelid = "hotelid";
     public static String hotelName = "hotelname";
     public static String priceStatus = "pricestatus";
     public static String priceReady = "ready";
@@ -20,6 +21,7 @@ public class JsonNames {
     public static String hotelType = "hoteltype";
     public static String hotelNote = "note";
     public static String imageUrl = "imageurl";
+    public static String apartments = "Apartments";
 
     public static String typeCity = "City";
     public static String typeBeach = "Beach";
