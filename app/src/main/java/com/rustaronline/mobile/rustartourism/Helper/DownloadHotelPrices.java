@@ -3,6 +3,10 @@ package com.rustaronline.mobile.rustartourism.Helper;
 import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 
+import com.rustaronline.mobile.rustartourism.Searches.JsonNames;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -19,9 +23,12 @@ public class DownloadHotelPrices extends AsyncTask<String, Void, JSONObject> {
     String url;
     JSONObject jsObject;
 
-    public DownloadHotelPrices(String url, @Nullable JSONObject object) {
+    public JSONObject getJsObject() {
+        return jsObject;
+    }
+
+    public DownloadHotelPrices(String url) {
         this.url = url;
-        this.jsObject = object;
     }
 
     @Override
@@ -68,5 +75,32 @@ public class DownloadHotelPrices extends AsyncTask<String, Void, JSONObject> {
     @Override
     protected void onPostExecute(JSONObject jsonObject) {
         super.onPostExecute(jsonObject);
+        jsObject = jsonObject;
+
+        try {
+            JSONArray array = jsonObject.getJSONArray(JsonNames.contractPrices);
+
+            for (int i = 0; i < array.length(); i++) {
+                
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

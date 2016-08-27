@@ -23,6 +23,21 @@ public class JsonNames {
     public static String imageUrl = "imageurl";
     public static String apartments = "Apartments";
 
+    public static String contractPrices = "ContractPrices";
+    public static String roomCategoryName = "roomcategoryname";
+    public static String startDate = "startdate";
+    public static String endDate = "enddate";
+    public static String mealPlan = "mealplan";
+    public static String adults = "adults";
+    public static String teens = "teens";
+    public static String children = "children";
+    public static String infants = "infants";
+    public static String teensWithExtraBeds = "teenswithextrabeds";
+    public static String childrenWithExtraBeds = "childrenwithextrabeds";
+    public static String price = "price";
+    public static String currency = "currency";
+    public static String isActive = "isactive";
+
     public static String typeCity = "City";
     public static String typeBeach = "Beach";
 

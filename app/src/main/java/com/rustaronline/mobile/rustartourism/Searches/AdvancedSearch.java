@@ -29,7 +29,7 @@ public class AdvancedSearch {
 
             JSONArray array = StaticClass.rustarWebService.getJSONArray(JsonNames.dataName);
 
-            for (int i = index; i < array.length(); i++) {
+            for (int i = index; i < array.length(); i++, index++) {
 
                 hotelData = array.getJSONObject(i);
 
@@ -51,7 +51,6 @@ public class AdvancedSearch {
 
                 if (!hotelData.getBoolean(JsonNames.alcohol) && alcohol)
                     continue;
-
 
 
                 if (!hotelData.getBoolean(JsonNames.freeWifi) && freeWifi)
@@ -112,8 +111,6 @@ public class AdvancedSearch {
                             continue;
                     }
                 }
-
-                index = i;
 
                 Hotel hotel = new Hotel(hotelData.getString(JsonNames.hotelid), hotelData.getString(JsonNames.imageUrl), hotelData.getString(JsonNames.hotelName),
                         (hotelData.getString(JsonNames.hotelClass).equals(JsonNames.apartments)) ? Hotel.APARTMENT : hotelData.getString(JsonNames.hotelClass).length(),

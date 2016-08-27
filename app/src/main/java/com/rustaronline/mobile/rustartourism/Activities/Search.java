@@ -175,7 +175,7 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
                 date.show(getFragmentManager().beginTransaction(), "Date");
                 break;
             case R.id.AdvSearch:
-                Hotel[] searchHotels = new Hotel[Hotel.getAmountOfHotels()];
+                Hotel[] searchHotels = new Hotel[10];
 
                 String type = this.type.getSelectedItem().toString();
                 if (type.equals(getResources().getStringArray(R.array.types)[1]))
@@ -210,18 +210,19 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
         RatingBar ratingBar;
         TextView textView;
 
-        for (final Hotel hotel : searchHotels) {
+        for (Hotel hotel : searchHotels) {
             if (hotel == null) break;
 
             lParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            final ImageView image = new ImageView(getActivity());
+            ImageView image = new ImageView(getActivity());
             image.setScaleType(ImageView.ScaleType.FIT_XY);
             image.setClickable(true);
+            final Hotel hotel2 = hotel;
             image.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(getActivity(), DetailsActivity.class);
-                    DetailsActivity.hotel = hotel;
+                    DetailsActivity.hotel = hotel2;
                     startActivity(intent);
                 }
             });
@@ -241,13 +242,13 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
             fLayout.addView(ratingBar, fParams);
 
 
-            fParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            TextView priceText = new TextView(getActivity());
-            priceText.setTextColor(getResources().getColor(R.color.lightRustarGreen));
-            priceText.setText(getResources().getString(R.string.Dollar) + (hotel.getPrice() * hotel.getAmountOfNights()));
-            priceText.setTextSize(30);
-            fParams.gravity =  Gravity.RIGHT;
-            fLayout.addView(priceText, fParams);
+//            fParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+//            TextView priceText = new TextView(getActivity());
+//            priceText.setTextColor(getResources().getColor(R.color.lightRustarGreen));
+//            priceText.setText(getResources().getString(R.string.Dollar) + (hotel.getPrice() * hotel.getAmountOfNights()));
+//            priceText.setTextSize(30);
+//            fParams.gravity =  Gravity.RIGHT;
+//            fLayout.addView(priceText, fParams);
 
             mainLayout.addView(fLayout);
 
@@ -257,22 +258,24 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
             lParams.gravity = Gravity.CENTER;
             lParams.bottomMargin = 10;
 
-            textView.setText(getResources().getString(R.string.HotelName) + " " + hotel.getName() +
-                      "\n" + getResources().getString(R.string.PricePerNight) + " "  + getResources().getString(R.string.Dollar) + hotel.getPrice() +
-                     ".\n" + getResources().getString(R.string.meal) + " " + hotel.getMeal() +
-                     ".\n" + getResources().getString(R.string.CheckInDate) + " " + hotel.getCheckInDate() +
-                     ".\n" + getResources().getString(R.string.CheckOutDate) + " " + hotel.getCheckOutDate() + ".");
+            textView.setText(getResources().getString(R.string.HotelName) + " " + hotel.getName()
+//                     +"\n" + getResources().getString(R.string.PricePerNight) + " "  + getResources().getString(R.string.Dollar) + hotel.getPrice() +
+//                     ".\n" + getResources().getString(R.string.meal) + " " + hotel.getMeal() +
+//                     ".\n" + getResources().getString(R.string.CheckInDate) + " " + hotel.getCheckInDate() +
+//                     ".\n" + getResources().getString(R.string.CheckOutDate) + " " + hotel.getCheckOutDate() + "."
+            );
             mainLayout.addView(textView, lParams);
 
             lParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            final TextView details = new TextView(getActivity());
+            TextView details = new TextView(getActivity());
             details.setText(getResources().getText(R.string.Details));
             details.setTextColor(getResources().getColor(R.color.lightRustarGreen));
             details.setClickable(true);
+            final ImageView image2 = image;
             details.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    image.callOnClick();
+                    image2.callOnClick();
                 }
             });
             lParams.gravity = Gravity.CENTER;
