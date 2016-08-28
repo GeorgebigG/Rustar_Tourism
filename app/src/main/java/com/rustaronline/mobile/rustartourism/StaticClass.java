@@ -26,19 +26,19 @@ public class StaticClass {
     public static String firstHotel = "https://www.rustaronline.com/images/pages/hotels/thumbnail/A9AF2DFE-73DC-441A-A972-CC6136534569.jpg";
     public static String secondHotel = "https://www.rustaronline.com/images/pages/hotels/thumbnail/78468066-FCA7-472C-AABD-2143DF1DC718.jpg";
 
-    private static String WebServiceUrl = "https://restapi.rustaronline.com/v1.00/api/";
-    private static String HotelListName = "hotels?";
-    private static String HotelPriceName = "hotelprices?";
-    private static String RoomAvailabilitiesName = "roomavailabilities?";
-    private static String URLAnd = "&";
-    private static String WebSName = "agentid=";
-    private static String WebSPassword = "agentpassword=";
-    private static String WebSHotelId = "hotelid=";
+    public static String WebServiceUrl = "https://restapi.rustaronline.com/v1.00/api/";
+    public static String HotelListName = "hotels?";
+    public static String HotelPriceName = "hotelprices?";
+    public static String RoomAvailabilitiesName = "roomavailabilities?";
+    public static String URLAnd = "&";
+    public static String WebSName = "agentid=";
+    public static String WebSPassword = "agentpassword=";
+    public static String WebSHotelId = "hotelid=";
 
     public static JSONObject rustarWebService = null;
     public static String rustarWebServiceCode = null;
-    private static String codeVariableName = "Code";
-    private static String correctCode = "00";
+    public static String codeVariableName = "Code";
+    public static String correctCode = "00";
 
     public static String correctPassword = "Correct";
     public static String pasOrUsWrong = "password or username wrong";

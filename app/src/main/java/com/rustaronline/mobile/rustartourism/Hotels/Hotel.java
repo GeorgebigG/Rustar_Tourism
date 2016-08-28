@@ -1,17 +1,19 @@
 package com.rustaronline.mobile.rustartourism.Hotels;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by gio on 6/6/16.
  */
 public class Hotel {
+
     String hotelid;
     String imageURL;
     String name;
     int star;
     int nights;
-    ArrayList<HotelRoom> rooms;
+    ArrayList<HotelPrices> rooms;
 
     public static final int APARTMENT = -1;
 
@@ -21,11 +23,15 @@ public class Hotel {
         this.imageURL = imageURL;
         this.star = star;
 
-        rooms = new ArrayList<HotelRoom>();
+        rooms = new ArrayList<HotelPrices>();
     }
 
-    public void addRoom() {
+    public void addRoom(String hotelid, String roomCategoryName, String meal, Date startDate, Date endDate, int price, String currency) {
+        rooms.add(new HotelPrices(hotelid, roomCategoryName, meal, startDate, endDate, price, currency));
+    }
 
+    public ArrayList<HotelPrices> getRooms() {
+        return rooms;
     }
 
     public String getImageURL() {
@@ -34,6 +40,10 @@ public class Hotel {
 
     public String getName() {
         return name;
+    }
+
+    public String getHotelid() {
+        return hotelid;
     }
 
     public int getStar() {

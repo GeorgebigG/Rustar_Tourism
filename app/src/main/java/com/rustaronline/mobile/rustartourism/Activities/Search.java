@@ -24,6 +24,7 @@ import com.rustaronline.mobile.rustartourism.Helper.AnimationClass;
 import com.rustaronline.mobile.rustartourism.Helper.DatePickerForFragments;
 import com.rustaronline.mobile.rustartourism.Helper.downloadImageFromUrl;
 import com.rustaronline.mobile.rustartourism.Hotels.Hotel;
+import com.rustaronline.mobile.rustartourism.Hotels.HotelPrices;
 import com.rustaronline.mobile.rustartourism.R;
 import com.rustaronline.mobile.rustartourism.Searches.AdvancedSearch;
 import com.rustaronline.mobile.rustartourism.Searches.JsonNames;
@@ -175,7 +176,6 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
                 date.show(getFragmentManager().beginTransaction(), "Date");
                 break;
             case R.id.AdvSearch:
-                Hotel[] searchHotels = new Hotel[10];
 
                 String type = this.type.getSelectedItem().toString();
                 if (type.equals(getResources().getStringArray(R.array.types)[1]))
@@ -183,105 +183,116 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
                 if (type.equals(getResources().getStringArray(R.array.types)[2]))
                     type = JsonNames.typeBeach;
 
-                for (int i = 0; i < searchHotels.length; i++)
-                    searchHotels[i] = AdvancedSearch.advancedSearchResult(checkIn.getText().toString(),
-                        tryParse(nights.getText().toString()), checkOut.getText().toString(),
-                        hotel.getText().toString(), city.getText().toString(), district.getText().toString(),
-                        tryParse(amountOfAdults.getSelectedItem().toString()), childrensAgeSpinners, tryParse(dailyFrom.getText().toString()),
-                        tryParse(dailyTo.getText().toString()), tryParse(totalFrom.getText().toString()),tryParse(totalTo.getText().toString()),
-                        type, meal.getSelectedItem().toString(), fiveS.isChecked(),
-                        fourS.isChecked(), threeS.isChecked(), twoS.isChecked(), oneS.isChecked(), apartment.isChecked(),
-                        alcohol.isChecked(), freeWifi.isChecked(), pool.isChecked(), metro.isChecked(), mall.isChecked(),
-                        (Calendar) FirstPage.CHECK_IN_CAL.clone(), (Calendar) FirstPage.CHECK_OUT_CAL.clone());
 
-                createHotelChoices(searchHotels);
+                AdvancedSearch.advancedSearchResult(this, checkIn.getText().toString(),
+                    tryParse(nights.getText().toString()), checkOut.getText().toString(),
+                    hotel.getText().toString(), city.getText().toString(), district.getText().toString(),
+                    tryParse(amountOfAdults.getSelectedItem().toString()), childrensAgeSpinners, tryParse(dailyFrom.getText().toString()),
+                    tryParse(dailyTo.getText().toString()), tryParse(totalFrom.getText().toString()),tryParse(totalTo.getText().toString()),
+                    type, meal.getSelectedItem().toString(), fiveS.isChecked(),
+                    fourS.isChecked(), threeS.isChecked(), twoS.isChecked(), oneS.isChecked(), apartment.isChecked(),
+                    alcohol.isChecked(), freeWifi.isChecked(), pool.isChecked(), metro.isChecked(), mall.isChecked(),
+                    (Calendar) FirstPage.CHECK_IN_CAL.clone(), (Calendar) FirstPage.CHECK_OUT_CAL.clone());
+
                 break;
             default:
                 break;
         }
     }
 
-    private void createHotelChoices(Hotel[] searchHotels) {
-        mainLayout.removeAllViews();
 
+
+    public void addHotel(Hotel hotel) {
         FrameLayout fLayout;
         FrameLayout.LayoutParams fParams;
         LinearLayout.LayoutParams lParams;
         RatingBar ratingBar;
         TextView textView;
 
-        for (Hotel hotel : searchHotels) {
-            if (hotel == null) break;
+        if (hotel == null) return;
 
-            lParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            ImageView image = new ImageView(getActivity());
-            image.setScaleType(ImageView.ScaleType.FIT_XY);
-            image.setClickable(true);
-            final Hotel hotel2 = hotel;
-            image.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(getActivity(), DetailsActivity.class);
-                    DetailsActivity.hotel = hotel2;
-                    startActivity(intent);
-                }
-            });
-            new downloadImageFromUrl(image, hotel.getImageURL()).execute();
-            mainLayout.addView(image, lParams);
+        lParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        ImageView image = new ImageView(getActivity());
+        image.setScaleType(ImageView.ScaleType.FIT_XY);
+        image.setClickable(true);
+        final Hotel hotel2 = hotel;
+        image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), DetailsActivity.class);
+                DetailsActivity.hotel = hotel2;
+                startActivity(intent);
+            }
+        });
+        new downloadImageFromUrl(image, hotel.getImageURL()).execute();
+        mainLayout.addView(image, lParams);
 
-            fLayout = new FrameLayout(getActivity());
-            lParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            lParams.bottomMargin = 10;
-            fLayout.setLayoutParams(lParams);
+        fLayout = new FrameLayout(getActivity());
+        lParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        lParams.bottomMargin = 10;
+        fLayout.setLayoutParams(lParams);
 
-            fParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            fParams.gravity = Gravity.LEFT;
-            fParams.topMargin = 20;
-            ratingBar = new RatingBar(getActivity(), null, attr.ratingBarStyleSmall);
-            ratingBar.setRating(hotel.getStar());
-            fLayout.addView(ratingBar, fParams);
+        fParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        fParams.gravity = Gravity.LEFT;
+        fParams.topMargin = 20;
+        ratingBar = new RatingBar(getActivity(), null, attr.ratingBarStyleSmall);
+        ratingBar.setRating(hotel.getStar());
+        fLayout.addView(ratingBar, fParams);
 
 
-//            fParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-//            TextView priceText = new TextView(getActivity());
-//            priceText.setTextColor(getResources().getColor(R.color.lightRustarGreen));
-//            priceText.setText(getResources().getString(R.string.Dollar) + (hotel.getPrice() * hotel.getAmountOfNights()));
-//            priceText.setTextSize(30);
-//            fParams.gravity =  Gravity.RIGHT;
-//            fLayout.addView(priceText, fParams);
-
-            mainLayout.addView(fLayout);
-
-            lParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            textView = new TextView(getActivity());
-            textView.setTextColor(getResources().getColor(R.color.black));
-            lParams.gravity = Gravity.CENTER;
-            lParams.bottomMargin = 10;
-
-            textView.setText(getResources().getString(R.string.HotelName) + " " + hotel.getName()
-//                     +"\n" + getResources().getString(R.string.PricePerNight) + " "  + getResources().getString(R.string.Dollar) + hotel.getPrice() +
-//                     ".\n" + getResources().getString(R.string.meal) + " " + hotel.getMeal() +
-//                     ".\n" + getResources().getString(R.string.CheckInDate) + " " + hotel.getCheckInDate() +
-//                     ".\n" + getResources().getString(R.string.CheckOutDate) + " " + hotel.getCheckOutDate() + "."
-            );
-            mainLayout.addView(textView, lParams);
-
-            lParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            TextView details = new TextView(getActivity());
-            details.setText(getResources().getText(R.string.Details));
-            details.setTextColor(getResources().getColor(R.color.lightRustarGreen));
-            details.setClickable(true);
-            final ImageView image2 = image;
-            details.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    image2.callOnClick();
-                }
-            });
-            lParams.gravity = Gravity.CENTER;
-            lParams.bottomMargin = 10;
-            mainLayout.addView(details, lParams);
+        int price = 0;
+        for (HotelPrices room : hotel.getRooms()) {
+            if (room.getPrice() < price) price = room.getPrice();
+            else if (price == 0) price = room.getPrice();
         }
+
+
+        fParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        TextView priceText = new TextView(getActivity());
+        priceText.setTextColor(getResources().getColor(R.color.lightRustarGreen));
+        priceText.setText(getResources().getString(R.string.Dollar) + (price * hotel.getAmountOfNights()));
+        priceText.setTextSize(30);
+        fParams.gravity =  Gravity.RIGHT;
+        fLayout.addView(priceText, fParams);
+
+        mainLayout.addView(fLayout);
+
+        lParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        textView = new TextView(getActivity());
+        textView.setTextColor(getResources().getColor(R.color.black));
+        lParams.gravity = Gravity.CENTER;
+        lParams.bottomMargin = 10;
+
+        SimpleDateFormat formater = new SimpleDateFormat("dd.MM.yyyy");
+
+        for (HotelPrices room : hotel.getRooms()) {
+
+            textView.append(getResources().getString(R.string.HotelName) + " " + hotel.getName()
+                    +"\n" + getResources().getString(R.string.PricePerNight) + " "  + room.getCurrency() + room.getPrice() +
+                    ".\n" + getResources().getString(R.string.meal) + " " + room.getMeal() +
+                    ".\n" + getResources().getString(R.string.CheckInDate) + " " +  formater.format(room.getStartDate()) +
+                    ".\n" + getResources().getString(R.string.CheckOutDate) + " " + formater.format(room.getEndDate()) + ".\n\n\n"
+            );
+
+        }
+
+        mainLayout.addView(textView, lParams);
+
+        lParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        TextView details = new TextView(getActivity());
+        details.setText(getResources().getText(R.string.Details));
+        details.setTextColor(getResources().getColor(R.color.lightRustarGreen));
+        details.setClickable(true);
+        final ImageView image2 = image;
+        details.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                image2.callOnClick();
+            }
+        });
+        lParams.gravity = Gravity.CENTER;
+        lParams.bottomMargin = 10;
+        mainLayout.addView(details, lParams);
     }
 
     public static int tryParse(String number) {

@@ -27,6 +27,7 @@ import java.util.Calendar;
 
 public class FirstpageActivity extends AppCompatActivity {
     public static String Username;
+    public static String Password;
     public static boolean destroyActivity = false;
     public static ProgressDialog pd;
     public static EditText checkIn, checkOut, nights, location, holtel, pax;

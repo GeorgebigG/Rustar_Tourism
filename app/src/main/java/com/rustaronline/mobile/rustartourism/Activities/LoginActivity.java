@@ -122,6 +122,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             saveJsonCode(StaticClass.rustarWebServiceCode);
 
             FirstpageActivity.Username = Username.getText().toString();
+            FirstpageActivity.Password = Password.getText().toString();
+
             Intent intent = new Intent(this, FirstpageActivity.class);
             destroyActivity = true;
 
@@ -190,22 +192,22 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onStart() {
         super.onStart();
-        if (isConnected()) {
-            String username = getUsername();
-            String jsonCode = getJsonCode();
-
-            if (!username.equals("") && !jsonCode.equals("") && !logOutClicked) {
-                FirstpageActivity.Username = username;
-                StaticClass.rustarWebServiceCode = jsonCode;
-                StaticClass.setRustarWebService(jsonCode);
-                Intent intent = new Intent(this, FirstpageActivity.class);
-                destroyActivity = true;
-                startActivity(intent);
-                onBackPressed();
-            }
-        } else {
-            noInternetConnection();
-        }
+//        if (isConnected()) {
+//            String username = getUsername();
+//            String jsonCode = getJsonCode();
+//
+//            if (!username.equals("") && !jsonCode.equals("") && !logOutClicked) {
+//                FirstpageActivity.Username = username;
+//                StaticClass.rustarWebServiceCode = jsonCode;
+//                StaticClass.setRustarWebService(jsonCode);
+//                Intent intent = new Intent(this, FirstpageActivity.class);
+//                destroyActivity = true;
+//                startActivity(intent);
+//                onBackPressed();
+//            }
+//        } else {
+//            noInternetConnection();
+//        }
     }
 
     public void noInternetConnection() {

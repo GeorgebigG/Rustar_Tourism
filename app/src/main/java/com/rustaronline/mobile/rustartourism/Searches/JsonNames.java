@@ -27,10 +27,16 @@ public class JsonNames {
     public static String roomCategoryName = "roomcategoryname";
     public static String startDate = "startdate";
     public static String endDate = "enddate";
+    public static String dateAtimeSeparator = "T";
+    public static String dateSeparator = "-";
     public static String mealPlan = "mealplan";
     public static String adults = "adults";
     public static String teens = "teens";
     public static String children = "children";
+    public static String childrenPolicy = "childpolicy";
+    public static String teenMaxAge = "teenmaxage";
+    public static String childrenMaxAge = "childmaxage";
+    public static String infantsMaxAge = "infantmaxage";
     public static String infants = "infants";
     public static String teensWithExtraBeds = "teenswithextrabeds";
     public static String childrenWithExtraBeds = "childrenwithextrabeds";
