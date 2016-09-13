@@ -1,6 +1,7 @@
 package com.rustaronline.mobile.rustartourism.YouTube;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -58,6 +59,17 @@ public class YouTube extends YouTubeBaseActivity {
             lParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             lParams.topMargin = 5;
             images[i].setScaleType(ImageView.ScaleType.FIT_XY);
+            images[i].setClickable(true);
+            final Intent intent = new Intent(this, VideoPlayer.class);
+            final int index = i;
+            final String videId = videoIdes.get(i);
+            images[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    intent.putExtra(VideoPlayer.VIDE_ID, videId);
+                    startActivity(intent);
+                }
+            });
             youtubeLayout.addView(images[i], lParams);
 
             lParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);

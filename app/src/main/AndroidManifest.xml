@@ -39,8 +39,7 @@
             android:name=".YouTube.YouTube"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".YouTube.VideoPlayer"
-            android:screenOrientation="landscape"/>
+        <activity android:name=".YouTube.VideoPlayer"/>
 
     </application>
 
