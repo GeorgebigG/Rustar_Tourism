@@ -18,6 +18,7 @@ public class Hotel {
     public static final int APARTMENT = -1;
 
     public Hotel(String hotelid, String imageURL, String name, int star, int nights) {
+        this.hotelid = hotelid;
         this.name = name;
         this.nights = nights;
         this.imageURL = imageURL;

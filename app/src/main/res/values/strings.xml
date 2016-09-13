@@ -1,23 +1,28 @@
 <resources>
+
+    <!-- TODO: Login Activity -->
     <string name="app_name">Rustar</string>
+    <string name="LOG_IN">LOG IN</string>
     <string name="action_settings">Settings</string>
     <string name="exit">Are you sure want to exit?</string>
     <string name="Yes">Yes</string>
     <string name="No">No</string>
-    <string name="IncorrectPasswordTitle">Incorrect Password or Username</string>
-    <string name="IncorrectPasswordText">The password or username you entered is incorrect. Please try again.</string>
+    <string name="incorrect_password_title">Incorrect Password or Username</string>
+    <string name="incorrect_password_text">The password or username you entered is incorrect. Please try again.</string>
     <string name="Ok">OK</string>
-    <string name="noInternetConnectionTextTitle">Login Failed</string>
-    <string name="noInternetConnectionText">Sorry, unableto login to Rustar. Please check your network connection or try again later.</string>
+    <string name="no_internet_connection_text_title">Login Failed</string>
+    <string name="no_internet_connection_text">Sorry, unable to login to Rustar. Please check your network connection or try again later.</string>
     <string name="title_activity_first_page">FirstPageActivity</string>
     <string name="title_activity_firstpage">FirstpageActivity</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="wait">wait...</string>
-    <string name="logOut">log out</string>
-    <string name="rustarOnlineTitle">Rustar Online</string>
+    <string name="log_out">log out</string>
+    <string name="rustar_online_title">Rustar Online</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
-    <!-- TODO: First Page Activity strings! -->
+    <string name="help">help</string>
+
+    <!-- TODO: First Page Activity  -->
 
     <string name="when">When</string>
     <string name="checkIn">CHECK IN</string>
@@ -31,29 +36,29 @@
     <string name="signIn">SIGN IN</string>
     <string name="search">SEARCH NOW</string>
 
-    <!-- TODO: Search Activity strings! -->
+    <!-- TODO: Search Activity -->
 
     <string name="City">CITY</string>
     <string name="District">DISTRICT</string>
     <string name="Adults">ADULTS</string>
     <string name="Children">CHILDREN</string>
-    <string name="DailyFrom">DAILY FROM</string>
-    <string name="DailyTo">DAILY TO</string>
-    <string name="TotalFrom">TOTAL FROM</string>
-    <string name="TotalTo">TOTAL TO</string>
+    <string name="daily_from">DAILY FROM</string>
+    <string name="daily_to">DAILY TO</string>
+    <string name="total_from">TOTAL FROM</string>
+    <string name="total_to">TOTAL TO</string>
     <string name="Type">TYPE</string>
     <string name="Meal">MEAL</string>
     <string name="Age">AGE</string>
     <string name="apartment">Apartment</string>
     <string name="alcohol">Alcohol</string>
-    <string name="freeWIFI">Free WIFI</string>
+    <string name="free_WIFI">Free WIFI</string>
     <string name="metro">Metro</string>
     <string name="pool">Pool</string>
     <string name="mall">Mall</string>
-    <string name="ageText">Age of each children</string>
+    <string name="age_text">Age of each children</string>
 
 
-    <!-- TODO: Search result strings! -->
+    <!-- TODO: Search result -->
 
     <string name="HotelName">Hotel name:</string>
     <string name="PricePerNight">Price per night:</string>
@@ -141,5 +146,8 @@
         <item>15</item>
         <item>16</item>
     </string-array>
+
     <string name="title_activity_details">DetailsActivity</string>
+    <string name="title_activity_you_tube">YouTube</string>
+    <string name="title_activity_video_player">VideoPlayer</string>
 </resources>

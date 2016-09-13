@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -14,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.rustaronline.mobile.rustartourism.Helper.AnimationClass;
 import com.rustaronline.mobile.rustartourism.Helper.DatePickerForFragments;
@@ -28,7 +30,7 @@ import java.util.Date;
 /**
  * Created by gio on 12/05/16.
  */
-public class FirstPage extends Fragment implements View.OnClickListener {
+public class FirstPage extends Fragment implements View.OnClickListener, View.OnTouchListener {
 
     public static EditText checkIn, checkOut;
     public static EditText nights, location, holtel, pax;
@@ -54,9 +56,9 @@ public class FirstPage extends Fragment implements View.OnClickListener {
         context = inflater.inflate(R.layout.activity_firstpage, container, false);
 
         checkIn = (EditText) v.findViewById(R.id.checkIn);
-        checkIn.setOnClickListener(this);
+        checkIn.setOnTouchListener(this);
         checkOut = (EditText) v.findViewById(R.id.checkOut);
-        checkOut.setOnClickListener(this);
+        checkOut.setOnTouchListener(this);
 
         CHECK_IN_CAL.add(Calendar.DAY_OF_YEAR, 1);
         Date tomorrow = CHECK_IN_CAL.getTime();
@@ -92,7 +94,6 @@ public class FirstPage extends Fragment implements View.OnClickListener {
         return v;
     }
 
-
     public void createTextWatcher() {
         watcher = new TextWatcher() {
             @Override
@@ -100,6 +101,9 @@ public class FirstPage extends Fragment implements View.OnClickListener {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (charSequence.length() > 2)
+                    Toast.makeText(getActivity(), "is more than 2", Toast.LENGTH_SHORT).show();
+
                 final Calendar calendar = Calendar.getInstance();
                 calendar.set(CHECK_IN_CAL.get(Calendar.YEAR), CHECK_IN_CAL.get(Calendar.MONTH), CHECK_IN_CAL.get(Calendar.DAY_OF_MONTH));
 
@@ -121,14 +125,6 @@ public class FirstPage extends Fragment implements View.OnClickListener {
         DatePickerForFragments date;
 
         switch (v.getId()) {
-            case R.id.checkIn:
-                date = new DatePickerForFragments(checkInDialogId, CHECK_IN_CAL.get(Calendar.YEAR), CHECK_IN_CAL.get(Calendar.MONTH), CHECK_IN_CAL.get(Calendar.DAY_OF_MONTH));
-                date.show(getFragmentManager().beginTransaction(), "Date");
-                break;
-            case R.id.checkOut:
-                date = new DatePickerForFragments(checkOutDialogId, CHECK_OUT_CAL.get(Calendar.YEAR), CHECK_OUT_CAL.get(Calendar.MONTH), CHECK_OUT_CAL.get(Calendar.DAY_OF_MONTH));
-                date.show(getFragmentManager().beginTransaction(), "Date");
-                break;
             case R.id.Search:
                 if (nights.getText().toString().length() == 0) nights.setText("1");
 
@@ -160,5 +156,31 @@ public class FirstPage extends Fragment implements View.OnClickListener {
             new downloadImageFromUrl(imageView, url);
             layout.addView(imageView, lParams);
         }
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+
+        if (event.getAction() != MotionEvent.ACTION_UP)
+            return false;
+
+        DatePickerForFragments date;
+
+        switch (v.getId()) {
+            case R.id.checkIn:
+                date = new DatePickerForFragments(checkInDialogId, CHECK_IN_CAL.get(Calendar.YEAR), CHECK_IN_CAL.get(Calendar.MONTH), CHECK_IN_CAL.get(Calendar.DAY_OF_MONTH));
+                date.show(getFragmentManager().beginTransaction(), "Date");
+                break;
+
+            case R.id.checkOut:
+                date = new DatePickerForFragments(checkOutDialogId, CHECK_OUT_CAL.get(Calendar.YEAR), CHECK_OUT_CAL.get(Calendar.MONTH), CHECK_OUT_CAL.get(Calendar.DAY_OF_MONTH));
+                date.show(getFragmentManager().beginTransaction(), "Date");
+                break;
+
+            default:
+                break;
+        }
+
+        return true;
     }
 }

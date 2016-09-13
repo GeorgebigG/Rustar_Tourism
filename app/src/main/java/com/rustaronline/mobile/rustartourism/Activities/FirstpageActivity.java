@@ -22,7 +22,6 @@ import android.widget.EditText;
 import com.rustaronline.mobile.rustartourism.R;
 import com.rustaronline.mobile.rustartourism.Helper.ViewPagerAdapter;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class FirstpageActivity extends AppCompatActivity {
@@ -40,7 +39,6 @@ public class FirstpageActivity extends AppCompatActivity {
     ViewPager viewPager;
 
     public static Toolbar toolbar;
-    public static int WIDTH, HEIGHT;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +47,6 @@ public class FirstpageActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("/   " + Username);
         setSupportActionBar(toolbar);
-
-        Display display = getWindowManager().getDefaultDisplay();
-        WIDTH = display.getWidth();  // deprecated
-        HEIGHT = display.getHeight();
 
         checkIn = (EditText) findViewById(R.id.checkIn);
         checkOut = (EditText) findViewById(R.id.checkOut);
@@ -96,7 +90,7 @@ public class FirstpageActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_login, menu);
+        getMenuInflater().inflate(R.menu.menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 

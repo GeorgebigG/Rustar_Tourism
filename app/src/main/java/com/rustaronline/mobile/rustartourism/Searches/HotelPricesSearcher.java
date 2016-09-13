@@ -3,6 +3,7 @@ package com.rustaronline.mobile.rustartourism.Searches;
 import android.os.AsyncTask;
 import android.widget.Spinner;
 
+import com.rustaronline.mobile.rustartourism.Activities.FirstpageActivity;
 import com.rustaronline.mobile.rustartourism.Activities.Search;
 import com.rustaronline.mobile.rustartourism.Hotels.Hotel;
 import com.rustaronline.mobile.rustartourism.R;
@@ -39,7 +40,9 @@ public class HotelPricesSearcher extends AsyncTask<String, Void, JSONObject> {
     Calendar checkInCal;
     Calendar checkOutCal;
 
-    public HotelPricesSearcher(Search search, Hotel hotel, String checkIn, int nights, String checkOut, int adults, ArrayList<Spinner> childrensAgeSpinner, int dailyFrom, int dailyTo, int totalFrom, int totalTo, String meal, Calendar checkInCal, Calendar checkOutCal) {
+    public HotelPricesSearcher(Search search, Hotel hotel, String checkIn, int nights, String checkOut, int adults,
+                               ArrayList<Spinner> childrensAgeSpinner, int dailyFrom, int dailyTo, int totalFrom,
+                               int totalTo, String meal, Calendar checkInCal, Calendar checkOutCal) {
         this.search = search;
         this.hotel = hotel;
 
@@ -68,8 +71,14 @@ public class HotelPricesSearcher extends AsyncTask<String, Void, JSONObject> {
         HttpsURLConnection connection = null;
         BufferedReader reader = null;
 
+        JSONObject object = null;
+
         try {
-            URL url = new URL(StaticClass.WebServiceUrl + StaticClass.HotelPriceName);
+            URL url = new URL(StaticClass.WebServiceUrl + StaticClass.HotelPriceName +
+                    StaticClass.WebSName + FirstpageActivity.Username +
+                    StaticClass.URLAnd + StaticClass.WebSPassword +
+                    FirstpageActivity.Password + StaticClass.URLAnd +
+                    StaticClass.WebSHotelId + hotel.getHotelid());
             connection = (HttpsURLConnection) url.openConnection();
 
             reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
@@ -80,7 +89,7 @@ public class HotelPricesSearcher extends AsyncTask<String, Void, JSONObject> {
             while ((line = reader.readLine()) != null)
                 code += line;
 
-            return new JSONObject(code);
+            object = new JSONObject(code);
 
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -96,7 +105,7 @@ public class HotelPricesSearcher extends AsyncTask<String, Void, JSONObject> {
                 }
         }
 
-        return null;
+        return object;
     }
 
 
@@ -105,9 +114,15 @@ public class HotelPricesSearcher extends AsyncTask<String, Void, JSONObject> {
         super.onPostExecute(object);
 
         try {
-            JSONArray array = object.getJSONArray(JsonNames.contractPrices);
+            if (object == null)
+                return;
+
+            JSONArray array = object.getJSONObject(JsonNames.dataName).getJSONArray(JsonNames.contractPrices);
 
             JSONObject roomData;
+
+            if (!object.getString(StaticClass.codeVariableName).equals(StaticClass.correctCode))
+                return;
 
             for (int i = 0; i < array.length(); i++) {
                 roomData = array.getJSONObject(i);

@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -38,7 +39,7 @@ import static android.R.*;
 /**
  * Created by gio on 14/05/16.
  */
-public class Search extends Fragment implements AdapterView.OnItemSelectedListener, View.OnClickListener {
+public class Search extends Fragment implements AdapterView.OnItemSelectedListener, View.OnClickListener, View.OnTouchListener {
 
     private static View v;
     public static EditText checkIn, checkOut, nights, hotel, city, district, dailyFrom, dailyTo, totalFrom, totalTo;
@@ -63,8 +64,8 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
 
         childrensAgeSpinners = new ArrayList<Spinner>();
 
-        checkOut.setOnClickListener(this);
-        checkIn.setOnClickListener(this);
+        checkOut.setOnTouchListener(this);
+        checkIn.setOnTouchListener(this);
         AdvSearch.setOnClickListener(this);
         AnimationClass.setAnimation(AdvSearch, getResources().getColor(R.color.rustarGreen), getResources().getColor(R.color.clickColour));
 
@@ -130,7 +131,7 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
         int amount = Integer.parseInt(amountOfChildrenSpinner.getSelectedItem().toString());
         int count = 0;
         if (amount > 0)
-            ageText.setText(R.string.ageText);
+            ageText.setText(R.string.age_text);
 
 
         Spinner spinner;
@@ -167,14 +168,6 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
     public void onClick(View v) {
         DatePickerForFragments date;
         switch (v.getId()) {
-            case R.id.ScheckIn:
-                date = new DatePickerForFragments(FirstPage.checkInDialogId, FirstPage.CHECK_IN_CAL.get(Calendar.YEAR), FirstPage.CHECK_IN_CAL.get(Calendar.MONTH), FirstPage.CHECK_IN_CAL.get(Calendar.DAY_OF_MONTH));
-                date.show(getFragmentManager().beginTransaction(), "Date");
-                break;
-            case R.id.ScheckOut:
-                date = new DatePickerForFragments(FirstPage.checkOutDialogId, FirstPage.CHECK_OUT_CAL.get(Calendar.YEAR), FirstPage.CHECK_OUT_CAL.get(Calendar.MONTH), FirstPage.CHECK_OUT_CAL.get(Calendar.DAY_OF_MONTH));
-                date.show(getFragmentManager().beginTransaction(), "Date");
-                break;
             case R.id.AdvSearch:
 
                 String type = this.type.getSelectedItem().toString();
@@ -183,6 +176,7 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
                 if (type.equals(getResources().getStringArray(R.array.types)[2]))
                     type = JsonNames.typeBeach;
 
+                mainLayout.removeAllViews();
 
                 AdvancedSearch.advancedSearchResult(this, checkIn.getText().toString(),
                     tryParse(nights.getText().toString()), checkOut.getText().toString(),
@@ -200,6 +194,30 @@ public class Search extends Fragment implements AdapterView.OnItemSelectedListen
         }
     }
 
+
+    public boolean onTouch(View v, MotionEvent event) {
+        if (event.getAction() != MotionEvent.ACTION_UP)
+            return false;
+
+        DatePickerForFragments date;
+
+        switch (v.getId()) {
+            case R.id.ScheckIn:
+                date = new DatePickerForFragments(FirstPage.checkInDialogId, FirstPage.CHECK_IN_CAL.get(Calendar.YEAR), FirstPage.CHECK_IN_CAL.get(Calendar.MONTH), FirstPage.CHECK_IN_CAL.get(Calendar.DAY_OF_MONTH));
+                date.show(getFragmentManager().beginTransaction(), "Date");
+                break;
+
+            case R.id.ScheckOut:
+                date = new DatePickerForFragments(FirstPage.checkOutDialogId, FirstPage.CHECK_OUT_CAL.get(Calendar.YEAR), FirstPage.CHECK_OUT_CAL.get(Calendar.MONTH), FirstPage.CHECK_OUT_CAL.get(Calendar.DAY_OF_MONTH));
+                date.show(getFragmentManager().beginTransaction(), "Date");
+                break;
+
+            default:
+                break;
+        }
+
+        return true;
+    }
 
 
     public void addHotel(Hotel hotel) {

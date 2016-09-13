@@ -8,10 +8,14 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.rustaronline.mobile.rustartourism.Activities.FirstpageActivity;
+import com.rustaronline.mobile.rustartourism.Activities.LoginActivity;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
+import javax.net.ssl.HttpsURLConnection;
 
 /**
  * Created by gio on 5/23/16.
@@ -36,19 +40,32 @@ public class downloadImageFromUrl extends AsyncTask<Void, Void, Bitmap> {
 
     @Override
     protected Bitmap doInBackground(Void... params) {
+        Bitmap bitmap = null;
+        HttpURLConnection connection = null;
+        InputStream input = null;
+
         try {
             URL urlConnection = new URL(url);
-            HttpURLConnection connection = (HttpURLConnection) urlConnection
-                    .openConnection();
+            connection = (HttpURLConnection) urlConnection.openConnection();
             connection.setDoInput(true);
             connection.connect();
-            InputStream input = connection.getInputStream();
-            Bitmap myBitmap = BitmapFactory.decodeStream(input);
-            return myBitmap;
+            input = connection.getInputStream();
+            bitmap = BitmapFactory.decodeStream(input);
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            if (connection != null)
+                connection.disconnect();
+
+            if (input != null)
+                try {
+                    input.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
         }
-        return null;
+
+        return bitmap;
     }
 
     @Override
@@ -56,13 +73,13 @@ public class downloadImageFromUrl extends AsyncTask<Void, Void, Bitmap> {
         super.onPostExecute(result);
         if (isImageButton) {
             imageButton.setImageBitmap(result);
-            float widthScale = (float) FirstpageActivity.WIDTH / (float) result.getWidth();
+            float widthScale = (float) LoginActivity.screenWidth / (float) result.getWidth();
             float imageHeight = (float) result.getHeight() * widthScale;
             imageButton.setMaxHeight((int) imageHeight);
         }
         else {
             imageView.setImageBitmap(result);
-            float widthScale = (float) FirstpageActivity.WIDTH / (float) result.getWidth();
+            float widthScale = (float) LoginActivity.screenHeight / (float) result.getWidth();
             float imageHeight = (float) result.getHeight() * widthScale;
             imageView.setMinimumHeight((int) imageHeight);
         }

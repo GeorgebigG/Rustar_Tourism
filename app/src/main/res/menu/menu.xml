@@ -7,6 +7,6 @@
         android:id="@+id/logOut"
         android:orderInCategory="1"
         app:showAsAction="never"
-        android:title="@string/logOut">
+        android:title="@string/log_out">
     </item>
 </menu>
