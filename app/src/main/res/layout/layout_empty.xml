@@ -11,7 +11,7 @@
     <android.support.v4.view.ViewPager
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/include2"
+        android:id="@+id/pages_view"
         android:layout_below="@+id/rustarTabs"
         android:layout_alignLeft="@+id/rustarTabs"
         android:layout_alignStart="@+id/rustarTabs" />

@@ -188,10 +188,10 @@
                     android:spinnerMode="dropdown"
                     android:entries="@array/OneTillTen"
                     android:layout_below="@+id/textView16"
-                    android:layout_alignLeft="@+id/textView16"
-                    android:layout_alignStart="@+id/textView16"
                     android:layout_alignRight="@+id/textView16"
-                    android:layout_alignEnd="@+id/textView16" />
+                    android:layout_alignEnd="@+id/textView16"
+                    android:layout_toRightOf="@+id/districtName"
+                    android:layout_toEndOf="@+id/districtName" />
 
                 <TextView
                     android:layout_width="wrap_content"
